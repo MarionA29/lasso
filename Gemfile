@@ -40,7 +40,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'faker'
 
 #helps using JavaScript
-gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 
 #Devise is a gem for settting up an authentication system.
 gem 'devise', '~> 4.2'
@@ -89,3 +88,6 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'jquery-rails'
+gem 'now-ui-kit-rails'
+gem 'bootsnap', '>= 1.1.0', require: false
