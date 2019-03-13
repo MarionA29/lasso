@@ -13,4 +13,6 @@ def ask_validation
   AdminMailer.validation_email(self).deliver_now
 end
 
+geocoded_by :address
+after_validation :geocode
 end
