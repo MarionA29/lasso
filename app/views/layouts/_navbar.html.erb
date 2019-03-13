@@ -34,8 +34,8 @@
     <i  class="fas fa-user-secret fa-2x"></i>
   </div>
   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-    <%= link_to "Mon asso", user_cart_path(user_id: current_user.id, id: Cart.where(user_id: current_user.id).last), class: "dropdown-item" %>
-    <%= link_to "Mon Profil", current_user, class: "dropdown-item" %>
+    <%= link_to "Mon asso", class: "dropdown-item" %>
+    <%= link_to "Mon Profil", class: "dropdown-item" %>
     <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
   </div>
 </div>

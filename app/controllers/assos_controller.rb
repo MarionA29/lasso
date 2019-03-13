@@ -22,10 +22,10 @@ class AssosController < ApplicationController
         # si ça marche, il redirige vers la page d'index du site
         flash[:success] = "Event bien créé !"
 
-        redirect_to asso_index_path
+        redirect_to root_path
       else
         # sinon, il render la view new (qui est celle sur laquelle on est déjà)
-        render asso_index_path
+        render 'new'
       end
     end
   end
