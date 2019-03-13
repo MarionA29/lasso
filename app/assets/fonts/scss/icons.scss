@@ -1,0 +1,13 @@
+/*------------------------
+	icons
+-------------------------*/
+@function unicode($str) {
+  @return unquote("\"\\#{$str}\"");
+}
+
+$icon-heart-2-2: unicode(ea06);
+
+.icon-heart-2-2::before {
+  content: $icon-heart-2-2;
+}
+
