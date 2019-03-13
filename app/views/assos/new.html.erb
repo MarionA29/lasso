@@ -15,18 +15,21 @@
     <%= label_tag 'Tes chiffres clés' %>
     <%= text_area_tag 'key_figures', @asso.key_figures, class: "form-control" %>
     <br />
-</div><div class="form-group">
+</div>
+<div class="form-group">
     <%= label_tag 'Les infos pratiques :' %>
-    <%= text_field_tag 'infos', @asso.infos, class: "form-control" %>
+    <%= text_area_tag 'infos', @asso.infos, class: "form-control" %>
     <br />
+</div>
 
     <h3>Ajouter des photos :</h3>
 
 <%= file_field_tag :picture %>
 
 
-</div>
+<div class="form-group">
 <%= submit_tag "Créer ton association", class: "btn btn-primary" %>
+</div>
 </div>
 
 <% end %>

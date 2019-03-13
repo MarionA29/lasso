@@ -4,7 +4,7 @@ class AssosController < ApplicationController
   end
 
   def new
-    @asso = Asso.find(params[:id])
+    @asso = Asso.new
 
   end
 
@@ -16,16 +16,16 @@ class AssosController < ApplicationController
       'localisation' => params[:localisation],
       'owner_id' => current_user.id)
 
-      
+
 
       if @asso.save # essaie de sauvegarder en base
         # si ça marche, il redirige vers la page d'index du site
         flash[:success] = "Event bien créé !"
 
-        redirect_to asso_index_path
+        redirect_to root_path
       else
         # sinon, il render la view new (qui est celle sur laquelle on est déjà)
-        render asso_index_path
+        render 'new'
       end
     end
   end
