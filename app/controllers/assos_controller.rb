@@ -4,6 +4,7 @@ class AssosController < ApplicationController
   end
 
   def new
+    @asso = Asso.find(params[:id])
 
   end
 

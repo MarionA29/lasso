@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'asso#index'
+  root 'assos#index'
   devise_for :users
   resources :assos
 end
