@@ -49,12 +49,10 @@ ActiveRecord::Schema.define(version: 2019_03_13_181550) do
   end
 
   create_table "subscriptions", force: :cascade do |t|
-    t.bigint "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "asso_id"
     t.index ["asso_id"], name: "index_subscriptions_on_asso_id"
-    t.index ["owner_id"], name: "index_subscriptions_on_owner_id"
   end
 
   create_table "users", force: :cascade do |t|
