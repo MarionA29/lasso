@@ -11,11 +11,11 @@
         <div class="collapse navbar-collapse" id="example-navbar-info">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#pablo">
-                        <p>creer une asso</p>
+                    <a >
+                        <%= link_to 'Créer mon asso', new_asso_path, class:"nav-link"%>
                     </a>
                 </li>
-              
+
                 <% if current_user == nil %>
 <div class="pull-right">
 <div class="dropdown">
