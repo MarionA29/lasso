@@ -1,7 +1,7 @@
 class UserMailer < ApplicationMailer
 
-  def welcome_email(current_user)
-    @user = current_user
+  def welcome_email(user)
+    @user = user
     mail(to: @user.email, subject: 'Bienvenue chez nous !')
   end
 
@@ -18,6 +18,5 @@ class UserMailer < ApplicationMailer
   def payment_complete_email
     @owner = asso.owner
     mail(to: @owner.email, subject: "Paiement validé")
-
   end
 end
