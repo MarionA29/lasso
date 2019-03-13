@@ -4,7 +4,7 @@ class AssosController < ApplicationController
   end
 
   def new
-    @asso = Asso.find(params[:id])
+    @asso = Asso.new
 
   end
 
@@ -16,7 +16,7 @@ class AssosController < ApplicationController
       'localisation' => params[:localisation],
       'owner_id' => current_user.id)
 
-      
+
 
       if @asso.save # essaie de sauvegarder en base
         # si ça marche, il redirige vers la page d'index du site
