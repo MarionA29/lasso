@@ -1,6 +1,6 @@
 class Admin::UsersController < Admin::ApplicationController
-  def show
-    @users = User.all
+  def index
+    @user = User.all
   end
   def edit
     @user = User.find(params[:id])
