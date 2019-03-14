@@ -7,4 +7,6 @@ belongs_to :owner, class_name: "User"
 has_one :subscription
 
 has_many_attached :pictures
+geocoded_by :address
+after_validation :geocode
 end
