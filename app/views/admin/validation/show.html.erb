@@ -1,0 +1,11 @@
+<div class="jumbotron">
+<h1 class="display-4" align="center"> Voici l'asso: <%= @asso.name %><br/></h1>
+  <p class="lead"> <%= @asso.description %> </p>
+  <hr class="my-4">
+  <p>Owner_id : <%= @asso.owner_id %></p>
+  <p>Description : <%= @asso.description %></p>
+  <p>Adresse : <%= @asso.address %></p>
+  <p>Infos pratiques : <%= @asso.infos %></p>
+  <p>Chiffres clés : <%= @asso.key_figures %></p>
+  <%= link_to "Modifier", edit_admin_validation_path(@asso.id) %>
+</div>
