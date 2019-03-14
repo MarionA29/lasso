@@ -34,4 +34,28 @@ class AssosController < ApplicationController
         render 'new'
       end
     end
+
+    def show
+      @asso= Asso.find(owner_id= current_user.id)
+    end
+
+    def edit
+      @asso= Asso.find(owner_id= current_user.id)
+    end
+
+    def update
+      @asso= Asso.find(owner_id= current_user.id)
+      post_params = params.require(:asso).permit(:name, :description, :key_figures, :infos, :adress, :picture1, :picture2, :picture3, :picture4, :picture5)
+      @asso.update(post_params)
+      if @asso.update(post_params)
+        redirect_to  user_path(current_user.id)
+      end
+
+    end
+
+    def destroy
+        @asso = User.find(owner_id= current_user.id)
+        @user.destroy
+        redirect_to root_path
+    end
   end
