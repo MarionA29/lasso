@@ -63,13 +63,21 @@
 
       <div class="carousel-inner">
         <div class="carousel-item active">
-         <%if asso.picture.attached? %>
-  <%= image_tag asso.picture[0] %>
-        <% end %>>
+          <% if asso.picture1.attached? == true %>
+          <%= image_tag asso.picture1 %>
+          <% end %>
         </div>
         <div class="carousel-item">
-          <img class="d-block"  src="https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/_jcr_content/main-pars/image/visual-reverse-image-search-v2_1000x560.jpg" alt="Second slide">
+          <% if asso.picture2.attached? == true %>
+          <%= image_tag asso.picture2 %>
+          <% end %>
         </div>
+        <div class="carousel-item">
+          <% if asso.picture3.attached? == true %>
+          <%= image_tag asso.picture3 %>
+          <% end %>
+        </div>
+
 
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
