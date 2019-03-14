@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
 
-  before_action :user_match, only: [:show, :edit, :update]
 
   def show
     @user = current_user
@@ -25,10 +24,5 @@ class UsersController < ApplicationController
       redirect_to current_user_path
   end
   private
-  def user_match
-    @user = current_user
-    unless current_user.id == @user.id
-      redirect_to root_path
-    end
-  end
+
 end
