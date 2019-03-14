@@ -6,7 +6,13 @@ has_one :subscription, foreign_key: 'owner_id', class_name: 'Asso', through: :as
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+before_create :set_default_profile_pic
 after_create :welcome_send
+has_one_attached :profile_pic
+
+
+
+
 
 def welcome_send
   UserMailer.welcome_email(self).deliver_now
@@ -14,5 +20,10 @@ def welcome_send
 
 end
 
+  def set_default_profile_pic
+    downloaded_image = (open('https://loremflickr.com/320/240'))
+    self.profile_pic.attach(io: downloaded_image, filename: 'image.png')
+
+end
 
 end
