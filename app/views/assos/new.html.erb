@@ -42,12 +42,3 @@
 </div>
 
 <% end %>
-<br />
-<% if @asso.errors.any? %>
-<p>Nous n'avons pas réussi à créer l'event pour la (ou les) raison(s) suivante(s) :</p>
-<ul>
-<% @asso.errors.full_messages.each do |message| %>
-  <li><%= message %></li>
-<% end %>
-</ul>
-<% end %>
