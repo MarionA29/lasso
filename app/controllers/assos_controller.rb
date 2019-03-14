@@ -13,14 +13,14 @@ class AssosController < ApplicationController
       'description' => params[:description],
       'key_figures' => params[:key_figures],
       'infos' => params[:infos],
-      'localisation' => params[:localisation],
+      'address' => params[:address],
       'owner_id' => current_user.id)
 
 
 
       if @asso.save # essaie de sauvegarder en base
         # si ça marche, il redirige vers la page d'index du site
-        flash[:success] = "Event bien créé !"
+        flash[:success] = "Ton associaiton à bien été créée !"
 
         redirect_to root_path
       else
