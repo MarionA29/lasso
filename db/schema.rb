@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_13_100916) do
+ActiveRecord::Schema.define(version: 2019_03_14_151748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,18 +41,21 @@ ActiveRecord::Schema.define(version: 2019_03_13_100916) do
     t.text "description"
     t.text "key_figures"
     t.text "infos"
-    t.string "localisation"
     t.bigint "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.boolean "validated"
     t.index ["owner_id"], name: "index_assos_on_owner_id"
   end
 
   create_table "subscriptions", force: :cascade do |t|
-    t.bigint "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["owner_id"], name: "index_subscriptions_on_owner_id"
+    t.bigint "asso_id"
+    t.index ["asso_id"], name: "index_subscriptions_on_asso_id"
   end
 
   create_table "users", force: :cascade do |t|

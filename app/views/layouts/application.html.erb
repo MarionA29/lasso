@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-
     <%= render 'layouts/head' %>
     </head>
-
   <body>
     <header>
         <%= render 'layouts/navbar' %>
     </header>
-
+    <%= render 'layouts/alerts' %>
     <%= yield %>
     <footer>
 <%= render 'layouts/footer' %>
     </footer>
-
   </body>
 </html>

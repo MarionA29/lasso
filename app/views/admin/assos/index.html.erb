@@ -1,0 +1,28 @@
+<div class="container">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Description</th>
+      <th scope="col">Chiffres clés</th>
+      <th scope="col">Infos pratiques</th>
+      <th scope="col">Adresse</th>
+      <th scope="col">Validate</th>
+    </tr>
+  </thead>
+  <% @asso.each do |asso| %>
+  <tbody>
+    <tr>
+      <th scope="row"><%= asso.id %></th>
+      <td><%= asso.name %></td>
+      <td><%= asso.description %></td>
+      <td><%= asso.key_figures %></td>
+      <td><%= asso.infos %></td>
+      <td><%= asso.address %></td>
+      <td><%= asso.validated %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
+</div>
