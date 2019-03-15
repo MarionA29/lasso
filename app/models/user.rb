@@ -11,14 +11,14 @@ after_create :welcome_send
 has_one_attached :profile_pic
 
 
-
-
-
 def welcome_send
   UserMailer.welcome_email(self).deliver_now
   AdminMailer.new_user_email(self).deliver_now
 
 end
 
+def avatar
+    return self.profile_pic.variant(resize: '200x200')
+  end
 
 end

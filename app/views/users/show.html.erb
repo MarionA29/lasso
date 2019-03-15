@@ -1,7 +1,7 @@
 <div class="jumbotron">
   <h1 class="display-4">Mon profil :<br /><%= @user.first_name %> <%= @user.last_name %></h1>
   <%if @user.profile_pic.attached? == true%>
-  <%= image_tag @user.profile_pic ,width: 300, alt:'profile_pic'%>
+  <%= image_tag @user.avatar %>
   <% else %>
   <p>=== Il n'y a pas encore de photo de profil liée à ton profil===</p>
 <% end %>
