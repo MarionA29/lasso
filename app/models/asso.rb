@@ -11,6 +11,12 @@ has_one_attached :picture2
 has_one_attached :picture3
 has_one_attached :picture4
 has_one_attached :picture5
+
+
+
 geocoded_by :address
 after_validation :geocode
 end
+def resize(picture)
+    return picture.variant(resize: '300x450')
+  end

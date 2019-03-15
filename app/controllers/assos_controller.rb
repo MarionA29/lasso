@@ -17,7 +17,6 @@ class AssosController < ApplicationController
       'owner_id' => current_user.id)
 
 
-
       if @asso.save # essaie de sauvegarder en base
         # si ça marche, il redirige vers la page d'index du site
         @asso = Asso.last
@@ -61,4 +60,8 @@ class AssosController < ApplicationController
         @user.destroy
         redirect_to root_path
     end
+
+
+
+    
   end

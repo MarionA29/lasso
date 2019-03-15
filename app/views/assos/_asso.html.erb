@@ -49,7 +49,7 @@
 
 
 <div class="card" >
-  <div class="card-body" >
+  <div class="card-body">
     <h4 class="card-text"><%=asso.name%></h4>
     <p class="card-text" >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <div class="carousel">
@@ -57,17 +57,17 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <% if asso.picture1.attached? == true %>
-          <%= image_tag asso.picture1 %>
+          <%= image_tag resize(asso.picture1) %>
           <% end %>
         </div>
         <div class="carousel-item">
           <% if asso.picture2.attached? == true %>
-          <%= image_tag asso.picture2 %>
+          <%= image_tag  resize(asso.picture2) %>
           <% end %>
         </div>
         <div class="carousel-item">
           <% if asso.picture3.attached? == true %>
-          <%= image_tag asso.picture3 %>
+          <%= image_tag resize(asso.picture3) %>
           <% end %>
         </div>
 

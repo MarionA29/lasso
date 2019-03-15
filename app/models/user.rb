@@ -20,5 +20,8 @@ def welcome_send
 
 end
 
+def avatar
+    return self.profile_pic.variant(resize: '200x200')
+  end
 
 end
