@@ -8,8 +8,8 @@ class SubscriptionsController < ApplicationController
 
 
   def create
-    @subscription = Subscription.new(owner_id: current_user.id, stripe_customer_id: params[:stripeToken])
-    @total = 1.00
+    @subscription = Subscription.new(asso_id: Asso.where(owner_id: current_user.id).first.id, stripe_customer_id: params[:stripeToken])
+    @total = 100
 
     if @subscription.save
       flash[:success] = "Ta souscription est confirmée !"
@@ -33,6 +33,7 @@ class SubscriptionsController < ApplicationController
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
+
     redirect_to root_path
   end
 end

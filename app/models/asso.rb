@@ -14,12 +14,13 @@ has_one_attached :picture5
 geocoded_by :address
 after_validation :geocode
 
-after_create :ask_validation
+#after_create :ask_validation
 
-
+=begin
 def ask_validation
   UserMailer.asso_creation_email(self).deliver_now
   AdminMailer.validation_email(self).deliver_now
 end
+=end
 
 end

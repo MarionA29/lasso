@@ -5,6 +5,7 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Bienvenue chez nous !')
   end
 
+=begin
   def asso_creation_email(owner)
     @owner = asso.owner
     mail(to: @owner.email, subject: "Création de l'asso")
@@ -19,4 +20,6 @@ class UserMailer < ApplicationMailer
     @owner = asso.owner
     mail(to: @owner.email, subject: "Paiement validé")
   end
+=end
+
 end
