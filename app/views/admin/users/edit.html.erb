@@ -1,0 +1,43 @@
+    <center><h1>Editer le profil</h1></center>
+    <div class="container col-md-8 order-md-1">
+    <%= form_for @user, url: admin_user_path, :method => :put do |f| %>
+    <div class="form-group">
+        <label>Prénom</label>
+        <%= f.text_field :first_name, class: "form-control", placeholder: @user.first_name %>
+        <br />
+    </div>
+    <div class="form-group">
+        <label>Nom</label>
+        <%= f.text_field :last_name, class: "form-control", placeholder: @user.last_name %>
+        <br />
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <%= f.text_area :description, class: "form-control", placeholder: @user.description %>
+        <br />
+      </div>
+      <label>Photo de profil</label>
+      <br />
+      <%if @user.profile_pic.attached? == true%>
+      <%= image_tag @user.profile_pic ,width: 150 %>
+      <% end %>
+      <br/>
+      <br/>
+      <%= f.file_field :profile_pic %>
+      <br>
+        <center>
+          <br />
+        <button type="submit" class="btn btn-primary">Modifier son profil</button>
+        </center>
+
+    <% end %>
+    <br />
+    <% if @user.errors.any? %>
+  <p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  <% end %>
+  </div>
