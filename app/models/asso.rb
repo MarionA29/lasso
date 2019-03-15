@@ -19,4 +19,4 @@ after_validation :geocode
 end
 def resize(picture)
     return picture.variant(resize: '300x450')
-  end
+end
