@@ -1,6 +1,6 @@
     <center><h1>Editer le profil</h1></center>
     <div class="container col-md-8 order-md-1">
-    <%= form_for @user do |f| %>
+    <%= form_for @user, url: admin_user_path, :method => :put do |f| %>
     <div class="form-group">
         <label>Prénom</label>
         <%= f.text_field :first_name, class: "form-control", placeholder: @user.first_name %>

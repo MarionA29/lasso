@@ -1,6 +1,6 @@
 class Admin::ValidationController < Admin::ApplicationController
   def index
-    @asso = Asso.where(validated: nil)
+    @asso_validate = Asso.where(validated: nil)
   end
 
   def show

@@ -13,9 +13,7 @@
     <tbody>
       <tr>
         <th scope="row"><%= user.id %></th>
-        <%if @user.profile_pic.attached? == true%>
-        <td><%= image_tag user.profile_pic ,width: 150 %></td>
-        <% end %>
+
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
         <td><%= user.description %></td>
