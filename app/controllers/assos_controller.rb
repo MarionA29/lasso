@@ -37,15 +37,17 @@ class AssosController < ApplicationController
 
     def show
       @asso= Asso.where(owner_id: current_user.id)
-    
+
     end
 
     def edit
       @asso= Asso.where(owner_id: current_user.id)
+      @asso= @asso.first
     end
 
     def update
-      @asso= Asso.find(owner_id: current_user.id)
+      @asso= Asso.where(owner_id: current_user.id)
+      @asso= @asso.first
       post_params = params.require(:asso).permit(:name, :description, :key_figures, :infos, :adress, :picture1, :picture2, :picture3, :picture4, :picture5)
       @asso.update(post_params)
       if @asso.update(post_params)

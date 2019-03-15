@@ -1,0 +1,53 @@
+
+    <center><h1>Modifier mon asso</h1></center>
+    <div class="container col-md-8 order-md-1">
+    <%= form_for @asso do |f| %>
+    <div class="form-group">
+        <label>Name</label>
+        <%= f.text_field :name, class: "form-control", placeholder: @asso.name %>
+        <br />
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <%= f.text_area :description, class: "form-control", placeholder: @asso.description %>
+        <br />
+      </div>
+      <div class="form-group">
+        <label>Chiffre cles</label>
+        <%= f.datetime_field :key_figures, class: "form-control", placeholder: @asso.key_figures %>
+        <br />
+      </div>
+      <div class="form-group">
+        <label>information</label>
+        <%= f.text_field :infos, class: "form-control", placeholder: @asso.infos %>
+        <br />
+      </div>
+      <div class="form-group">
+        <label>Adresse</label>
+        <%= f.text_field :address, class: "form-control", placeholder: @asso.address %>
+        <br />
+      </div>
+        <label>photo 1</label><br/>
+        <%= f.file_field :picture1 %>
+        <br />
+        <label>photo 2</label><br/>
+        <%= f.file_field :picture2 %>
+        <br />
+        <label>photo 3</label><br/>
+        <%= f.file_field :picture3 %>
+        <br />
+        <label>photo 4</label><br/>
+        <%= f.file_field :picture4 %>
+        <br />
+        <label>photo 1</label><br/>
+        <%= f.file_field :picture5 %>
+        <br />
+        <center>
+          <br/>
+          <hr>
+        <button type="submit" class="btn btn-primary">Éditer mon évènement</button>
+        <%end%>
+        </center>
+        <br />
+      <center>
+</div>
