@@ -11,9 +11,6 @@ after_create :welcome_send
 has_one_attached :profile_pic
 
 
-
-
-
 def welcome_send
   UserMailer.welcome_email(self).deliver_now
   AdminMailer.new_user_email(self).deliver_now

@@ -17,3 +17,9 @@
  *= require now-ui-kit
 
  */
+.navbar {
+  background-color: #3c3c3a;
+}
+body {
+  background-color: #d9e1e4;
+}
