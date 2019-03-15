@@ -1,19 +1,10 @@
 
-<% if @asso.validated == true %>
-<div class="jumbotron">
-<h1 class="display-4" align="center"> Voici l'event: <%= @asso.name %><br/> <%=  if @asso.picture1.attached? ==true
-   image_tag @asso.picture1, width: 300, alt: 'avatar' end  %> </h1>
-  <p class="lead"> <%= @asso.description %> </p>
-  <hr class="my-4">
-  <p>Créateur : <%= @asso.key_figures%></p>
-  <p>Lieu : <%= @asso.infos %></p>
-  <p>Date : <%= @asso.address %></p>
-
-   <p class="h5"> <%= current_user.first_name %> tu es l'admistrateur de l'évènement </p>
-     <%= link_to "Editer mon asso", edit_event_path(@asso.id) , class:"btn btn-primary" %>
 
 
-</div>
-<% else %>
-<h1> L'Event n'est pas encore validé par l'administrateur, merci de patienter</h1>
-<% end %>
+
+
+<%= render partial: 'asso', collection: @asso %>
+
+<br>
+
+ <%= link_to "Editer mon asso", edit_asso_path(@asso.first.id) , class:"btn btn-primary" %>
