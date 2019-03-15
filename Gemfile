@@ -44,6 +44,9 @@ gem 'faker'
 #Devise is a gem for settting up an authentication system.
 gem 'devise', '~> 4.2'
 
+#Quickly integrate Checkout into your Ruby on Rails-based site to provide your users with a streamlined, mobile-ready payment experience.
+gem 'stripe'
+
 #sending email
 gem 'sendgrid-ruby', '~> 5.3'
 
