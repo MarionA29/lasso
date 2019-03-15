@@ -18,5 +18,5 @@ geocoded_by :address
 after_validation :geocode
 end
 def resize(picture)
-    return picture.variant(resize: '300x450')
+    return picture.variant(resize: '290x190')
 end

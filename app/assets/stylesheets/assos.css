@@ -33,10 +33,20 @@
 
 .btn-default
 {
-  padding: 3px;
+
 }
 
 .d-block {
   width: 20rem;
   height: 15rem;
+}
+.btn-info {
+  color: #FFF;
+  padding: 11px 15px;
+  margin: 5px 2px;
+}
+.btn-warning {
+  color: #FFF;
+  padding: 11px 15px;
+  margin: 5px 2px;
 }
