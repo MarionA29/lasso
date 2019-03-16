@@ -1,0 +1,52 @@
+.row
+{
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  margin-top: 20px;
+
+}
+.flex-container {
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+  margin-top: 5px;
+}
+
+.btn {
+  border-radius:0px;
+}
+.card{
+  width:20rem;
+  border-style:solid;
+}
+.card-body
+{
+  padding:0rem;
+}
+
+.card-text
+{
+  margin-left:15px;
+  margin-right:15px;
+}
+
+.btn-default
+{
+
+}
+
+.d-block {
+  width: 20rem;
+  height: 15rem;
+}
+.btn-info {
+  color: #FFF;
+  padding: 11px 15px;
+  margin: 5px 2px;
+}
+.btn-warning {
+  color: #FFF;
+  padding: 11px 15px;
+  margin: 5px 2px;
+}
