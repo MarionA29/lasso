@@ -14,7 +14,6 @@ context "validation" do
   end
   describe "#title" do
     it { should validate_presence_of(:name) }
-    it { should validate_uniqueness_of(:name) }
   end
   describe "#description" do
     it { should validate_presence_of(:description) }

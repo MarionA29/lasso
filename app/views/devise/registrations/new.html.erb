@@ -1,6 +1,4 @@
-
-
-    <body class="signup-page sidebar-collapse">
+<body class="signup-page sidebar-collapse">
 
 
 <div class="page-header header-filter" filter-color="black">
@@ -35,10 +33,12 @@
                     </div>
                 </div>
                 <div class="col-md-4 mr-auto">
+                  <%= render "devise/shared/error_messages", resource: resource %>
 
-                    <div class="card card-signup">
+                    <div class="card card-signup" style="padding: 10px">
                         <div class="card-body">
-                            <h4 class="card-title text-center" style="color:black;">S'enregistrer</h4>
+                        </br>
+                            <h3 class="card-title text-center" style="color:black;">S'enregistrer</h3>
                             <div class="social text-center">
                                 <button class="btn btn-icon btn-round btn-twitter">
                                     <i class="fab fa-twitter"></i>
@@ -52,20 +52,18 @@
                                 <h5 class="card-description"> ou créer un compte </h5>
                             </div>
 
-                          <form class="form" method="" action="">
                               <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-                              <%= render "devise/shared/error_messages", resource: resource %>
 
-
-                                <div class="input-group">
+                              <%= f.label :email %>
+                                <div class="input-group field">
                                   <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa fa-at" style="color:gray"></i></span>
                                   </div>
                                   <%= f.email_field :email, autofocus: true, :type => "text", :class => "form-control", placeholder: "Email...", autocomplete: "email" %>
                                 </div>
-                                </div>
 
-                                <div class="input-group">
+                                <%= f.label :password %>
+                                <div class="input-group field">
                                   <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa fa-key" style="color:gray"></i></span>
                                   </div>
@@ -75,7 +73,8 @@
                               (<%= @minimum_password_length %> caractères minimum)</em></p>
                                 <% end %>
 
-                                <div class="input-group">
+                                <%= f.label :password_confirmation %>
+                                <div class="input-group field">
                                   <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa fa-key" style="color:gray"></i></span>
                                   </div>
@@ -84,38 +83,19 @@
 
 
                                 <div class="card-footer text-center">
-                                  <p><%= f.submit "S'enregistrer", :class => "btn btn-primary btn-round btn-lg" %></p>
-                                  <p><%= link_to "Se connecter", new_session_path(resource_name) %></p>                                </div>
+                                  <%= f.submit "S'enregistrer", :class => "btn btn-primary btn-round btn-lg" %>
+                                </div>
                                 <% end %>
+                                <p><%= link_to "Se connecter", new_session_path(resource_name) %></p>
 
-                            </form>
                         </div>
                     </div>
+
+                  <%= render "devise/shared/links" %>
+
                 </div>
             </div>
         </div>
     </div>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </body>
-
-</html>
+  </div>
+</body>
