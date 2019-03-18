@@ -19,8 +19,6 @@ Mon assoooo
           data-locale="auto"></script>
 <% end %>
 
-<%= render partial: 'asso', collection: @asso %>
+<%= render partial: 'asso' ,object: @asso %>
 
 <br>
-
- <%= link_to "Éditer mon asso", edit_asso_path(@asso.first.id) , class:"btn btn-primary" %>
