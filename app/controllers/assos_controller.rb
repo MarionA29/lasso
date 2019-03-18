@@ -35,7 +35,7 @@ class AssosController < ApplicationController
     end
 
     def show
-      @asso= Asso.where(owner_id: current_user.id)
+      @asso= Asso.where(owner_id: current_user.id).first
 
     end
 
@@ -63,5 +63,5 @@ class AssosController < ApplicationController
 
 
 
-    
+
   end
