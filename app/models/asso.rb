@@ -12,8 +12,6 @@ has_one_attached :picture3
 has_one_attached :picture4
 has_one_attached :picture5
 
-
-
 geocoded_by :address
 after_validation :geocode
 
@@ -25,7 +23,12 @@ def ask_validation
   AdminMailer.validation_email(self).deliver_now
 end
 =end
+include AlgoliaSearch
 
+  algoliasearch do
+    attribute :name, :description, :address, :key_figures, :infos
+  end
+  Asso.reindex
 end
 def resize(picture)
     return picture.variant(resize: '290x190')

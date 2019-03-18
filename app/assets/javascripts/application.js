@@ -14,7 +14,7 @@
 //= require turbolinks
 //= require jquery3
 //= require jquery_ujs
-//= require_tree
+//= require_tree .
 
 //= require now-ui-kit
 //= require core/jquery.3.2.1.min
@@ -28,3 +28,5 @@
 //= require plugins/jasny-bootstrap.min
 //= require plugins/nouislider.min
 //= require plugins/bootstrap-datetimepicker.min
+
+//= require algolia/v3/algoliasearch.min
