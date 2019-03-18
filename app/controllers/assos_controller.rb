@@ -1,6 +1,6 @@
 class AssosController < ApplicationController
   def index
-    @assos = Asso.where(["name LIKE ?","%#{params[:search]}%"])
+    @assos = Asso.all
   end
 
   def new
@@ -47,7 +47,7 @@ class AssosController < ApplicationController
     def update
       @asso= Asso.where(owner_id: current_user.id)
       @asso= @asso.first
-      post_params = params.require(:asso).permit(:name, :description, :key_figures, :infos, :address, :picture1, :picture2, :picture3, :picture4, :picture5)
+      post_params = params.require(:asso).permit(:name, :description, :key_figures, :infos, :adress, :picture1, :picture2, :picture3, :picture4, :picture5)
       @asso.update(post_params)
       if @asso.update(post_params)
         redirect_to  user_path(current_user.id)
@@ -61,8 +61,7 @@ class AssosController < ApplicationController
         redirect_to root_path
     end
 
-def asso_params
-  params.require(:asso).permit(:name, :description, :key_figures, :infos, :address, :search)
-end
 
-end
+
+
+  end

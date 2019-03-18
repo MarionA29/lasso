@@ -25,18 +25,6 @@ def ask_validation
   AdminMailer.validation_email(self).deliver_now
 end
 =end
-def self.search(search)
-  if search
-    asso = Asso.find_by(name: search)
-    if asso
-      self.where(asso_id: asso)
-    else
-      Asso.all
-    end
-  else
-    Asso.all
-  end
-end
 
 end
 def resize(picture)
