@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :privates_messages, except: [:show]
   resources :assos do
-  resources :privates_messages, only: [:show]
+  resources :privates_messages, only: [:show, :edit]
 end
 
   namespace :admin do
