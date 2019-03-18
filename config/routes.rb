@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :assos
   resources :users, only: [:show, :edit, :update, :destroy]
   resources :subscriptions
+  
 
 
   namespace :admin do
