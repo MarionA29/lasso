@@ -47,7 +47,7 @@ class AssosController < ApplicationController
     def update
       @asso= Asso.where(owner_id: current_user.id)
       @asso= @asso.first
-      post_params = params.require(:asso).permit(:name, :description, :key_figures, :infos, :adress, :picture1, :picture2, :picture3, :picture4, :picture5)
+      post_params = params.require(:asso).permit(:name, :description, :key_figures, :infos, :address, :picture1, :picture2, :picture3, :picture4, :picture5)
       @asso.update(post_params)
       if @asso.update(post_params)
         redirect_to  user_path(current_user.id)
