@@ -43,9 +43,10 @@ class PrivatesMessagesController < ApplicationController
       @conversations = PrivateMessage.where(sender_id: current_user.id)
 
     end
+ end
 
 
-  end
+
   def info_asso(object)
     Asso.where(owner_id: object.recipient_id).first
 

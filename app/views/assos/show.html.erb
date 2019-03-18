@@ -18,7 +18,7 @@
 <% end %>
 
 <%= render partial: 'asso' ,object: @asso %>
- <%= link_to "Envoyer un message ", new_asso_privates_message_path(params[:id]), class: "dropdown-item" %>
+ <%= link_to "Envoyer un message ", new_privates_message_path(params[:id]), class: "dropdown-item" %>
 <%= link_to "Voir la conversation ", asso_privates_message_path(params[:id]), class: "dropdown-item" %>
 
 <br>

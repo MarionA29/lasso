@@ -1,11 +1,12 @@
 <%i=1%>
+<%content=[]%>
 <%  @conversations.each do |conversation| %>
-<% if @conversations[1-i].recipient_id != conversation.recipient_id %>
+<% if content.include?(conversation.recipient_id) != true %>
+<% content << conversation.recipient_id %>
 
 <div class="col-md-4">
   <div class="card-image">
     <a href="/assos/12/privates_messages/">
-
       <% if info_asso(conversation).picture1.attached? == true %>
       <%= image_tag resize(info_asso(conversation).picture1) %>
       <% end %>
