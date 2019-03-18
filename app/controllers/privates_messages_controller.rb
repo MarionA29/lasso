@@ -6,6 +6,7 @@ class PrivatesMessagesController < ApplicationController
 
 
   def create
+
     @message = PrivateMessage.create(sender_id:current_user.id ,
       'content' => params[:content],
       recipient_id: Asso.find(params[:asso_id]).owner_id)
