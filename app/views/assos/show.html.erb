@@ -10,7 +10,7 @@ Mon assoooo
     <label class="amount">
       <span>Amount: 1.00€</span>
     </label>
-  </article>
+
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
@@ -20,5 +20,5 @@ Mon assoooo
 <% end %>
 
 <%= render partial: 'asso' ,object: @asso %>
-
+  </article>
 <br>

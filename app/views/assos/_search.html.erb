@@ -1,0 +1,24 @@
+<header>
+    <div>
+       <input id="searchbox" placeholder="Search for products">
+       <!-- We use a specific placeholder in the input to guide users in their search. -->
+
+  </header>
+  <main>
+
+
+  </main>
+
+  <script type="text/html" id="hit-template">
+
+      <p class="hit-name">
+        {}{ "attribute": "name" }{{/helpers.highlight}}
+        {}{ "attribute": "description" }{{/helpers.highlight}}
+        {}{ "attribute": "address" }{{/helpers.highlight}}
+        {}{ "attribute": "infos" }{{/helpers.highlight}}
+        {}{ "attribute": "key_figures" }{{/helpers.highlight}}
+      </p>
+
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@3.0.0"></script>

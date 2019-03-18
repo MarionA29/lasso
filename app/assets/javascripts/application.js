@@ -28,3 +28,20 @@
 //= require plugins/jasny-bootstrap.min
 //= require plugins/nouislider.min
 //= require plugins/bootstrap-datetimepicker.min
+
+//= require algolia/v3/algoliasearch.min
+// Replace with your own values
+
+var client = algoliasearch('NSVTX8CBAT', 'f9eefea91380403c3753cc2f735678ed');
+var index = client.initIndex('Asso');
+index.search('something', { hitsPerPage: 10, page: 0 })
+  .then(function searchDone(content) {
+    console.log(content)
+  })
+  .catch(function searchFailure(err) {
+    console.error(err);
+  });
+
+  instantsearch.widgets.searchBox({
+  container: '#searchbox',
+});
