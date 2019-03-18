@@ -36,7 +36,7 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-#resize picture
+#resize picture 
 gem "mini_magick"
 
 
@@ -99,4 +99,3 @@ gem 'jquery-rails'
 gem 'now-ui-kit-rails'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'geocoder'
-gem "algoliasearch-rails"
