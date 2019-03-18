@@ -2,9 +2,14 @@
 <!DOCTYPE html>
 <html>
   <body>
-
+<%= render 'assos/search' %>
 <div class="row">
 <%= render partial: 'asso', collection: @assos %>
 </div>
+<script type="text/javascript">
+  $('.carousel').carousel({
+  interval: false
+});
+</script>
 </body>
 </html>

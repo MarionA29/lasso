@@ -25,7 +25,11 @@ def ask_validation
   AdminMailer.validation_email(self).deliver_now
 end
 =end
+include AlgoliaSearch
 
+algoliasearch per_environment: true do
+  attribute :name, :description, :key_figures, :address, :infos
+end
 end
 def resize(picture)
     return picture.variant(resize: '290x190')
