@@ -19,10 +19,10 @@ class PrivatesMessagesController < ApplicationController
     @message = PrivateMessage.new
     @conversation_answer = PrivateMessage.where(sender_id: current_user.id, recipient_id:  Asso.find(params[:asso_id]).owner_id)
     @conversation_reply = PrivateMessage.where(sender_id: Asso.find(params[:asso_id]).owner_id , recipient_id: current_user.id)
-
+#identitee de la personne questionnant et du repondant
+    @answered=  User.find( current_user.id)
     if @conversation_answer.first != nil
       #identitee de la personne questionnant et du repondant
-      @answered=  User.find( @conversation_answer.first.sender_id)
       @replied = User.find( @conversation_answer.first.recipient_id)
 
     end
