@@ -3,8 +3,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="theme-color" content="#000000">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7/themes/algolia-min.css">
-  <script src="https://cdn.jsdelivr.net/algoliasearch/3.32.0/algoliasearchLite.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@3.2.1"></script>
   <title>lasso</title>
 </head>
 <body>
@@ -93,6 +91,10 @@
     <div id="pagination"></div>
   </div>
 
+  <script src="https://unpkg.com/popper.js@1/dist/umd/popper.min.js"></script>
+<script src="https://unpkg.com/tippy.js@4"></script>
+  <script src="https://cdn.jsdelivr.net/algoliasearch/3.32.0/algoliasearchLite.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@3.2.1"></script>
 
   <script>
     const searchClient = algoliasearch('NSVTX8CBAT', 'f9eefea91380403c3753cc2f735678ed');
@@ -101,22 +103,30 @@
 
     search.addWidget(instantsearch.widgets.searchBox({container: '#searchbox'})
     );
-
-
     search.addWidget(
       instantsearch.widgets.hits({
         container: '#hits',
         templates: {
           item: `
 
+          <p class="hit-name">
+            {{#helpers.highlight}}{ "attribute": "name" }{{/helpers.highlight}}
+          </p>
+              <p class="hit-description">
+                {{#helpers.highlight}}{ "attribute": "description" }{{/helpers.highlight}}
+              </p>
+              <p class="hit-address">
+                {{#helpers.highlight}}{ "attribute": "address" }{{/helpers.highlight}}
+              </p>
               <div class="flex-container">
+
                 <button type="button" class="btn btn-info" data-container="body"  data-trigger="hover click" data-original-title="chiffres cles" data-toggle="popover" data-placement="top" data-content="Coucou">
                   <i class="fas fa-home fa"></i>
                 </button>
                 <button type="button" class="btn btn-info" data-container="body" data-trigger="hover click"  data-original-title="information de base" data-toggle="popover" data-placement="top" data-content="INFOS">
                   <i class="fas fa-user-cog"></i>
                 </button>
-                <button type="button" class="btn btn-warning" data-container="body" data-trigger="hover click"  data-original-title="adresse" data-toggle="popover" data-placement="top" data-content="JAIME">
+                <button type="button" class="btn btn-warning" data-container="body" data-trigger="hover click"  data-original-title="adresse" data-toggle="popover" data-placement="top" data-content="">
                   <i class="far fa-newspaper"></i>
                 </button>
                 <button type="button" class="btn btn-info" data-container="body" data-trigger="hover click" data-original-title="Popover on Top" data-toggle="popover" data-placement="top" data-content="hello">
@@ -129,6 +139,7 @@
                   <i class="fas fa-location-arrow"></i>
                 </button>
               </div>
+
           `,
         },
       })
@@ -136,6 +147,12 @@
     search.start();
 
   </script>
+  <button id="myButton">My Button</button>
+  <script>
+    tippy('#myButton', {
+      content: "I'm a Tippy tooltip!",
+    })
+</script>
 <script type="text/javascript">
   $('.carousel').carousel({
   interval: false
