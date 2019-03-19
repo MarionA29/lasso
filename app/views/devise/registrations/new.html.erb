@@ -2,7 +2,7 @@
 
 
 <div class="page-header header-filter" filter-color="black">
-    <div class="page-header-image" style="background-size: cover; background-image:url(https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80); filter: blur(2px) grayscale(10%)"></div>
+    <div class="page-header-image" style="background-size: cover; background-image:url(https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80); filter: blur(2px) grayscale(30%)"></div>
     <div class="content">
         <div class="container">
             <div class="row">
@@ -22,6 +22,19 @@
 
                     <div class="info info-horizontal">
                         <div class="icon icon-primary">
+                          <i class="fa fa-eye" aria-hidden="true"></i>
+                        </div>
+                        <div class="description">
+                            <h5 class="info-title" style="color:white">En un clin d'oeil</h5>
+                            <p class="description">
+                              Trouvez les informations principales de chaque asso en quelques clicks.
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div class="info info-horizontal">
+                        <div class="icon icon-primary">
                           <i class="fa fa-link" aria-hidden="true"></i>
                         </div>
                         <div class="description">
@@ -32,8 +45,9 @@
                         </div>
                     </div>
                 </div>
+                <%= render "devise/shared/error_messages", resource: resource %>
+
                 <div class="col-md-4 mr-auto">
-                  <%= render "devise/shared/error_messages", resource: resource %>
 
                     <div class="card card-signup" style="padding: 10px">
                         <div class="card-body">
@@ -54,7 +68,6 @@
 
                               <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-                              <%= f.label :email %>
                                 <div class="input-group field">
                                   <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa fa-at" style="color:gray"></i></span>
@@ -62,18 +75,19 @@
                                   <%= f.email_field :email, autofocus: true, :type => "text", :class => "form-control", placeholder: "Email...", autocomplete: "email" %>
                                 </div>
 
-                                <%= f.label :password %>
                                 <div class="input-group field">
+
                                   <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa fa-key" style="color:gray"></i></span>
                                   </div>
                                   <%= f.password_field :password, :class => "form-control", placeholder: "Mot de passe...", autocomplete: "new-password" %>
+
                                 </div>
+
                               <p style="color:gray; font-size:1em" ><em><% if @minimum_password_length %>
                               (<%= @minimum_password_length %> caractères minimum)</em></p>
                                 <% end %>
 
-                                <%= f.label :password_confirmation %>
                                 <div class="input-group field">
                                   <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa fa-key" style="color:gray"></i></span>
