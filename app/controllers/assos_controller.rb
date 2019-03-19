@@ -45,8 +45,14 @@ class AssosController < ApplicationController
     end
 
     def update
+<<<<<<< HEAD
       @asso= Asso.where(owner_id: current_user.id).first
       post_params = params.require(:asso).permit(:name, :description, :key_figures, :infos, :address, :picture1, :picture2, :picture3, :picture4, :picture5)
+=======
+      @asso= Asso.where(owner_id: current_user.id)
+      @asso= @asso.first
+      post_params = params.require(:asso).permit(:name, :description, :key_figures, :infos, :adress, :picture1, :picture2, :picture3, :picture4, :picture5)
+>>>>>>> parent of d297539... ajout private message show, index, new
       @asso.update(post_params)
       if @asso.update(post_params)
         redirect_to  user_path(current_user.id)

@@ -1,3 +1,5 @@
+Mon assoooo
+
 <%= form_tag subscriptions_path do %>
   <article>
     <% if flash[:error].present? %>
@@ -18,6 +20,7 @@
 <% end %>
 
 <%= render partial: 'asso' ,object: @asso %>
+
  <%= link_to "Envoyer un message ", new_privates_message_path(params[:id]), class: "dropdown-item" %>
 <%= link_to "Voir la conversation ", asso_privates_message_path(params[:id]), class: "dropdown-item" %>
 

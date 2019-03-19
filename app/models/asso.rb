@@ -26,7 +26,7 @@ def ask_validation
 end
 =end
 
-end 
+end
 def resize(picture)
     return picture.variant(resize: '290x190')
 end
