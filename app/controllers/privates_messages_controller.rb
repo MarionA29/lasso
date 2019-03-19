@@ -2,13 +2,13 @@ class PrivatesMessagesController < ApplicationController
 
   def new
     @message = PrivateMessage.new
-    @conversation_answer = PrivateMessage.where(sender_id: current_user.id, recipient_id:  Asso.find(params[:asso_id]).owner_id)
-    @conversation_reply = PrivateMessage.where(sender_id: Asso.find(params[:asso_id]).owner_id , recipient_id: current_user.id)
-
-    if @conversation_answer.first != nil
-      #identitee de la personne questionnant et du repondant
-      @answered=  User.find( @conversation_answer.first.sender_id)
-      @replied = User.find( @conversation_answer.first.recipient_id)
+    @conversation_sender = PrivateMessage.where(sender_id: current_user.id, recipient_id:  Asso.find(params[:asso_id]).owner_id)
+    @conversation_recipient = PrivateMessage.where(sender_id: Asso.find(params[:asso_id]).owner_id , recipient_id: current_user.id)
+#identitee de la personne questionnant le sender
+    @sender=  User.find( current_user.id)
+    if @conversation_sender.first != nil
+      #identitee de la personne du repondant le recipient
+      @recipient = User.find( @conversation_sender.first.recipient_id)
 
     end
 
@@ -17,13 +17,13 @@ class PrivatesMessagesController < ApplicationController
 
   def create
     @message = PrivateMessage.new
-    @conversation_answer = PrivateMessage.where(sender_id: current_user.id, recipient_id:  Asso.find(params[:asso_id]).owner_id)
-    @conversation_reply = PrivateMessage.where(sender_id: Asso.find(params[:asso_id]).owner_id , recipient_id: current_user.id)
-
-    if @conversation_answer.first != nil
-      #identitee de la personne questionnant et du repondant
-      @answered=  User.find( @conversation_answer.first.sender_id)
-      @replied = User.find( @conversation_answer.first.recipient_id)
+    @conversation_sender = PrivateMessage.where(sender_id: current_user.id, recipient_id:  Asso.find(params[:asso_id]).owner_id)
+    @conversation_recipient = PrivateMessage.where(sender_id: Asso.find(params[:asso_id]).owner_id , recipient_id: current_user.id)
+#identitee de la personne questionnant le sender
+    @sender=  User.find( current_user.id)
+    if @conversation_sender.first != nil
+      #identitee de la personne du repondant le recipient
+      @recipient = User.find( @conversation_sender.first.recipient_id)
 
     end
     @message = PrivateMessage.create(sender_id:current_user.id ,
@@ -46,13 +46,14 @@ class PrivatesMessagesController < ApplicationController
 
     def show
       #variable contenant d'un cote la conversation de l'owner et de l'autre la conversation du User(non owner)
-      @conversation_answer = PrivateMessage.where(sender_id: current_user.id, recipient_id:  Asso.find(params[:asso_id]).owner_id)
-      @conversation_reply = PrivateMessage.where(sender_id: Asso.find(params[:asso_id]).owner_id , recipient_id: current_user.id)
-
-      if @conversation_answer.first != nil
-        #identitee de la personne questionnant et du repondant
-        @answered=  User.find( @conversation_answer.first.sender_id)
-        @replied = User.find( @conversation_answer.first.recipient_id)
+      @message = PrivateMessage.new
+      @conversation_sender = PrivateMessage.where(sender_id: current_user.id, recipient_id:  Asso.find(params[:asso_id]).owner_id)
+      @conversation_recipient = PrivateMessage.where(sender_id: Asso.find(params[:asso_id]).owner_id , recipient_id: current_user.id)
+  #identitee de la personne questionnant le sender
+      @sender=  User.find( current_user.id)
+      if @conversation_sender.first != nil
+        #identitee de la personne du repondant le recipient
+        @recipient = User.find( @conversation_sender.first.recipient_id)
 
       end
     end
