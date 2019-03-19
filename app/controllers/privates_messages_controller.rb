@@ -2,13 +2,16 @@ class PrivatesMessagesController < ApplicationController
 
   def new
     @message = PrivateMessage.new
+params.permit(:id)
+
   end
 
 
   def create
+    params.permit(:id)
     @message = PrivateMessage.create(sender_id:current_user.id ,
       'content' => params[:content],
-      recipient_id: Asso.find(:id).owner_id)
+      recipient_id: Asso.find(params[:asso_id]).owner_id)
       if @message.save # essaie de sauvegarder en base
         # si ça marche, il redirige vers la page d'index du site
 
