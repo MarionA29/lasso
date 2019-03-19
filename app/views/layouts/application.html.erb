@@ -9,7 +9,7 @@
         <%= render 'layouts/alerts' %>
     </header>
 
-    <%- if controller_name != 'sessions' && controller_name != 'registrations' && controller_name != 'passwords'%>
+    <%- if controller_name != 'sessions' && controller_name != 'registrations' && controller_name != 'passwords' && controller_name != 'teams'%>
     <div class="container">
       <%= yield %>
     </div>
