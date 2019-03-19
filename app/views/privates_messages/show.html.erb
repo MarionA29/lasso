@@ -1,34 +1,34 @@
 <% i=0 %>
-<% while (@conversation_reply.length > i || @conversation_answer.length > i)  %>
-<% if  @conversation_answer[i] != nil  %>
+<% while (@conversation_recipient.length > i || @conversation_sender.length > i)  %>
+<% if  @conversation_sender[i] != nil  %>
 <a class="pull-left" href="#pablo">
   <div class="avatar">
-    <%if @answered.profile_pic.attached? == true%>
-    <%= image_tag @answered.avatar %>
+    <%if @sender.profile_pic.attached? == true%>
+    <%= image_tag @sender.avatar %>
     <% end %>
   </div>
 </a>
 <div class="media-body">
-  <h5 class="media-heading"><%=  @answered.first_name  %> </h5>
+  <h5 class="media-heading"><%=  @sender.first_name  %> </h5>
 
-  <p> <%=  @conversation_answer[i].content  %></p>
+  <p> <%=  @conversation_sender[i].content  %></p>
 <% end  %>
 
 
- <% if  @conversation_reply[i] != nil %>
+ <% if  @conversation_recipient[i] != nil %>
 
 <a class="pull-left" style="text-align: right;">
   <div class="avatar">
-    <%if @answered.profile_pic.attached? == true%>
-    <%= image_tag @replied.avatar %>
+    <%if @sender.profile_pic.attached? == true%>
+    <%= image_tag @recipient.avatar %>
     <% end %>  </div>
 
 
 
 <div class="media-body">
-  <h5 class="media-heading"> <%=  @replied.first_name  %> </h5>
+  <h5 class="media-heading"> <%=  @recipient.first_name  %> </h5>
 
-  <p>  <%=  @conversation_reply[i].content %></p>
+  <p>  <%=  @conversation_recipient[i].content %></p>
 </a>
 <% end %>
 <% i+=1 %>
