@@ -1,8 +1,8 @@
 <body class="login-page sidebar-collapse">
 
 
-<div class="page-header header-filter" >
-        <div class="page-header-image" style="background-image:url(https://images.unsplash.com/photo-1523325343676-4136d25d013b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80); filter:grayscale(10%)"></div>
+<div class="page-header header-filter">
+        <div class="page-header-image mid shaded" style="background-image:url(https://images.unsplash.com/photo-1523325343676-4136d25d013b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80); filter: grayscale(80%) brightness(70%)"></div>
         <div class="content">
             <div class="container">
                 <div class="col-md-5 ml-auto mr-auto">
@@ -11,27 +11,25 @@
                           <%= form_for(resource, as: resource_name, url: session_path(resource_name))  do |f| %>
 
                             <div class="card-body">
-                                  <%= f.label :email %>
                               <div class="input-group no-border input-lg">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text"><i class="fa fa-at" style="color:gray"></i></span>
                                 </div>
 
-                                <%= f.email_field :email, :type => "text", :class => "form-control", placeholder: "Email...", autocomplete: "email" %>
+                                <%= f.email_field :email, :type => "text", :class => "form-control", placeholder: "Email..."%>
 
                               </div>
-                                  <%= f.label :password %>
                               <div class="input-group no-border input-lg">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text"><i class="fa fa-key" style="color:gray"></i></span>
                                 </div>
-                                <%= f.password_field :password, :class => "form-control", placeholder: "Mot de passe...", autocomplete: "new-password" %>
+                                <%= f.password_field :password, :class => "form-control", placeholder: "Mot de passe..."%>
                               </div>
                             </div>
                           </br>
 
                             <div class="actions card-footer text-center">
-                                <%= f.submit "Se connecter", :class => "btn btn-info btn-round btn-lg btn-block"%>
+                                <%= f.submit "Se connecter", :class => "btn btn-warning btn-round btn-lg btn-block"%>
                             </div>
 
 
