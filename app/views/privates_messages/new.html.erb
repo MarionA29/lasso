@@ -1,3 +1,43 @@
+<% i=0 %>
+<% while (@conversation_reply.length > i || @conversation_answer.length > i)  %>
+<% if  @conversation_answer[i] != nil  %>
+<a class="pull-left" href="#pablo">
+  <div class="avatar">
+    <%if @answered.profile_pic.attached? == true%>
+    <%= image_tag @answered.avatar %>
+    <% end %>
+  </div>
+</a>
+<div class="media-body">
+  <h5 class="media-heading"><%=  @answered.first_name  %> </h5>
+
+  <p> <%=  @conversation_answer[i].content  %></p>
+<% end  %>
+
+
+ <% if  @conversation_reply[i] != nil %>
+
+<a class="pull-left" style="text-align: right;">
+  <div class="avatar">
+    <%if @answered.profile_pic.attached? == true%>
+    <%= image_tag @replied.avatar %>
+    <% end %>  </div>
+
+
+
+<div class="media-body">
+  <h5 class="media-heading"> <%=  @replied.first_name  %> </h5>
+
+  <p>  <%=  @conversation_reply[i].content %></p>
+</a>
+<% end %>
+<% i+=1 %>
+ <% end  %>
+
+
+
+
+
 <div class="container col-md-8 order-md-1">
 <%= form_tag url_for(action: 'create'),multipart: true,  method: "post" do %>
 
