@@ -1,1 +1,248 @@
 
+<style>
+  .search-form {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    display: block;
+    line-height: normal;
+    color: #333;
+  }
+
+  .search-box-wrapper {
+    padding: 10px 100px;
+    font-size: 1em;
+    background-color: #247dee;
+    max-width: 100%;
+    margin: 0px auto 0px auto;
+  }
+
+  .search-box {
+    margin: 0;
+    padding: 0 0 0 50px;
+    border-bottom: 2px solid white;
+    position: relative;
+  }
+
+  #inputfield i {
+    font-size: 25px;
+    color: white;
+    position: absolute;
+    left: 0px;
+    bottom: 10px;
+  }
+
+  #inputfield input {
+    width: 100%;
+    height: 45px;
+    display: block;
+    border: none;
+    color: white;
+    padding: 0;
+    font-size: 2em;
+    background-color: transparent;
+    margin: 0em;
+  }
+
+  #inputfield input::-webkit-input-placeholder { color: #4A6B82; }
+  #inputfield input::-moz-placeholder { color: #4A6B82; } /* firefox 19+ */
+  #inputfield input:-ms-input-placeholder { color: #4A6B82; } /* ie */
+  #inputfield inputinput:-moz-placeholder { color: #4A6B82; }
+
+  #inputfield input:focus {
+    outline-width: 0px;
+  }
+
+  .hit a{
+    color: #46AEDA;
+  }
+
+  .hit em {
+    font-size: 1em;
+    background-color: #FCF5E2;
+    font-style: normal;
+    color: #122337;
+  }
+
+  .primary-attribute{
+    font-size: 1.2em;
+    font-weight: 600;
+    display: block;
+
+  }
+
+  .secondary-attribute{
+    font-size: .9em;
+    display: block;
+    font-style: italic;
+    padding: 0 .2em;
+  }
+
+  .tertiary-attribute{
+    font-size: .9em;
+    display: block;
+  }
+
+  .others-attribute{
+    border-top: dotted 1px #eee;
+    margin: 5px 0 0 0;
+    clear: both;
+    font-size: 0.85em;
+    padding: 8px 0;
+  }
+
+  .image-attribute{
+    float: left;
+    width: 40px;
+    min-height: 40px;
+    padding-top: 5px;
+    margin-right: 10px;
+  }
+
+  .image-attribute img{
+    width: 100%;
+  }
+
+  .tt-suggestion{
+    padding: 5px 10px !important;
+    margin: 0 !important;
+  }
+</style>
+<!-- ======================== -->
+<!-- DEMO APPLICATION: HTML snippet -->
+<!-- ======================== -->
+<div class='search-box-wrapper'>
+<div class='search-box'>
+<div id='inputfield'>
+<i class='fa fa-search icon-search'></i>
+<input autocomplete='off' autocorrect='off' name='address' placeholder='Nom, services, catégories' spellcheck='false' type='text'>
+</div>
+</div>
+</div>
+<!--
+8<---------------8<---------------8<---------------8<---------------
+END COPY/PASTE
+-->
+<script>
+  var client = algoliasearch('NSVTX8CBAT', 'f9eefea91380403c3753cc2f735678ed');
+var index = client.initIndex('Asso');
+index.search('@asso', { hitsPerPage: 10, page: 0 })
+  .then(function searchDone(content) {
+    console.log(content)
+  })
+  .catch(function searchFailure(err) {
+    console.error(err);
+  });
+</script>
+<script>
+  const autocomplete = instantsearch.connectors.connectAutocomplete(
+  ({ indices, refine, widgetParams }, isFirstRendering) => {
+    const { container } = widgetParams;
+
+    if (isFirstRendering) {
+      container.html('<select id="ais-autocomplete"></select>');
+
+      container.find('select').selectize({
+        options: [],
+        valueField: 'name',
+        labelField: 'name',
+        searchField: 'name',
+        highlight: false,
+        onType: refine,
+        onChange: refine,
+      });
+
+      return;
+    }
+
+    const [select] = container.find('select');
+
+    indices.forEach(index => {
+      select.selectize.clearOptions();
+      index.results.hits.forEach(hit => select.selectize.addOption(hit));
+      select.selectize.refreshOptions(select.selectize.isOpen);
+    });
+  }
+);
+const autocomplete = instantsearch.connectors.connectAutocomplete(
+  ({ indices, refine, widgetParams }, isFirstRendering) => {
+    // We get the onSelectChange callback from the widget params
+    const { container, onSelectChange } = widgetParams;
+
+    if (isFirstRendering) {
+      container.html('<select id="ais-autocomplete"></select>');
+
+      container.find('select').selectize({
+        // ...
+        onType: refine,
+        onChange(value) {
+          // We call the provided callback each time a value is selected
+          onSelectChange(value);
+          refine(value);
+        },
+      });
+
+      return;
+    }
+
+    // ...
+  }
+);
+
+const suggestions = instantsearch({
+  indexName: 'Asso',
+  searchClient,
+});
+
+suggestions.addWidget(
+  autocomplete({
+    container: $('#autocomplete'),
+    onSelectChange(value) {
+      // The callback is triggered each time a value is selected
+    },
+  })
+);
+const suggestions = instantsearch({
+  indexName: 'Asso',
+  searchClient,
+});
+
+suggestions.addWidget(
+  autocomplete({
+    container: $('#autocomplete'),
+    onSelectChange(value) {
+      // Now we can trigger the search on our main instance
+      // each time the value inside the dropdown is selected
+      search.helper.setQuery(value).search();
+    },
+  })
+);
+
+const search = instantsearch({
+  indexName: 'demo_ecommerce',
+  searchClient,
+});
+
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '#hits',
+    templates: {
+      item: '<div>
+          <header class="hit-name">
+            {{#helpers.highlight}}{ "attribute": "name" }{{/helpers.highlight}}
+          </header>
+          <p class="hit-description">
+            {{#helpers.highlight}}{ "attribute": "description" }{{/helpers.highlight}}
+          </p></div>',
+    },
+  })
+);
+
+suggestions.start();
+search.start();
+
+</script>
