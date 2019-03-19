@@ -1,0 +1,27 @@
+<%i=1%>
+<%content=[]%>
+<%  @conversations.each do |conversation| %>
+<% if content.include?(conversation.recipient_id) != true %>
+<% content << conversation.recipient_id %>
+
+<div class="col-md-4">
+  <div class="card-image">
+    <a href="/assos/12/privates_messages/">
+      <% if info_asso(conversation).picture1.attached? == true %>
+      <%= image_tag resize(info_asso(conversation).picture1) %>
+      <% end %>
+    </a>
+  </div>
+</div>
+<div class="col-md-8">
+  <h3 class="card-title">
+    <a href="/assos/<%=info_asso(conversation).id%>/privates_messages/<%=conversation.recipient_id%>"> <%= info_asso(conversation).name %></a>
+  </h3>
+  <p class="card-description">
+    <%= last_msg(conversation) %>
+  </p>
+
+</div>
+<% end %>
+<%i+=1%>
+<%end %>

@@ -35,19 +35,20 @@ class AssosController < ApplicationController
     end
 
     def show
-      @asso= Asso.where(owner_id: current_user.id).first
+      @asso= Asso.find(params[:id])
 
     end
 
     def edit
-      @asso= Asso.where(owner_id: current_user.id)
-      @asso= @asso.first
+      @asso= Asso.where(owner_id: current_user.id).first
+
     end
 
     def update
-      @asso= Asso.where(owner_id: current_user.id)
-      @asso= @asso.first
-      post_params = params.require(:asso).permit(:name, :description, :key_figures, :infos, :adress, :picture1, :picture2, :picture3, :picture4, :picture5)
+
+      @asso= Asso.where(owner_id: current_user.id).first
+      post_params = params.require(:asso).permit(:name, :description, :key_figures, :infos, :address, :picture1, :picture2, :picture3, :picture4, :picture5)
+
       @asso.update(post_params)
       if @asso.update(post_params)
         redirect_to  user_path(current_user.id)
