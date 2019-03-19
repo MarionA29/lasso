@@ -1,5 +1,5 @@
 <div class="container col-md-8 order-md-1">
-<%= form_tag url_for(action: 'create'),multipart: true, method: "post" do %>
+<%= form_tag url_for(action: 'create'),multipart: true,  method: "post" do %>
 
 <div class="form-group">
     <%= text_area_tag 'content', @message.content, class: "form-control", placeholder:"Entre 20 et 2000 caractères"  %>
