@@ -4,13 +4,16 @@ class PrivatesMessagesController < ApplicationController
     @message = PrivateMessage.new
     @conversation_sender = PrivateMessage.where(sender_id: current_user.id, recipient_id:  Asso.find(params[:asso_id]).owner_id)
     @conversation_recipient = PrivateMessage.where(sender_id: Asso.find(params[:asso_id]).owner_id , recipient_id: current_user.id)
+
 #identitee de la personne questionnant le sender
     @sender=  User.find( current_user.id)
-    if @conversation_sender.first != nil
-      #identitee de la personne du repondant le recipient
-      @recipient = User.find( @conversation_sender.first.recipient_id)
-
-    end
+#identitee de la personne du repondant le recipient
+    @recipient = User.find( @conversation_sender.first.recipient_id)
+        @picture_sender= User.find(current_user.id).avatar
+    if User.find(@conversation_sender.first.recipient_id).profile_pic.attached? == true
+      
+    @picture_recipient= User.find(@conversation_sender.first.recipient_id).avatar
+end
 
   end
 
