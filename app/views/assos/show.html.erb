@@ -16,7 +16,6 @@
           data-amount="500"
           data-locale="auto"></script>
 <% end %>
-
 <%= render partial: 'asso' ,object: @asso %>
 
 
@@ -31,5 +30,6 @@
      }).addTo(carte);
             var marker = L.marker([<%= @asso.latitude %>, <%= @asso.longitude %>]).addTo(carte);
    </script>
+
  <%= link_to "Envoyer un message ", new_asso_privates_message_path(params[:id]), class: "dropdown-item" %>
 <%= link_to "Voir la conversation ", asso_privates_message_path(params[:id]), class: "dropdown-item" %>
