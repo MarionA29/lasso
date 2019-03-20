@@ -12,7 +12,7 @@
 //
 //= require_tree .
 //= require activestorage
-//= require algolia/v3/algoliasearch.min
+
 //= require core/popper.min
 //= require jquery3
 //= require jquery_ujs

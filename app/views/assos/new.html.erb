@@ -8,7 +8,7 @@
 </div>
 <div class="form-group">
     <%= label_tag 'Adresse de ton asso :' %>
-    <%= text_field_tag 'address', @asso.address, class: "form-control", placeholder:"145 Cours Lafayette 69006 Lyon" %>
+    <%= text_field_tag 'address', @asso.address, class: "form-control", id:"address-input", placeholder:"145 Cours Lafayette 69006 Lyon" %>
     <br />
 </div>
 <div class="form-group">
@@ -42,3 +42,13 @@
 </div>
 
 <% end %>
+
+
+<script src="https://cdn.jsdelivr.net/npm/places.js@1.16.1"></script>
+<script>
+  var placesAutocomplete = places({
+    appId: 'pl4L6NQ4MY9D',
+    apiKey: '9a02a9891a049118874934d98e742cfc',
+    container: document.querySelector('#address-input')
+  });
+</script>
