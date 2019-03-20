@@ -20,12 +20,18 @@ Mon assoooo
 <% end %>
 
 <%= render partial: 'asso' ,object: @asso %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+<div id="macarte" style="width:700px; height:300px"></div>
 
+<<<<<<< HEAD
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
 <div id="macarte" style="width:700px; height:300px"></div>
 
+=======
+>>>>>>> Delivery/stanging
    <script>
      var carte = L.map('macarte').setView([<%= @asso.latitude %>, <%= @asso.longitude %>], 15);
      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
