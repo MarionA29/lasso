@@ -1,13 +1,58 @@
-<div class="jumbotron">
-  <h1 class="display-4">Mon profil :<br /><%= @user.first_name %> <%= @user.last_name %></h1>
-  <%if @user.profile_pic.attached? == true%>
-  <%= image_tag @user.avatar %>
-  <% else %>
-  <p>=== Il n'y a pas encore de photo de profil liée à ton profil===</p>
-<% end %>
-  <p class="lead"> <h4>Description :</h4><%= @user.description %></p>
-  <hr class="my-4">
-  <%= link_to "Modifier mon profil", edit_user_path, class:"btn btn-primary" %>
-  <%= link_to "Mes messages ", privates_messages_path , class:"btn btn-primary" %>
+<body class="profile-page sidebar-collapse">
+
+
+  <div class="wrapper">
+    <div class="page-header clear-filter page-header-small">
+
+    <div class="page-header-image" data-parallax="true" style="background-image:url('https://images.unsplash.com/photo-1472404122088-5682d90f2a7a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80'); filter: brightness(50%) grayscale(10%);">
+    </div>
+
+    <div class="container" style="padding-top:30px">
+
+        <div class="photo-container" style="width:150px; height:150px">
+          <%if @user.profile_pic.attached? == true%>
+          <%= image_tag @user.avatar %>
+          <% else %>
+          <%= image_tag("assoman.jpeg", class: "img") %>
+        <% end %>
+        </div>
+
+        <h3 class="title"><%= @user.first_name%><%= @user.last_name%></h3>
+      <br>
+        <p class="category"><%= @user.asso.name%></p>
+
+
+    </div>
 </div>
+
+
+<div class="section">
+    <div class="container">
+        <div class="button-container">
+            <%= link_to "Éditer", edit_user_path, class:"btn btn-primary btn-round btn-lg" %>
+
+        </div>
+
+        <h3 class="title">À propos de moi</h3>
+        <h5 class="description text-center"><%= @user.description %></h5>
+
+
+                <h4 class="title text-center">Mon asso</h4>
+        <div class="row asso-index">
+          <div class="col-md-12">
+            <center><%= render partial: 'assos/asso', object: @user.asso%><center>
+
+            </div>
+
+        </div>
+    </div>
+
 </div>
+
+
+            </div>
+
+
+    </body>
+
+</html>

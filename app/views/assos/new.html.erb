@@ -1,44 +1,60 @@
+
 <div class="container col-md-8 order-md-1">
 <%= form_tag url_for(action: 'create'),multipart: true, method: "post" do %>
 
 <div class="form-group">
-    <%= label_tag 'Nom de ton asso :' %>
+    <span><h6><%= label_tag 'Nom de ton asso' %></h6><span>
     <%= text_field_tag 'name', @asso.name, class: "form-control", placeholder:"Entre 3 et 14 caractères" %>
     <br />
 </div>
 <div class="form-group">
-    <%= label_tag 'Adresse de ton asso :' %>
-    <%= text_field_tag 'address', @asso.address, class: "form-control", placeholder:"145 Cours Lafayette 69006 Lyon" %>
+    <span><h6><%= label_tag 'Adresse de ton asso' %></h6><span>
+    <%= text_field_tag 'address', @asso.address, class: "form-control", id:"address-input", placeholder:"145 Cours Lafayette 69006 Lyon" %>
     <br />
 </div>
 <div class="form-group">
-    <%= label_tag 'Description de ton association :' %>
+    <span><h6><%= label_tag 'Description de ton association' %></h6><span>
     <%= text_area_tag 'description', @asso.description, class: "form-control", placeholder:"Entre 20 et 2000 caractères"  %>
     <br />
 </div>
 <div class="form-group">
-    <%= label_tag 'Tes chiffres clés' %>
+    <span><h6><%= label_tag 'Tes chiffres clés' %></h6><span>
     <%= text_area_tag 'key_figures', @asso.key_figures, class: "form-control", placeholder:"Date de création, nombre d'employés..." %>
     <br />
 </div>
 <div class="form-group">
-    <%= label_tag 'Les infos pratiques :' %>
-    <%= text_area_tag 'infos', @asso.infos, class: "form-control", placeholder:"Horaires d'ouverture, site web, réseau sociaux..." %>
+    <span><h6><%= label_tag 'Les infos pratiques' %></h6><span>
+    <%= text_area_tag 'infos', @asso.infos, class: "form-control", placeholder:"Horaires d'ouvertures, site web, réseaux sociaux..." %>
     <br />
 </div>
+<div class="typography-line"
 
-    <h3>Ajouter des photos :</h3>
-
-<%= file_field_tag :picture1 %>
-<%= file_field_tag :picture2 %>
-<%= file_field_tag :picture3 %>
-<%= file_field_tag :picture4 %>
-<%= file_field_tag :picture5 %>
-
-
+    <span><h6>Ajouter vos photos : <small>(3 photos obligatoires)</small></h6></span>
+    <br>
+  Photo 1 <%= file_field_tag :picture1 %><br><br>
+  Photo 2 <%= file_field_tag :picture2 %><br><br>
+  Photo 3 <%= file_field_tag :picture3 %><br><br>
+  Photo 4 <%= file_field_tag :picture4 %><br><br>
+  Photo 5 <%= file_field_tag :picture5 %>
+  <br>
+</div>
+<center>
+  <br>
 <div class="form-group">
 <%= submit_tag "Créer ton association", class: "btn btn-primary" %>
 </div>
 </div>
 
 <% end %>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/places.js@1.16.1"></script>
+<script>
+  var placesAutocomplete = places({
+    appId: 'pl4L6NQ4MY9D',
+    apiKey: '9a02a9891a049118874934d98e742cfc',
+    container: document.querySelector('#address-input')
+  });
+</script>
