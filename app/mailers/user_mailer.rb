@@ -6,12 +6,18 @@ class UserMailer < ApplicationMailer
   end
 
 =begin
-  def asso_creation_email(owner)
+  def validation_email(owner)
     @owner = asso.owner
-    mail(to: @owner.email, subject: "Création de l'asso")
+    mail(to: @owner.email, subject: "Validation en cours")
   end
 
-  def subcription_email
+  def unvalidated_email
+  @owner = asso.owner
+  mail(to: @owner.email, subject: "Création non validée")
+
+  end
+
+  def subscription_email
     @owner = asso.owner
     mail(to: @owner.email, subject: "Validation de la création")
   end

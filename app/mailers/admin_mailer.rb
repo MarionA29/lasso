@@ -1,10 +1,13 @@
 class AdminMailer < ApplicationMailer
-=begin
-def new_user_email(admin)
-  mail(to:"marionaudren@live.fr",subject: 'Un nouvel utilisateur! ')
+
+def new_user_email
+  mail(to:"admin@lasso.com",subject: "Un nouvel utilisateur!")
 end
 def validation_email
-  mail(to:"marionaudren@live.fr",subject: "Demande de validation d'une nouvelle asso")
+  mail(to:"admin@lasso.com",subject: "Demande de validation d'une nouvelle asso")
 end
-=end
+def new_subscription_email
+  mail(to:"admin@lasso.com", subject: "Souscription validée, une nouvelle asso à mettre en ligne!")
+end
+
 end

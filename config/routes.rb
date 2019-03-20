@@ -4,7 +4,14 @@ Rails.application.routes.draw do
   resources :assos
   resources :users, only: [:show, :edit, :update, :destroy]
   resources :subscriptions
+  resources :teams, only: [:index]
 
+
+
+  resources :privates_messages, except: [:show]
+  resources :assos do
+  resources :privates_messages, only: [:show, :new, :create]
+end
 
   namespace :admin do
     root to: 'dashboard#index'
