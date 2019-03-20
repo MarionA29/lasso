@@ -89,4 +89,22 @@
     </tbody>
     <% end %>
   </table>
+  <br>
+      <table class="table">
+        <h3>Abonnements</h3>
+        <thead>
+          <tr>
+            <th scope="col">Asso ID</th>
+            <th scope="col">Stripe ID</th>
+          </tr>
+        </thead>
+        <% @subscriptions.order("created_at desc").each do |sub| %>
+        <tbody>
+          <tr>
+            <th scope="row"><%= sub.asso_id %></th>
+            <td><%= sub.stripe_customer_id %></td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
 </div>
