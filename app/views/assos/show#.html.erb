@@ -1,0 +1,119 @@
+<body class="product-page sidebar-collapse">
+        <div class="wrapper">
+<div class="page-header page-header-mini" filter-color="orange">
+<div class="page-header-image" data-parallax="true" style="background-image: url('')">
+</div>
+</div>
+
+<div class="section">
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+
+            <div id="productCarousel" class="carousel slide" data-ride="carousel" data-interval="8000" >
+              <% if @asso.picture1.attached? == true %>
+              <%= image_tag @asso.picture1 %>
+              <% else %>
+              <%= image_tag ('children.jpeg')%>
+              <% end %>
+            </div>
+
+            <p class="blockquote blockquote-primary">
+                "And thank you for turning my personal jean jacket into a couture piece. Wear yours with mirrored sunglasses on vacation."<br><br>
+                <small>Kanye West</small>
+            </p>
+            </div>
+
+        <div class="col-md-6 ml-auto mr-auto">
+            <h2 class="title"><%= @asso.name%></h2>
+            <h5 class="category">Association de ...</h5>
+
+            <div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
+              <div class="card card-plain">
+                <div class="card-header" role="tab" id="headingOne">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Description
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                </div>
+
+                <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+                  <div class="card-body">
+                    <p><%= @asso.description%></p>
+                  </div>
+                </div>
+              </div>
+              <div class="card card-plain">
+                <div class="card-header" role="tab" id="headingTwo">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Services proposés
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                </div>
+                <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+                  <div class="card-body">
+                    <p>An infusion of West Coast cool and New York attitude, Rebecca Minkoff is synonymous with It girl style. Minkoff burst on the fashion scene with her best-selling 'Morning After Bag' and later expanded her offering with the Rebecca Minkoff Collection - a range of luxe city staples with a "downtown romantic" theme.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card card-plain">
+                <div class="card-header" role="tab" id="headingThree">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Détails
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                </div>
+                <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+                  <div class="card-body">
+                      <ul>
+                           <li>Storm and midnight-blue stretch cotton-blend</li>
+                           <li>Notch lapels, functioning buttoned cuffs, two front flap pockets, single vent, internal pocket</li>
+                           <li>Two button fastening</li>
+                           <li>84% cotton, 14% nylon, 2% elastane</li>
+                           <li>Dry clean</li>
+                      </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+          </div>
+    </div>
+</div>
+</div>
+
+<%= form_tag subscriptions_path do %>
+<article>
+<% if flash[:error].present? %>
+  <div id="error_explanation">
+    <p><%= flash[:error] %></p>
+  </div>
+<% end %>
+<label class="amount">
+  <span>Amount: 1.00€</span>
+</label>
+</article>
+
+<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+      data-description="A month's subscription"
+      data-amount="500"
+      data-locale="auto"></script>
+<% end %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+<div id="macarte" style="width:700px; height:300px"></div>
+
+<script>
+ var carte = L.map('macarte').setView([<%= @asso.latitude %>, <%= @asso.longitude %>], 15);
+ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+   attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+ }).addTo(carte);
+        var marker = L.marker([<%= @asso.latitude %>, <%= @asso.longitude %>]).addTo(carte);
+</script>
+
+<%= link_to "Envoyer un message ", new_asso_privates_message_path(params[:id]), class: "dropdown-item" %>
+<%= link_to "Voir la conversation ", asso_privates_message_path(params[:id]), class: "dropdown-item" %>
+
+<br>
+</body>

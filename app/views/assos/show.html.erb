@@ -1,27 +1,214 @@
-Mon assoooo
 
-<%= form_tag subscriptions_path do %>
-  <article>
-    <% if flash[:error].present? %>
-      <div id="error_explanation">
-        <p><%= flash[:error] %></p>
+<body class="product-page sidebar-collapse">
+  <div class="wrapper">
+    <div class="page-header page-header-mini" filter-color="orange">
+      <div class="page-header-image" data-parallax="true" style="background-image: url(''); filter: grayscale(80%) blur(1px)">
       </div>
-    <% end %>
-    <label class="amount">
-      <span>Amount: 1.00€</span>
-    </label>
-  </article>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A month's subscription"
-          data-amount="500"
-          data-locale="auto"></script>
-<% end %>
 
-<%= render partial: 'asso' ,object: @asso %>
+    </div>
 
- <%= link_to "Envoyer un message ", new_asso_privates_message_path(params[:id]), class: "dropdown-item" %>
-<%= link_to "Voir la conversation ", asso_privates_message_path(params[:id]), class: "dropdown-item" %>
 
-<br>
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-5">
+
+            <div id="productCarousel" class="carousel slide" data-ride="carousel" data-interval="8000" >
+              <% if @asso.picture1.attached? == true %>
+              <%= image_tag @asso.picture1 %>
+              <% else %>
+              <%= image_tag ('children.jpeg')%>
+              <% end %>
+            </div>
+
+
+            <p class="blockquote blockquote-primary">
+              "Moto de l'association, à intégrer au moment de la création de l'association ou à éditer dans la page édit. "<br><br>
+              <small><%= @asso.owner.first_name%> <%= @asso.owner.last_name%></small>
+            </p>
+          </div>
+
+          <div class="col-md-6 ml-auto mr-auto">
+            <h2 class="title"><%= @asso.name%></h2>
+            <h5 class="category">Association de ...</h5>
+
+            <div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
+              <div class="card card-plain">
+                <div class="card-header" role="tab" id="headingOne">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Description
+                    <i class="fas fa-chevron-down"></i>
+                  </a>
+                </div>
+
+                <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+                  <div class="card-body">
+                    <p><%= @asso.description%></p>
+                  </div>
+                </div>
+              </div>
+              <div class="card card-plain">
+                <div class="card-header" role="tab" id="headingTwo">
+                  <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Détails
+                    <i class="fas fa-chevron-down"></i>
+                  </a>
+                </div>
+                <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+                  <div class="card-body">
+                    <p>An infusion of West Coast cool and New York attitude, Rebecca Minkoff is synonymous with It girl style. Minkoff burst on the fashion scene with her best-selling 'Morning After Bag' and later expanded her offering with the Rebecca Minkoff Collection - a range of luxe city staples with a "downtown romantic" theme.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card card-plain">
+                <div class="card-header" role="tab" id="headingThree">
+                  <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Services proposés
+                    <i class="fas fa-chevron-down"></i>
+                  </a>
+                </div>
+                <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+                  <div class="card-body">
+                    <ul>
+                      <li>Storm and midnight-blue stretch cotton-blend</li>
+                      <li>Notch lapels, functioning buttoned cuffs, two front flap pockets, single vent, internal pocket</li>
+                      <li>Two button fastening</li>
+                      <li>84% cotton, 14% nylon, 2% elastane</li>
+                      <li>Dry clean</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="section">
+      <div class="row">
+        <div class="col-md-8 ml-auto mr-auto text-center mr-5">
+          <h2 class="title">Ce qu'on y fait</h2>
+          <h4 class="description">You need more information? Check what other persons are saying about our product. They are very happy with their purchase.</h4>
+        </div>
+      </div>
+      <div class="section-story-overview">
+        <div class="row">
+          <div class="col-md-4 ml-auto mr-auto">
+
+            <div class="image-container image-left" style="background-image: url('../assets/img/pp-5.jpg')">
+              <% if @asso.picture2.attached? == true %>
+              <%= image_tag @asso.picture2 %>
+              <% else %>
+              <%= image_tag ('children.jpeg')%>
+              <% end %>
+              <!-- First image on the left side -->
+              <p class="blockquote blockquote-primary">"Over the span of the satellite record, Arctic sea ice has been declining significantly, while sea ice in the Antarctichas increased very slightly"
+                <br>
+                <br>
+                <small> - NOAA</small>
+              </p>
+            </div>
+            <!-- Second image on the left side of the article -->
+            <div class="image-container" style="background-image: url('../assets/img/bg29.jpg')">
+              <% if @asso.picture3.attached? == true %>
+              <%= image_tag @asso.picture3 %>
+              <% else %>
+              <%= image_tag ('children.jpeg')%>
+              <% end %></div>
+
+            </div>
+            <div class="col-md-4 ml-auto mr-auto">
+              <!-- First image on the right side, above the article -->
+              <div class="image-container image-right"  style="background-image: url('../assets/img/pp-4.jpg')">
+                <% if @asso.picture4.attached? == true %>
+                <%= image_tag @asso.picture4 %>
+                <% else %>
+                <%= image_tag ('children.jpeg')%>
+                <% end %></div>
+                <h3>So what does the new record for the lowest level of winter ice actually mean</h3>
+                <p>The Arctic Ocean freezes every winter and much of the sea-ice then thaws every summer, and that process will continue whatever happens with climate change. Even if the Arctic continues to be one of the fastest-warming regions of the world, it will always be plunged into bitterly cold polar dark every winter. And year-by-year, for all kinds of natural reasons, there’s huge variety of the state of the ice.
+                </p>
+                <p>For a start, it does not automatically follow that a record amount of ice will melt this summer. More important for determining the size of the annual thaw is the state of the weather as the midnight sun approaches and temperatures rise. But over the more than 30 years of satellite records, scientists have observed a clear pattern of decline, decade-by-decade.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="main" style="padding-bottom:10px">
+          <div class="contact-content">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-5 ml-auto mr-auto">
+                  <h2 class="title">Send us a message</h2>
+                  <p class="description">You can contact us with anything related to our Products. We'll get in touch with you as soon as possible.<br><br>
+                  </p>
+                  <form role="form" id="contact-form" method="post">
+
+                    <div class="form-group">
+                      <label>Your message</label>
+                      <textarea name="message" class="form-control" id="message" rows="6"></textarea>
+                    </div>
+                    <div class="submit text-center">
+                      <input type="submit" class="btn btn-primary btn-raised btn-round" value="Contact Us" />
+                    </div>
+                  </form>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div id="macarte" style="width:1140px; height:400px"></div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+
+  <script>
+  var carte = L.map('macarte').setView([<%= @asso.latitude %>, <%= @asso.longitude %>], 15);
+  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(carte);
+  var marker = L.marker([<%= @asso.latitude %>, <%= @asso.longitude %>]).addTo(carte);
+  </script>
+
+  <a class="float">
+      <%= form_tag subscriptions_path do %>
+      <article>
+        <% if flash[:error].present? %>
+        <div id="error_explanation">
+          <p><%= flash[:error] %></p>
+        </div>
+        <% end %>
+      </article>
+
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-label="Payer la souscription"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-image=""
+        data-description="Souscription pour un an"
+        data-amount="100"
+        data-currency="eur"
+        data-locale="auto">
+        </script>
+      <% end %>
+  </a>
+
+
+</body>

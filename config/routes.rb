@@ -19,5 +19,6 @@ end
     resources :users
     resources :assos
     resources :admin
+    resources :subscriptions
   end
 end

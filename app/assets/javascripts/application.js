@@ -10,15 +10,14 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require_tree .
 //= require activestorage
-//= require turbolinks
+
+//= require core/popper.min
 //= require jquery3
 //= require jquery_ujs
-//= require_tree
-
 //= require now-ui-kit
 //= require core/jquery.3.2.1.min
-//= require core/popper.min
 //= require core/bootstrap.min
 
 //= require plugins/moment.min
