@@ -1,6 +1,3 @@
-
-
-
     <body class="product-page sidebar-collapse">
 
             <div class="wrapper">
@@ -134,8 +131,6 @@
           data-amount="500"
           data-locale="auto"></script>
 <% end %>
-<<<<<<< HEAD
-
 <%= render partial: 'asso' ,object: @asso %>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
@@ -148,12 +143,9 @@
      }).addTo(carte);
             var marker = L.marker([<%= @asso.latitude %>, <%= @asso.longitude %>]).addTo(carte);
    </script>
-=======
->>>>>>> Marion
+
  <%= link_to "Envoyer un message ", new_asso_privates_message_path(params[:id]), class: "dropdown-item" %>
 <%= link_to "Voir la conversation ", asso_privates_message_path(params[:id]), class: "dropdown-item" %>
 
 <br>
-
-
     </body>
