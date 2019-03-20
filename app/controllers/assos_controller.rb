@@ -1,4 +1,8 @@
 class AssosController < ApplicationController
+  before_action :user_match, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create]
+
+
   def index
     @assos = Asso.all
   end
@@ -62,7 +66,13 @@ class AssosController < ApplicationController
         redirect_to root_path
     end
 
-
+    private
+    def user_match
+      @user = @asso.owner
+      unless current_user.id == @user.id
+        redirect_to event_index_path
+      end
+    end
 
 
   end

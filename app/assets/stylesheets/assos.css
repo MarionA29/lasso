@@ -1,4 +1,4 @@
-.row
+.row.asso-index
 {
   display: flex;
   justify-content: center;
@@ -6,21 +6,21 @@
   margin-top: 20px;
 
 }
-.flex-container {
+.flex-container.asso{
   display: flex;
   justify-content: center;
   margin: 15px;
   margin-top: 5px;
 }
 
-.btn {
+.btn.flex-container.asso{
   border-radius:0px;
 }
-.card{
+.card.asso{
   width:20rem;
   border-style:solid;
 }
-.card-body
+.card-body.asso
 {
   padding:0rem;
 }
