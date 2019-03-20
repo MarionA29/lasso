@@ -16,7 +16,13 @@ has_one_attached :picture5
 geocoded_by :address
 after_validation :geocode
 
-
+def self.search(term)
+ if term
+   where('name LIKE ?', "%#{term}%")
+ else
+   order('id DESC')
+ end
+end
 =begin
 after_create :ask_validation
 
@@ -36,7 +42,7 @@ end
 
 end
 =end
-
+end
 
 def resize(picture)
     return picture.variant(resize: '290x190')

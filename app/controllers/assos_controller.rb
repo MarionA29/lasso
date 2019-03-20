@@ -1,14 +1,11 @@
 class AssosController < ApplicationController
   def index
-    @assos = Asso.all
-    if params[:search]
-      @search_term = params[:search]
-      @assos = @assos.search_by(@search_term)
+    if @assos = Asso.search(params[:term])
+    else "puts not found"
     end
   end
   def new
     @asso = Asso.new
-
   end
 
   def create
@@ -69,4 +66,7 @@ class AssosController < ApplicationController
         redirect_to root_path
     end
 
+        def asso_params
+          params.require(:asso).permit(:name, :description, :key_figures, :infos, :address, :term)
+        end
   end
