@@ -4,8 +4,8 @@
     <body class="product-page sidebar-collapse">
 
             <div class="wrapper">
-    <div class="page-header page-header-mini">
-    <div class="page-header-image" data-parallax="true" style="background-image: url('https://images.unsplash.com/photo-1490187763999-9f273a5b7516?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');">
+    <div class="page-header page-header-mini" filter-color="orange">
+    <div class="page-header-image" data-parallax="true" style="background-image: url(''); filter: grayscale(80%) blur(1px)">
     </div>
 </div>
 
@@ -15,36 +15,8 @@
             <div class="col-md-5">
 
               <div id="productCarousel" class="carousel slide" data-ride="carousel" data-interval="8000" >
-                                 <ol class="carousel-indicators">
-                                     <li data-target="#productCarousel" data-slide-to="0" class="active"></li>
-                                     <li data-target="#productCarousel" data-slide-to="1"></li>
-                                     <li data-target="#productCarousel" data-slide-to="2"></li>
-                                     <li data-target="#productCarousel" data-slide-to="3"></li>
-                                 </ol>
-                                 <div class="carousel-inner" role="listbox" style="width:400px; height:400px">
-                                     <div class="carousel-item active">
-                                         <img class="d-block img-raised" src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="First slide">
-                                     </div>
-                                     <div class="carousel-item">
-                                         <img class="d-block img-raised" src="https://images.unsplash.com/photo-1487687944474-d9cf58dda287?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=666&q=80" alt="Second slide">
-                                     </div>
-                                     <div class="carousel-item">
-                                         <img class="d-block img-raised" src="https://images.unsplash.com/photo-1522600579804-c66aa476298e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80" alt="Third slide">
-                                     </div>
-                                     <div class="carousel-item">
-                                         <img class="d-block img-raised" src="https://images.unsplash.com/photo-1509239767605-0703ef611f08?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="Fourth slide">
-                                     </div>
-                                 </div>
-                                 <a class="carousel-control-prev" href="#productCarousel" role="button" data-slide="prev">
-                                     <button type="button" class="btn btn-primary btn-icon btn-round btn-sm" name="button">
-                                       <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                                     </button>
-                                 </a>
-                                 <a class="carousel-control-next" href="#productCarousel" role="button" data-slide="next">
-                                     <button type="button" class="btn btn-primary btn-icon btn-round btn-sm" name="button">
-                                       <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                                     </button>
-                                 </a>
+                <%= image_tag("children.jpeg") %>
+
                              </div>
 
 
@@ -134,9 +106,7 @@
           data-amount="500"
           data-locale="auto"></script>
 <% end %>
-<<<<<<< HEAD
 
-<%= render partial: 'asso' ,object: @asso %>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
 <div id="macarte" style="width:700px; height:300px"></div>
@@ -148,8 +118,6 @@
      }).addTo(carte);
             var marker = L.marker([<%= @asso.latitude %>, <%= @asso.longitude %>]).addTo(carte);
    </script>
-=======
->>>>>>> Marion
  <%= link_to "Envoyer un message ", new_asso_privates_message_path(params[:id]), class: "dropdown-item" %>
 <%= link_to "Voir la conversation ", asso_privates_message_path(params[:id]), class: "dropdown-item" %>
 
