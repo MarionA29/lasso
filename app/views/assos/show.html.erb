@@ -21,6 +21,18 @@ Mon assoooo
 
 <%= render partial: 'asso' ,object: @asso %>
 
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+<div id="macarte" style="width:700px; height:300px"></div>
+
+   <script>
+     var carte = L.map('macarte').setView([<%= @asso.latitude %>, <%= @asso.longitude %>], 15);
+     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+     }).addTo(carte);
+            var marker = L.marker([<%= @asso.latitude %>, <%= @asso.longitude %>]).addTo(carte);
+   </script>
  <%= link_to "Envoyer un message ", new_asso_privates_message_path(params[:id]), class: "dropdown-item" %>
 <%= link_to "Voir la conversation ", asso_privates_message_path(params[:id]), class: "dropdown-item" %>
 

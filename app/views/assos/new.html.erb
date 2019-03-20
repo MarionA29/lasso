@@ -2,17 +2,17 @@
 <%= form_tag url_for(action: 'create'),multipart: true, method: "post" do %>
 
 <div class="form-group">
-    <%= label_tag 'Nom de ton asso :' %>
+    <%= label_tag 'Nom de ton asso' %>
     <%= text_field_tag 'name', @asso.name, class: "form-control", placeholder:"Entre 3 et 14 caractères" %>
     <br />
 </div>
 <div class="form-group">
-    <%= label_tag 'Adresse de ton asso :' %>
+    <%= label_tag 'Adresse de ton asso' %>
     <%= text_field_tag 'address', @asso.address, class: "form-control", id:"address-input", placeholder:"145 Cours Lafayette 69006 Lyon" %>
     <br />
 </div>
 <div class="form-group">
-    <%= label_tag 'Description de ton association :' %>
+    <%= label_tag 'Description de ton association' %>
     <%= text_area_tag 'description', @asso.description, class: "form-control", placeholder:"Entre 20 et 2000 caractères"  %>
     <br />
 </div>
@@ -22,14 +22,16 @@
     <br />
 </div>
 <div class="form-group">
-    <%= label_tag 'Les infos pratiques :' %>
+    <%= label_tag 'Les infos pratiques' %>
     <%= text_area_tag 'infos', @asso.infos, class: "form-control", placeholder:"Horaires d'ouverture, site web, réseau sociaux..." %>
     <br />
 </div>
 
-    <h3>Ajouter des photos :</h3>
-
-<%= file_field_tag :picture1 %>
+    <h3>Ajouter vos photos :</h3>
+<div class="fileinput fileinput-new text-center" data-provides="fileinput">
+  <span class="btn btn-raised btn-round btn-default btn-file">
+Photos 1<%= file_field_tag :picture1 %>
+</div>
 <%= file_field_tag :picture2 %>
 <%= file_field_tag :picture3 %>
 <%= file_field_tag :picture4 %>
