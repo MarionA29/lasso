@@ -22,6 +22,4 @@ Mon assoooo
 <%= render partial: 'asso' ,object: @asso %>
 
  <%= link_to "Envoyer un message ", new_asso_privates_message_path(params[:id]), class: "dropdown-item" %>
-<%= link_to "Voir la conversation ", asso_privates_message_path(params[:id]), class: "dropdown-item" %>
-
-<br>
+<%= link_to "Voir la conversation ", asso_privates_message_privates_message_path(params[:id] , PrivateMessage.where(sender_id: current_user.id, recipient_id: Asso.find(params[:id]).owner_id).first.recipient_id, current_user.id), class: "dropdown-item" %>
