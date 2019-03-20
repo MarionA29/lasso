@@ -1,4 +1,8 @@
 class AssosController < ApplicationController
+  before_action :user_match, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create]
+
+
   def index
     if @assos = Asso.search(params[:term])
     else "puts not found"
@@ -65,8 +69,15 @@ class AssosController < ApplicationController
         @user.destroy
         redirect_to root_path
     end
-
-        def asso_params
+      def asso_params
           params.require(:asso).permit(:name, :description, :key_figures, :infos, :address, :term)
-        end
+      end
+
+    private
+    def user_match
+      @user = @asso.owner
+      unless current_user.id == @user.id
+        redirect_to event_index_path
+      end
+    end
   end
