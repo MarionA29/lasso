@@ -10,8 +10,8 @@ Rails.application.routes.draw do
 
   resources :privates_messages, except: [:show]
   resources :assos do
-  resources :privates_messages, only: [:new, :index] do
-  resources :privates_messages, only: [:show, :create]
+  resources :privates_messages, only: [:index] do
+  resources :privates_messages, only: [:show, :create, :new]
   end
 end
 

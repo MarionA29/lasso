@@ -8,7 +8,8 @@ class PrivatesMessagesController < ApplicationController
 
   def create
     @message = PrivateMessage.new
-    @message = PrivateMessage.create(sender_id:current_user.id ,
+
+    @message = PrivateMessage.create(sender_id: current_user.id ,
       'content' => params[:content],
       recipient_id: params[:privates_message_id] )
 
@@ -19,7 +20,7 @@ class PrivatesMessagesController < ApplicationController
       else
         # sinon, il render la view new (qui est celle sur laquelle on est déjà)
         flash[:alert] = "Ton message... !"
-        
+
       end
     end
 

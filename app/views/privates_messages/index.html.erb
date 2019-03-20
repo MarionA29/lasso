@@ -1,6 +1,7 @@
 <% content=[] %>
-<% @message_recipient.each do |recipient| %>
 <div class="col-md-4">
+<% @message_recipient.each do |recipient| %>
+
   <div class="card-image">
     <% if content.include?(user_info(recipient.sender_id).first_name)!= true %>
     <a href="/assos/<%=recipient.recipient_id%>/privates_messages/<%= recipient.sender_id %>/privates_messages/<%=current_user.id%>">
@@ -9,14 +10,11 @@
         <%= recipient.content %></a>
     <% end %>
   </div>
-</div>
-</div>
-<br>
 <% content << user_info(recipient.sender_id).first_name %>
 <% end %>
 <% contents=[] %>
 <% @message_sent.each do |sent| %>
-<div class="col-md-4">
+
   <div class="card-image">
     <% if contents.include?(user_info(sent.recipient_id).first_name)!= true %>
     <a href="/assos/<%=sent.sender_id%>/privates_messages/<%= sent.recipient_id %>/privates_messages/<%=current_user.id%>">
@@ -25,7 +23,8 @@
         <%= sent.content %></a>
     <% end %>
   </div>
-</div>
-</div>
+
 <% contents << user_info(sent.recipient_id).first_name %>
 <% end %>
+</div>
+</div>
