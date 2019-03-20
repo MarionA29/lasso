@@ -69,14 +69,16 @@ class AssosController < ApplicationController
         @user.destroy
         redirect_to root_path
     end
+
       def asso_params
           params.require(:asso).permit(:name, :description, :key_figures, :infos, :address, :term)
       end
 
     private
     def user_match
-      @user = @asso.owner
-      unless current_user.id == @user.id
+      @asso = User.find(owner_id= current_user.id)
+      @user = @asso.id
+      unless current_user.id == @user
         redirect_to event_index_path
       end
     end

@@ -14,6 +14,6 @@ class Admin::ValidationController < Admin::ApplicationController
   def update
       @asso = Asso.find(params[:id])
       @asso.update_attribute(:validated, params[:decision])
-      redirect_to admin_validation_path
+      redirect_to admin_root_path
   end
 end
