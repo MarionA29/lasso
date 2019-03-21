@@ -1,54 +1,15 @@
-<% i=0 %>
-<% while (@conversation_recipient.length > i || @conversation_sender.length > i)  %>
-<% if  @conversation_sender[i] != nil  %>
-<a class="pull-left"
-  <div class="avatar">
-    <%if @sender.profile_pic.attached? == true%>
-    <%= image_tag @sender.avatar %>
-    <% end %>
-  </div>
-</a>
-<div class="media-body">
-  <h5 class="media-heading"><%=  @sender.first_name  %> </h5>
-
-  <p> <%=  @conversation_sender[i].content  %></p>
-<% end  %>
+<div class="container" style="width:65%">
 
 
- <% if  @conversation_recipient[i] != nil %>
-
-<a class="pull-left" style="text-align: right;">
-  <div class="avatar">
-    <%if @sender.profile_pic.attached? == true%>
-    <%= image_tag @recipient.avatar %>
-    <% end %>  </div>
-
-
-
-<div class="media-body">
-  <h5 class="media-heading"> <%=  @recipient.first_name  %> </h5>
-
-  <p>  <%=  @conversation_recipient[i].content %></p>
-</a>
-<% end %>
-<% i+=1 %>
- <% end  %>
-
-
-
-
-
-<div class="container col-md-8 order-md-1">
-<%= form_tag url_for(action: 'create'),multipart: true,  method: "post" do %>
-
-<div class="form-group">
-    <%= text_area_tag 'content', @message.content, class: "form-control", placeholder:"Entre 20 et 2000 caractères"  %>
+<div class="container col-md-8 order-md-1" >
+  <%= form_tag url_for(action: 'create'),multipart: true,  method: "post" do %>
+  <div class="form-group">
+    <%= text_area_tag 'content', @message.content, class: "form-control", placeholder:"Entre 20 et 2000 caractères" %>
     <br />
+  </div>
+  <div class="form-group">
+    <%= submit_tag "Envoyer ton message", class: "btn btn-primary" %>
+  </div>
 </div>
-
-<div class="form-group">
-<%= submit_tag "Envoyer ton message", class: "btn btn-primary" %>
-</div>
-</div>
-
 <% end %>
+</div>

@@ -1,27 +1,33 @@
-<%i=1%>
-<%content=[]%>
-<%  @conversations.each do |conversation| %>
-<% if content.include?(conversation.recipient_id) != true %>
-<% content << conversation.recipient_id %>
-
+<% content=[] %>
 <div class="col-md-4">
+  <% @message_recipient.each do |recipient| %>
   <div class="card-image">
-    <a href="/assos/12/privates_messages/">
-      <% if info_asso(conversation).picture1.attached? == true %>
-      <%= image_tag resize(info_asso(conversation).picture1) %>
-      <% end %>
-    </a>
+    <% if content.include?(user_info(recipient.sender_id).first_name)!= true %>
+     <% if user_info(recipient.recipient_id).first_name == nil %>
+    <% name = "email: #{user_info(recipient.recipient_id).email}" %>
+    <% else %>
+    <% name= user_info(recipient.recipient_id).first_name %>
+    <% end %>
+    <%= link_to name, asso_privates_message_privates_message_path(recipient.sender_id ,recipient.sender_id, current_user.id), class:"btn btn-primary btn-outline-primary btn-round" %>
+    <% end %>
   </div>
+  <% content << name %>
+  <% end %>
 </div>
-<div class="col-md-8">
-  <h3 class="card-title">
-    <a href="/assos/<%=info_asso(conversation).id%>/privates_messages/<%=conversation.recipient_id%>"> <%= info_asso(conversation).name %></a>
-  </h3>
-  <p class="card-description">
-    <%= last_msg(conversation) %>
-  </p>
-
 </div>
-<% end %>
-<%i+=1%>
-<%end %>
+<% content_bis=[] %>
+<div class="col-md-4">
+  <% @message_sent.each do |sent| %>
+  <div class="card-image">
+    <% if content_bis.include?(user_info(sent.recipient_id).first_name)!= true  %>
+    <% if user_info(sent.recipient_id).first_name == nil %>
+    <% name = "email: #{user_info(sent.recipient_id).email}" %>
+    <% else %>
+    <% name = user_info(sent.recipient_id).first_name %>
+    <%end%>
+    <%= link_to name , asso_privates_message_privates_message_path(sent.sender_id ,sent.recipient_id, current_user.id), class:"btn btn-primary btn-outline-primary btn-round" %>
+    <% end %>
+  </div>
+  <% content_bis << name %>
+  <% end %>
+</div>
