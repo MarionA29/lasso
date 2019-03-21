@@ -18,8 +18,7 @@ before_action :authenticate_user!
       if @message.save # essaie de sauvegarder en base
         # si ça marche, il redirige vers la page d'index du site
         flash[:success] = "Ton message à bien été envoyé !"
-        redirect_to asso_privates_message_privates_message_path(params[:asso_id] , PrivateMessage.where(sender_id: current_user.id, recipient_id:  Asso.find(params[:asso_id]).owner_id).first.recipient_id, current_user.id)
-
+        redirect_to asso_privates_message_privates_message_path(params[:asso_id] , PrivateMessage.where(sender_id: current_user.id, recipient_id:  params[:asso_id]).first.recipient_id, current_user.id)
       else
         # sinon, il render la view new (qui est celle sur laquelle on est déjà)
         flash[:alert] = "Ton message... !"
