@@ -1,35 +1,37 @@
 
-<div class="container col-md-8 order-md-1">
+<div class="container col-md-8 order-md-1" style="background:white; padding:20px">
+  <h1>Créer mon asso</h1>
+
 <%= form_tag url_for(action: 'create'),multipart: true, method: "post" do %>
 
 <div class="form-group">
-    <span><h6><%= label_tag 'Nom de ton asso' %></h6><span>
+    <span><label><%= label_tag 'Nom de ton asso' %></label><span>
     <%= text_field_tag 'name', @asso.name, class: "form-control", placeholder:"Entre 3 et 14 caractères" %>
     <br />
 </div>
 <div class="form-group">
-    <span><h6><%= label_tag 'Adresse de ton asso' %></h6><span>
+    <span><label><%= label_tag 'Adresse de ton asso' %></label><span>
     <%= text_field_tag 'address', @asso.address, class: "form-control", id:"address-input", placeholder:"145 Cours Lafayette 69006 Lyon" %>
     <br />
 </div>
 <div class="form-group">
-    <span><h6><%= label_tag 'Description de ton association' %></h6><span>
+    <span><label><%= label_tag 'Description de ton association' %></label><span>
     <%= text_area_tag 'description', @asso.description, class: "form-control", placeholder:"Entre 20 et 2000 caractères"  %>
     <br />
 </div>
 <div class="form-group">
-    <span><h6><%= label_tag 'Tes chiffres clés' %></h6><span>
+    <span><label><%= label_tag 'Tes chiffres clés' %></label><span>
     <%= text_area_tag 'key_figures', @asso.key_figures, class: "form-control", placeholder:"Date de création, nombre d'employés..." %>
     <br />
 </div>
 <div class="form-group">
-    <span><h6><%= label_tag 'Les infos pratiques' %></h6><span>
+    <span><label><%= label_tag 'Les infos pratiques' %></label><span>
     <%= text_area_tag 'infos', @asso.infos, class: "form-control", placeholder:"Horaires d'ouvertures, site web, réseaux sociaux..." %>
     <br />
 </div>
 <div class="typography-line"
 
-    <span><h6>Ajouter vos photos : <small>(3 photos obligatoires)</small></h6></span>
+    <span><label>Ajouter vos photos : <small>(3 photos obligatoires)</small></label></span>
     <br>
   Photo 1 <%= file_field_tag :picture1 %><br><br>
   Photo 2 <%= file_field_tag :picture2 %><br><br>
@@ -41,7 +43,7 @@
 <center>
   <br>
 <div class="form-group">
-<%= submit_tag "Créer ton association", class: "btn btn-primary" %>
+<%= submit_tag "Créer ton association", class: "btn btn-info" %>
 </div>
 </div>
 
