@@ -40,7 +40,6 @@ body {
   margin-top: 35px;
   margin-left: 35px;
   margin-right: 35px;
-
 }
 .flex-container.asso{
   display: flex;
@@ -131,3 +130,4 @@ body {
 	position:absolute;
 	top:360px;
 	right:200px;
+}
