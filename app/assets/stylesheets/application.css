@@ -131,6 +131,6 @@ body {
 	top:360px;
 	right:200px;
 }
-footer {
-  position: absolute;
+.footer {
+  background-color: #3c3c3a;
 }
