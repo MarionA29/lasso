@@ -93,7 +93,14 @@
     display: block;
 }
 
-.float{
+.float-right{
+  position:absolute;
+  top:330px;
+  right:200px;
+}
+
+.float-pay{
 	position:absolute;
-	top:360px;
-	right:200px;
+	top:15px;
+	right:500px;
+}
