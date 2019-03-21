@@ -16,7 +16,7 @@ class NewsController < ApplicationController
     @new = New.create('title' => params[:title],
       'content' => params[:content],
       'date' => params[:date],
-      'asso_id' => params[:id])
+      'asso_id' => params[:asso_id])
 
       if @new.save
         @new.news_picture.attach(params[:news_picture])
