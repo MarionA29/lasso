@@ -148,9 +148,9 @@
 
                     <div class="form-group">
                       <% if PrivateMessage.where(sender_id: current_user.id, recipient_id:  Asso.find(params[:id]).owner_id).first != nil %>
-                        <%= link_to "Voir la conversation", asso_privates_message_privates_message_path(params[:id] , PrivateMessage.where(sender_id: current_user.id, recipient_id:  Asso.find(params[:id]).owner_id).first.recipient_id, current_user.id), class:"btn btn-primary btn-outline-primary btn-round" %>
+                        <%= link_to "Voir la conversation", asso_privates_message_privates_message_path(params[:id] , PrivateMessage.where(sender_id: current_user.id, recipient_id:  Asso.find(params[:id]).owner_id).first.recipient_id, current_user.id), class:"btn btn-primary btn-outline-primary" %>
                         <% else %>
-                        <%= link_to "Envoyer un message", new_asso_privates_message_privates_message_path(params[:id], Asso.find(params[:id]).owner_id, current_user.id ), class:"btn btn-primary btn-outline-primary btn-round"%>
+                        <%= link_to "Envoyer un message", new_asso_privates_message_privates_message_path(params[:id], Asso.find(params[:id]).owner_id, current_user.id ), class:"btn btn-primary btn-outline-primary"%>
                         <% end %>
                     </div>
                   </form>
@@ -210,7 +210,7 @@
   </a>
 
 
-      <%= link_to "Éditer", edit_asso_path, class:"float-right btn btn-primary btn-round btn-lg"%>
+      <%= link_to "Éditer", edit_asso_path, class:"float-right btn btn-primary btn-lg"%>
 
 
 
