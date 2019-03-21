@@ -17,10 +17,6 @@ def welcome_send
   AdminMailer.new_user_email(self).deliver_now
 end
 =end
-def set_default_profile_pic
-  downloaded_image = (open('user.png'))
-  self.profile_pic.attach(io: downloaded_image, filename: 'user.png')
-end
   def avatar
     return self.profile_pic.variant(resize: '100x100')
   end
