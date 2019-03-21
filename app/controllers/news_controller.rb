@@ -27,17 +27,24 @@ class NewsController < ApplicationController
         # sinon, il render la view new (qui est celle sur laquelle on est déjà)
         render 'new'
       end
+    end
+
+    def edit
+      @new = New.find(params[:id])
+    end
+
+    def update
+      @new = New.find(params[:id])
+      post_params = params.require(:new).permit(:title, :content)
+
+      @asso.update(post_params)
+      if @asso.update(post_params)
+        redirect_to  user_path(current_user.id)
+      else
+      end
+
+    end
+
+    def destroy
+    end
   end
-
-  def edit
-    @new = New.where(id: params[:id])
-  end
-
-  def update
-
-
-  end
-
-  def destroy
-  end
-end
