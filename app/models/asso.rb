@@ -18,7 +18,7 @@ after_validation :geocode
 
 def self.search(term)
  if term
-   where('name LIKE ?', "%#{term}%")
+   where('name ILIKE ?', "%#{term}%")
  else
    order('id DESC')
  end

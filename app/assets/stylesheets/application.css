@@ -25,3 +25,112 @@
 body {
   background-color: #EDEBEB;
 }
+.row.landing
+{
+  display: flex;
+  flex-wrap: nowrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.row.asso-index
+{
+  display: flex;
+  justify-content: space-evenly;
+  justify-content: space-between;
+  margin-top: 35px;
+  margin-left: 35px;
+  margin-right: 35px;
+}
+.flex-container.asso{
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+  margin-top: 5px;
+}
+
+.btn.flex-container.asso{
+  border-radius:0px;
+}
+.card.asso{
+  width:20rem;
+  border-style:solid;
+}
+.card-body.asso
+{
+  padding:0rem;
+}
+
+.card-text
+{
+  margin-left:15px;
+  margin-right:15px;
+}
+
+.btn-default
+{
+
+}
+
+.d-block {
+  width: 20rem;
+  height: 15rem;
+}
+.btn-info {
+  color: #FFF;
+  padding: 11px 15px;
+  margin: 5px 2px;
+}
+.btn-warning {
+  color: #FFF;
+  padding: 11px 15px;
+  margin: 5px 2px;
+}
+.has-search .form-control {
+  margin-left: 45px;
+  margin-right: 45px;
+  margin-top: 20px;
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+  margin-left: 45px;
+  margin-right: 45px;
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+.float{
+	position:absolute;
+	top:360px;
+	right:200px;
+}
+.footer {
+  background-color: #3c3c3a;
+}
