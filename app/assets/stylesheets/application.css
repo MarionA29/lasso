@@ -134,3 +134,6 @@ body {
 .footer {
   background-color: #3c3c3a;
 }
+.alert {
+  margin-bottom: 0rem;
+}
