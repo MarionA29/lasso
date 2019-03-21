@@ -11,9 +11,9 @@
 
         <div class="photo-container" style="width:150px; height:150px">
           <%if @user.profile_pic.attached? == true%>
-          <%= image_tag @user.avatar %>
+          <%= image_tag @user.profile_pic %>
           <% else %>
-          <%= image_tag("user.png", class: "img") %>
+          <%= image_tag("user.png") %>
         <% end %>
         </div>
 
