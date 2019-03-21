@@ -10,8 +10,6 @@ class User < ApplicationRecord
   #after_create :welcome_send
 
   has_one_attached :profile_pic
-
-  before_create :set_default_profile_pic
   has_many :sent_messages, foreign_key: 'sender_id', class_name: "PrivateMessage"
   has_many :received_messages, foreign_key: 'recipient_id', class_name: "PrivateMessage"
 =begin
@@ -24,5 +22,4 @@ end
   def avatar
     return self.profile_pic.variant(resize: '200x200')
   end
-
 end
