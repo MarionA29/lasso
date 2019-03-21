@@ -1,4 +1,5 @@
 class PrivatesMessagesController < ApplicationController
+before_action :authenticate_user!
 
   def new
     @message = PrivateMessage.new

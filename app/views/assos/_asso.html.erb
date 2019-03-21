@@ -1,5 +1,5 @@
-<div class="card" >
-  <div   class="card-body">
+<div class="card asso" >
+  <div class="card-body asso">
   <a href="/assos/<%= asso.id %>"> <h4 class="card-text"><%=asso.name%></h4></a>
     <p class="card-text"><%= asso.address %></p>
     <div class="carousel">
@@ -32,31 +32,29 @@
     </div>
     </div>
 
-    <div class="flex-container">
+    <div class="flex-container asso">
 
-      <button type="button" class="btn btn-info" data-container="body"  data-trigger="hover click" data-original-title="chiffres cles" data-toggle="popover" data-placement="top" data-content="<%=asso.key_figures%>">
+      <button type="button" class="btn btn-info" data-container="body"  data-trigger="hover click" data-original-title="DESCRIPTION" data-toggle="popover" data-placement="top" data-content="<%=asso.description%>">
         <i class="fas fa-home fa"></i>
       </button>
-      <button type="button" class="btn btn-info" data-container="body" data-trigger="hover click"  data-original-title="information de base" data-toggle="popover" data-placement="top" data-content="<%=asso.infos%>">
+      <button type="button" class="btn btn-info" data-container="body" data-trigger="hover click"  data-original-title="SERVICES" data-toggle="popover" data-placement="top" data-content="<%=asso.infos%>">
         <i class="fas fa-user-cog"></i>
       </button>
-      <button type="button" class="btn btn-warning" data-container="body" data-trigger="hover click"  data-original-title="adresse" data-toggle="popover" data-placement="top" data-content="<%=asso.address%>">
+      <button type="button" class="btn btn-warning" data-container="body" data-trigger="hover click"  data-original-title="NEWS" data-toggle="popover" data-placement="top" data-content="<%=asso.address%>">
         <i class="far fa-newspaper"></i>
       </button>
-      <button type="button" class="btn btn-info" data-container="body" data-trigger="hover click" data-original-title="Popover on Top" data-toggle="popover" data-placement="top" data-content="hello">
+      <button type="button" class="btn btn-info" data-container="body" data-trigger="hover click" data-original-title="INFOS PRATIQUES" data-toggle="popover" data-placement="top" data-content="<%=asso.infos%>">
         <i class="fas fa-info-circle"></i>
       </button>
-      <button type="button" class="btn btn-info" data-container="body" data-trigger="hover click" data-original-title="Popover on Top" data-toggle="popover" data-placement="top" data-content="Here will be some very useful information about his popover.">
+      <button type="button" class="btn btn-info" data-container="body" data-trigger="hover click" data-original-title="CHIFFRES CLES" data-toggle="popover" data-placement="top" data-content="<%=asso.key_figures%>">
         <i class="fas fa-address-card"></i>
       </button>
-      <button type="button" class="btn btn-info" data-container="body" data-trigger="hover click" data-original-title="Popover on Top" data-toggle="popover" data-placement="top" data-content="Here will be some very useful information about his popover.">
+      <button type="button" class="btn btn-info" data-container="body" data-trigger="hover click" data-original-title="SITE WEB" data-toggle="popover" data-placement="top" data-content="<%=asso.address%>">
         <i class="fas fa-location-arrow"></i>
       </button>
-
     </div>
   </div>
 </div>
-
 <script type="text/javascript">
   $('.carousel').carousel({
   interval: false
