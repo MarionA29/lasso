@@ -16,7 +16,7 @@ class NewsController < ApplicationController
     @new = New.create('title' => params[:title],
       'content' => params[:content],
       'date' => params[:date],
-      'asso_id' => @asso.id)
+      'asso_id' => params[:id])
 
       if @new.save
         #Attach picture to do
@@ -30,9 +30,12 @@ class NewsController < ApplicationController
   end
 
   def edit
+    @new = New.where(id: params[:id])
   end
 
   def update
+
+
   end
 
   def destroy
