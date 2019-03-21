@@ -1,8 +1,8 @@
 
 <body class="product-page sidebar-collapse">
   <div class="wrapper">
-    <div class="page-header page-header-mini" filter-color="orange">
-      <div class="page-header-image" data-parallax="true" style="background-image: url(''); filter: grayscale(80%) blur(1px)">
+    <div class="page-header page-header-mini">
+      <div class="page-header-image" data-parallax="true" style="background-image: url('https://images.unsplash.com/photo-1509697452888-7cdcf2c98813?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'); filter: grayscale(80%) blur(1px)">
       </div>
     </div>
 
@@ -17,12 +17,12 @@
               <% if @asso.picture1.attached? == true %>
               <%= image_tag @asso.picture1 %>
               <% else %>
-              <%= image_tag ('children.jpeg')%>
+              <%= image_tag ('logo-tuba.png')%>
               <% end %>
             </div>
 
 
-            <p class="blockquote blockquote-primary">
+            <p class="blockquote blockquote">
               "Moto de l'association, à intégrer au moment de la création de l'association ou à éditer dans la page édit. "<br><br>
               <small><%= @asso.owner.first_name%> <%= @asso.owner.last_name%></small>
             </p>
@@ -94,13 +94,11 @@
         <div class="row">
           <div class="col-md-4 ml-auto mr-auto">
 
-
-            <div class="image-container image-left">
-
+            <div class="image-container image-left" style="height:298px;">
               <% if @asso.picture2.attached? == true %>
-              <%= image_tag @asso.picture2 %>
+              <%= image_tag @asso.picture2, :class => "image-container" %>
               <% else %>
-              <%= image_tag ('children.jpeg')%>
+              <%= image_tag ('giving_hand.jpeg'), :class => "image-container" %>
               <% end %>
               <!-- First image on the left side -->
               <p class="blockquote blockquote-primary">"Super expérience au Tuba ! Une super équipe et un super lieu de travail."
@@ -110,26 +108,28 @@
               </p>
             </div>
             <!-- Second image on the left side of the article -->
-            <div class="image-container" style="background-image: url('../assets/img/bg29.jpg')">
+            <div class="image-container" style="height:auto;">
               <% if @asso.picture3.attached? == true %>
-              <%= image_tag @asso.picture3 %>
+              <%= image_tag @asso.picture3, :class => "image-container"  %>
               <% else %>
-              <%= image_tag ('children.jpeg')%>
+              <%= image_tag ('hands.jpeg'), :class => "image-container" %>
               <% end %></div>
 
             </div>
             <div class="col-md-4 ml-auto mr-auto">
               <!-- First image on the right side, above the article -->
-              <div class="image-container image-right"  style="background-image: url('../assets/img/pp-4.jpg')">
+              <div class="image-container image-right"style="height:298px;">
                 <% if @asso.picture4.attached? == true %>
-                <%= image_tag @asso.picture4 %>
+                <%= image_tag @asso.picture4, :class => "image-container" %>
                 <% else %>
-                <%= image_tag ('children.jpeg')%>
+                <%= image_tag ('gens_contents.jpeg'), :class => "image-container" %>
                 <% end %></div>
-                <h3>Évènement du 19 mars - Apprendre par le jeu</h3>
-                <p>
+                <h3>Le Tuba c'est quoi?</h3>
+                <p>Le TUBÀ, lieu d’innovation et d’expérimentation pour la ville de demain, est porté par l’association Lyon Urban Data. Il favorise l’innovation, l’incubation et le développement de services urbains s’appuyant sur les données numériques privées et publiques.
                 </p>
                 <p>
+                  L’association fédère quarante partenaires publics et privés et met en avant une démarche collaborative et participative. Il s’y rencontre collectivités, grands groupes, PME, startup, laboratoires de recherches et citoyens pour collaborer au sein du TUBÀ pour concevoir et expérimenter des solutions innovantes afin de bien vivre en ville.
+
                 </p>
               </div>
             </div>
@@ -187,7 +187,7 @@
   var marker = L.marker([<%= @asso.latitude %>, <%= @asso.longitude %>]).addTo(carte);
   </script>
 
-  <a class="float">
+  <a class="float-pay">
       <%= form_tag subscriptions_path do %>
       <article>
         <% if flash[:error].present? %>
@@ -197,7 +197,7 @@
         <% end %>
       </article>
 
-        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button float-pay"
         data-label="Payer la souscription"
         data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
         data-image=""
@@ -208,4 +208,10 @@
         </script>
       <% end %>
   </a>
+
+
+      <%= link_to "Éditer", edit_asso_path, class:"float-right btn btn-primary btn-round btn-lg"%>
+
+
+
 </body>

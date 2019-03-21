@@ -1,30 +1,33 @@
 <% content=[] %>
 <div class="col-md-4">
-<% @message_recipient.each do |recipient| %>
-
+  <% @message_recipient.each do |recipient| %>
   <div class="card-image">
     <% if content.include?(user_info(recipient.sender_id).first_name)!= true %>
-    <a href="/assos/<%=recipient.recipient_id%>/privates_messages/<%= recipient.sender_id %>/privates_messages/<%=current_user.id%>">
-      <div class="media-body" style="background-color: #d7d7d7; border-radius: 10px; margin-right:20%">
-        <h5 class="media-heading" style="margin-left:1.5%;" ><%=  user_info(recipient.sender_id).first_name  %> </h5>
-        </a>
+     <% if user_info(recipient.recipient_id).first_name == nil %>
+    <% name = "email: #{user_info(recipient.recipient_id).email}" %>
+    <% else %>
+    <% name= user_info(recipient.recipient_id).first_name %>
+    <% end %>
+    <%= link_to name, asso_privates_message_privates_message_path(recipient.sender_id ,recipient.sender_id, current_user.id), class:"btn btn-primary btn-outline-primary btn-round" %>
     <% end %>
   </div>
-<% content << user_info(recipient.sender_id).first_name %>
-<% end %>
-<% contents=[] %>
-<% @message_sent.each do |sent| %>
-
-  <div class="card-image">
-    <% if contents.include?(user_info(sent.recipient_id).first_name)!= true %>
-    <a href="/assos/<%=sent.sender_id%>/privates_messages/<%= sent.recipient_id %>/privates_messages/<%=current_user.id%>">
-      <div class="media-body" style="background-color: #d7d7d7; border-radius: 10px; margin-right:20%">
-        <h5 class="media-heading" style="margin-left:1.5%;" >  <%= user_info(sent.recipient_id).first_name %></h5>
-        </a>
-    <% end %>
-  </div>
+  <% content << name %>
+  <% end %>
 </div>
-
-<% contents << user_info(sent.recipient_id).first_name %>
-<% end %>
+</div>
+<% content_bis=[] %>
+<div class="col-md-4">
+  <% @message_sent.each do |sent| %>
+  <div class="card-image">
+    <% if content_bis.include?(user_info(sent.recipient_id).first_name)!= true  %>
+    <% if user_info(sent.recipient_id).first_name == nil %>
+    <% name = "email: #{user_info(sent.recipient_id).email}" %>
+    <% else %>
+    <% name = user_info(sent.recipient_id).first_name %>
+    <%end%>
+    <%= link_to name , asso_privates_message_privates_message_path(sent.sender_id ,sent.recipient_id, current_user.id), class:"btn btn-primary btn-outline-primary btn-round" %>
+    <% end %>
+  </div>
+  <% content_bis << name %>
+  <% end %>
 </div>
