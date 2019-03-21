@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+  get 'news/index'
+  get 'news/show'
+  get 'news/new'
+  get 'news/create'
+  get 'news/edit'
+  get 'news/update'
+  get 'news/destroy'
   match "/404", :to => "errors#not_found", :via => :all
   match "/500", :to => "errors#internal_server_error", :via => :all
   root 'assos#index'
