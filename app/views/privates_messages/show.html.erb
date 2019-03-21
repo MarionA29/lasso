@@ -1,35 +1,59 @@
+
+
+
 <% i=0 %>
-<% while (@conversation_recipient.length > i || @conversation_sender.length > i)  %>
-<% if  @conversation_sender[i] != nil  %>
-<a class="pull-left" href="#pablo">
-  <div class="avatar">
-    <%if @sender.profile_pic.attached? == true%>
-    <%= image_tag @sender.avatar %>
+<% while (@all_message_recipient.length > i || @all_message_sender.length > i)  %>
+
+<div  class="container col-md-8 order-md-1" ">
+  <div class="picture" style="float:left;">
+    <%if @recipient.profile_pic.attached? == true &&  @all_message_recipient[i] != nil  %>
+    <%= image_tag @recipient.profile_pic , class:"rounded-circle " ,style:"max-width:100px;"%>
     <% end %>
   </div>
-</a>
-<div class="media-body">
-  <h5 class="media-heading"><%=  @sender.first_name  %> </h5>
+</div>
+<div class="container" style=" width:83%">
+  <div class="container col-md-7 order-md-1" >
+    <% if  @all_message_recipient[i] != nil  %>
+    <div class="media-body" style="background-color: #d7d7d7; border-radius: 10px; margin-right:20%">
+      <h5 class="media-heading" style="margin-left:1.5%;" ><%=  @recipient.first_name  %> </h5>
+      <p style="margin-left:5%;"> <%= @all_message_recipient[i].content  %></p>
+      <p>recipient</p>
+    </div>
+    <% end  %>
+  </div>
+</div>
 
-  <p> <%=  @conversation_sender[i].content  %></p>
-<% end  %>
+<div  class="container col-md-5 order-md-1" ">
+  <div class="picture" style="float:right;">
+    <%if @sender.profile_pic.attached? == true &&  @all_message_sender[i] != nil  %>
+    <%= image_tag @sender.profile_pic, class:"rounded-circle " ,style:"max-width:100px;"%>
+    <% end %>
+  </div>
+  <div class="container" style=" width:100%">
+    <div class="container col-md-10 order-md-1" >
+      <% if  @all_message_sender[i] != nil  %>
+      <div class="media-body" style="background-color: #d7d7d7; border-radius: 10px; margin-right:20%">
+        <h5 class="media-heading" style="margin-left:1.5%;" ><%=  @sender.first_name  %> </h5>
+        <p style="margin-left:5%;"> <%= @all_message_sender[i].content  %></p>
+        <p>sender</p>
+      </div>
+      <% end  %>
+    </div>
+  </div>
+</div>
 
 
- <% if  @conversation_recipient[i] != nil %>
-
-<a class="pull-left" style="text-align: right;">
-  <div class="avatar">
-    <%if @sender.profile_pic.attached? == true%>
-    <%= image_tag @recipient.avatar %>
-    <% end %>  </div>
-
-
-
-<div class="media-body">
-  <h5 class="media-heading"> <%=  @recipient.first_name  %> </h5>
-
-  <p>  <%=  @conversation_recipient[i].content %></p>
-</a>
+  <%i+=1%>
+  <%end %>
+  <%= @all_message_sender.length %>
+<div  class="container col-md-5 order-md-1" ">
+  <%= form_tag url_for(action: 'create'),multipart: true,  method: "post" do %>
+  <div class="form-group">
+    <%= text_area_tag 'content', @message.content, class: "form-control", placeholder:"Entre 20 et 2000 caractères" %>
+    <br />
+  </div>
+  <div class="form-group">
+    <%= submit_tag "Envoyer ton message", class: "btn btn-primary" %>
+  </div>
+  </div>
 <% end %>
-<% i+=1 %>
- <% end  %>

@@ -18,8 +18,7 @@ def welcome_send
   AdminMailer.new_user_email(self).deliver_now
 end
 =end
-
   def avatar
-    return self.profile_pic.variant(resize: '200x200')
+    return self.profile_pic.variant(resize: '100x100')
   end
 end
