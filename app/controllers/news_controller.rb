@@ -16,9 +16,10 @@ class NewsController < ApplicationController
     @new = New.create('title' => params[:title],
       'content' => params[:content],
       'date' => params[:date],
-      'asso_id' => @asso.id)
+      'asso_id' => params[:id])
 
       if @new.save
+        @new.news_picture.attach(params[:news_picture])
         #Attach picture to do
         flash[:success] = "Ta news a bien été créée !"
         redirect_to root_path
@@ -27,14 +28,24 @@ class NewsController < ApplicationController
         # sinon, il render la view new (qui est celle sur laquelle on est déjà)
         render 'new'
       end
-  end
+    end
 
-  def edit
-  end
+    def edit
+      @new = New.find(params[:id])
+    end
 
-  def update
-  end
+    def update
+      @new = New.find(params[:id])
+      post_params = params.require(:new).permit(:title, :content)
 
-  def destroy
+      @asso.update(post_params)
+      if @asso.update(post_params)
+        redirect_to  user_path(current_user.id)
+      else
+      end
+
+    end
+
+    def destroy
+    end
   end
-end

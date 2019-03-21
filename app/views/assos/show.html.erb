@@ -1,4 +1,4 @@
-
+<% if  @asso.validated == true || @asso.owner_id == current_user.id %>
 <body class="product-page sidebar-collapse">
   <div class="wrapper">
     <div class="page-header page-header-mini">
@@ -188,7 +188,7 @@
   var marker = L.marker([<%= @asso.latitude %>, <%= @asso.longitude %>]).addTo(carte);
   </script>
 
-  <%if Asso.where(owner_id: current_user.id ).first != nil && @asso.subscription != nil %>
+  <%if Asso.where(owner_id: current_user.id ).first.id == Asso.find(params[:id]).id && @asso.subscription == nil %>
 
   <a class="float-pay">
       <%= form_tag subscriptions_path do %>
@@ -214,10 +214,10 @@
   <% end %>
 
 
-  <%if Asso.where(owner_id: current_user.id ).first != nil %>
+  <%if Asso.where(owner_id: current_user.id ).first.id == Asso.find(params[:id]).id %>
       <%= link_to "Éditer ma page asso", edit_asso_path, class:"float-right btn btn-info btn-lg"%>
       <% end %>
 
 
-
+<% end %>
 </body>

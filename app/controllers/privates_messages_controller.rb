@@ -1,5 +1,5 @@
 class PrivatesMessagesController < ApplicationController
-before_action :authenticate_user!
+  before_action :authenticate_user!
 
 
   def new
@@ -12,12 +12,12 @@ before_action :authenticate_user!
     @message = PrivateMessage.new
     if PrivateMessage.where(sender_id: current_user.id, recipient_id:  params[:asso_id]).first != nil
 
-    rende = PrivateMessage.where(sender_id: current_user.id, recipient_id:  params[:asso_id]).first.recipient_id
-  else
-    rende = PrivateMessage.where(sender_id: current_user.id, recipient_id: Asso.find(params[:asso_id]).owner_id).first.recipient_id
-end
+      rende = PrivateMessage.where(sender_id: current_user.id, recipient_id:  params[:asso_id]).first.recipient_id
+    else
+      rende = PrivateMessage.where(sender_id: current_user.id, recipient_id: Asso.find(params[:asso_id]).owner_id).first.recipient_id
+    end
 
-
+    
 
     @message = PrivateMessage.create(sender_id: current_user.id ,
       'content' => params[:content],
@@ -53,7 +53,7 @@ end
       @message_sent= PrivateMessage.where(sender_id: current_user.id)
 
     end
- end
- def user_info(object)
-   return User.find(object)
- end
+  end
+  def user_info(object)
+    return User.find(object)
+  end
