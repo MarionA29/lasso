@@ -51,32 +51,28 @@
               <div class="card card-plain">
                 <div class="card-header" role="tab" id="headingTwo">
                   <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Détails
+                    Chiffres clés
                     <i class="fas fa-chevron-down"></i>
                   </a>
                 </div>
                 <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
                   <div class="card-body">
-                    <p>An infusion of West Coast cool and New York attitude, Rebecca Minkoff is synonymous with It girl style. Minkoff burst on the fashion scene with her best-selling 'Morning After Bag' and later expanded her offering with the Rebecca Minkoff Collection - a range of luxe city staples with a "downtown romantic" theme.</p>
+                    <p><%=  @asso.key_figures %></p>
                   </div>
                 </div>
               </div>
               <div class="card card-plain">
                 <div class="card-header" role="tab" id="headingThree">
                   <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Services proposés
+                    Infos pratiques
                     <i class="fas fa-chevron-down"></i>
                   </a>
                 </div>
                 <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
                   <div class="card-body">
-                    <ul>
-                      <li>Storm and midnight-blue stretch cotton-blend</li>
-                      <li>Notch lapels, functioning buttoned cuffs, two front flap pockets, single vent, internal pocket</li>
-                      <li>Two button fastening</li>
-                      <li>84% cotton, 14% nylon, 2% elastane</li>
-                      <li>Dry clean</li>
-                    </ul>
+
+                    <p>  <%=  @asso.infos %></p>
+
                   </div>
                 </div>
               </div>
@@ -91,24 +87,24 @@
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto text-center mr-5">
           <h2 class="title">Ce qu'on y fait</h2>
-          <h4 class="description">You need more information? Check what other persons are saying about our product. They are very happy with their purchase.</h4>
+          <h4 class="description">Besoin de plus d'informations? Regardez ce qu'en pensent les gens avec qui on travaille !</h4>
         </div>
       </div>
       <div class="section-story-overview">
         <div class="row">
           <div class="col-md-4 ml-auto mr-auto">
 
-            <div class="image-container image-left" style="background-image: url('../assets/img/pp-5.jpg')">
+            <div class="image-container image-left">
               <% if @asso.picture2.attached? == true %>
               <%= image_tag @asso.picture2 %>
               <% else %>
               <%= image_tag ('children.jpeg')%>
               <% end %>
               <!-- First image on the left side -->
-              <p class="blockquote blockquote-primary">"Over the span of the satellite record, Arctic sea ice has been declining significantly, while sea ice in the Antarctichas increased very slightly"
+              <p class="blockquote blockquote-primary">"Super expérience au Tuba ! Une super équipe et un super lieu de travail."
                 <br>
                 <br>
-                <small> - NOAA</small>
+                <small> - Lucie</small>
               </p>
             </div>
             <!-- Second image on the left side of the article -->
@@ -128,10 +124,11 @@
                 <% else %>
                 <%= image_tag ('children.jpeg')%>
                 <% end %></div>
-                <h3>So what does the new record for the lowest level of winter ice actually mean</h3>
-                <p>The Arctic Ocean freezes every winter and much of the sea-ice then thaws every summer, and that process will continue whatever happens with climate change. Even if the Arctic continues to be one of the fastest-warming regions of the world, it will always be plunged into bitterly cold polar dark every winter. And year-by-year, for all kinds of natural reasons, there’s huge variety of the state of the ice.
+                <h3>Évènement du 19 mars - Apprendre par le jeu</h3>
+                <p>
                 </p>
-                <p>For a start, it does not automatically follow that a record amount of ice will melt this summer. More important for determining the size of the annual thaw is the state of the weather as the midnight sun approaches and temperatures rise. But over the more than 30 years of satellite records, scientists have observed a clear pattern of decline, decade-by-decade.</p>
+                <p>
+                </p>
               </div>
             </div>
           </div>
@@ -143,16 +140,16 @@
               <div class="row">
                 <div class="col-md-5 ml-auto mr-auto">
                   <h2 class="title">Nous contacter</h2>
-                  <p class="description">You can contact us with anything related to our Products. We'll get in touch with you as soon as possible.<br><br>
+                  <p class="description">N'hésitez pas à nous contacter pour toute information sur nos activités.<br><br>
                   </p>
                   <form role="form" id="contact-form" method="post">
 
                     <div class="form-group">
-                      <label>Your message</label>
+                      <label>Votre message</label>
                       <textarea name="message" class="form-control" id="message" rows="6"></textarea>
                     </div>
                     <div class="submit text-center">
-                      <input type="submit" class="btn btn-primary btn-raised btn-round" value="Contact Us" />
+                      <input type="submit" class="btn btn-primary btn-raised btn-round" value="Envoyer" />
                     </div>
                   </form>
                 </div>
