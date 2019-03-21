@@ -1,13 +1,13 @@
-
-
-
 <% i=0 %>
 <% while (@all_message_recipient.length > i || @all_message_sender.length > i)  %>
-
 <div  class="container col-md-8 order-md-1" ">
   <div class="picture" style="float:left;">
     <%if @recipient.profile_pic.attached? == true &&  @all_message_recipient[i] != nil  %>
-    <%= image_tag @recipient.profile_pic , class:"rounded-circle " ,style:"max-width:100px;"%>
+    <%= image_tag @recipient.profile_pic , class:"rounded-circle " ,style:"max-width:70px;"%>
+    <% else %>
+    <% if @all_message_recipient[i] != nil %>
+     <%= image_tag "user.png", class:"rounded-circle" ,style:"max-width:70px;" %>
+     <% end %>
     <% end %>
   </div>
 </div>
@@ -22,11 +22,14 @@
     <% end  %>
   </div>
 </div>
-
 <div  class="container col-md-5 order-md-1" ">
   <div class="picture" style="float:right;">
     <%if @sender.profile_pic.attached? == true &&  @all_message_sender[i] != nil  %>
-    <%= image_tag @sender.profile_pic, class:"rounded-circle " ,style:"max-width:100px;"%>
+    <%= image_tag @sender.profile_pic, class:"rounded-circle " ,style:"max-width:70px;"%>
+    <% else %>
+    <% if @all_message_sender[i] != nil %>
+    <%= image_tag "user.png", class:"rounded-circle" ,style:"max-width:70px;" %>
+    <% end %>
     <% end %>
   </div>
   <div class="container" style=" width:100%">
@@ -41,11 +44,9 @@
     </div>
   </div>
 </div>
-
-
-  <%i+=1%>
-  <%end %>
-  <%= @all_message_sender.length %>
+<%i+=1%>
+<%end %>
+<%= @all_message_sender.length %>
 <div  class="container col-md-5 order-md-1" ">
   <%= form_tag url_for(action: 'create'),multipart: true,  method: "post" do %>
   <div class="form-group">
@@ -55,5 +56,5 @@
   <div class="form-group">
     <%= submit_tag "Envoyer ton message", class: "btn btn-primary" %>
   </div>
-  </div>
+</div>
 <% end %>

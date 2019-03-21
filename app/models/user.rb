@@ -20,7 +20,7 @@ end
 =end
 
   def avatar
-    return self.profile_pic.variant(resize: '100x100')
+    return self.profile_pic
   end
 
 end
