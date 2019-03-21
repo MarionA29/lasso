@@ -19,6 +19,7 @@ class NewsController < ApplicationController
       'asso_id' => params[:id])
 
       if @new.save
+        @new.news_picture.attach(params[:news_picture])
         #Attach picture to do
         flash[:success] = "Ta news a bien été créée !"
         redirect_to root_path
