@@ -131,3 +131,6 @@ body {
 	top:360px;
 	right:200px;
 }
+footer {
+  position: absolute;
+}
