@@ -1,6 +1,6 @@
 
-<% if Subscription.where(asso_id: asso.id).first != nil && asso.validated == true  %>
-<% if Subscription.where(asso_id: asso.id).first.stripe_customer_id != nil %>
+<% if  asso.validated == true  %>
+
 <div class="card asso" >
   <div class="card-body asso">
 
@@ -60,7 +60,7 @@
   </div>
 </div>
 
-<% end %>
+
 <% end %>
 <script type="text/javascript">
   $('.carousel').carousel({
