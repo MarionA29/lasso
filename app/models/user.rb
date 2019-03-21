@@ -22,7 +22,7 @@ def set_default_profile_pic
   self.profile_pic.attach(io: downloaded_image, filename: 'user.png')
 end
   def avatar
-    return self.profile_pic.variant(resize: '200x200')
+    return self.profile_pic.variant(resize: '100x100')
   end
 
 end

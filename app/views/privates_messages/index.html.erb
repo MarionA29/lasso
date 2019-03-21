@@ -1,27 +1,30 @@
-<%i=1%>
-<%content=[]%>
-<%  @conversations.each do |conversation| %>
-<% if content.include?(conversation.recipient_id) != true %>
-<% content << conversation.recipient_id %>
-
+<% content=[] %>
 <div class="col-md-4">
+<% @message_recipient.each do |recipient| %>
+
   <div class="card-image">
-    <a href="/assos/12/privates_messages/">
-      <% if info_asso(conversation).picture1.attached? == true %>
-      <%= image_tag resize(info_asso(conversation).picture1) %>
-      <% end %>
-    </a>
+    <% if content.include?(user_info(recipient.sender_id).first_name)!= true %>
+    <a href="/assos/<%=recipient.recipient_id%>/privates_messages/<%= recipient.sender_id %>/privates_messages/<%=current_user.id%>">
+      <div class="media-body" style="background-color: #d7d7d7; border-radius: 10px; margin-right:20%">
+        <h5 class="media-heading" style="margin-left:1.5%;" ><%=  user_info(recipient.sender_id).first_name  %> </h5>
+        </a>
+    <% end %>
+  </div>
+<% content << user_info(recipient.sender_id).first_name %>
+<% end %>
+<% contents=[] %>
+<% @message_sent.each do |sent| %>
+
+  <div class="card-image">
+    <% if contents.include?(user_info(sent.recipient_id).first_name)!= true %>
+    <a href="/assos/<%=sent.sender_id%>/privates_messages/<%= sent.recipient_id %>/privates_messages/<%=current_user.id%>">
+      <div class="media-body" style="background-color: #d7d7d7; border-radius: 10px; margin-right:20%">
+        <h5 class="media-heading" style="margin-left:1.5%;" >  <%= user_info(sent.recipient_id).first_name %></h5>
+        </a>
+    <% end %>
   </div>
 </div>
-<div class="col-md-8">
-  <h3 class="card-title">
-    <a href="/assos/<%=info_asso(conversation).id%>/privates_messages/<%=conversation.recipient_id%>"> <%= info_asso(conversation).name %></a>
-  </h3>
-  <p class="card-description">
-    <%= last_msg(conversation) %>
-  </p>
 
-</div>
+<% contents << user_info(sent.recipient_id).first_name %>
 <% end %>
-<%i+=1%>
-<%end %>
+</div>

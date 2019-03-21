@@ -9,6 +9,7 @@
     </div>
 
 
+
     <div class="section">
       <div class="container">
         <div class="row">
@@ -28,6 +29,7 @@
               <small><%= @asso.owner.first_name%> <%= @asso.owner.last_name%></small>
             </p>
           </div>
+
 
           <div class="col-md-6 ml-auto mr-auto">
             <h2 class="title"><%= @asso.name%></h2>
@@ -94,7 +96,9 @@
         <div class="row">
           <div class="col-md-4 ml-auto mr-auto">
 
+
             <div class="image-container image-left">
+
               <% if @asso.picture2.attached? == true %>
               <%= image_tag @asso.picture2 %>
               <% else %>
@@ -145,11 +149,11 @@
                   <form role="form" id="contact-form" method="post">
 
                     <div class="form-group">
-                      <label>Votre message</label>
-                      <textarea name="message" class="form-control" id="message" rows="6"></textarea>
-                    </div>
-                    <div class="submit text-center">
-                      <input type="submit" class="btn btn-primary btn-raised btn-round" value="Envoyer" />
+                      <% if PrivateMessage.where(sender_id: current_user.id, recipient_id:  Asso.find(params[:id]).owner_id).first != nil %>
+                        <%= link_to "Voir la conversation", asso_privates_message_privates_message_path(params[:id] , PrivateMessage.where(sender_id: current_user.id, recipient_id:  Asso.find(params[:id]).owner_id).first.recipient_id, current_user.id), class:"btn btn-primary btn-outline-primary btn-round" %>
+                        <% else %>
+                        <%= link_to "Envoyer un message", new_asso_privates_message_privates_message_path(params[:id], Asso.find(params[:id]).owner_id, current_user.id ), class:"btn btn-primary btn-outline-primary btn-round"%>
+                        <% end %>
                     </div>
                   </form>
                 </div>
@@ -206,6 +210,8 @@
         </script>
       <% end %>
   </a>
+
+
 
 
 </body>
