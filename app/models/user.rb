@@ -11,14 +11,16 @@ class User < ApplicationRecord
   has_one_attached :profile_pic
   has_many :sent_messages, foreign_key: 'sender_id', class_name: "PrivateMessage"
   has_many :received_messages, foreign_key: 'recipient_id', class_name: "PrivateMessage"
-
 =begin
 def welcome_send
   UserMailer.welcome_email(self).deliver_now
   AdminMailer.new_user_email(self).deliver_now
 end
 =end
-
+def set_default_profile_pic
+  downloaded_image = (open('user.png'))
+  self.profile_pic.attach(io: downloaded_image, filename: 'user.png')
+end
   def avatar
     return self.profile_pic.variant(resize: '200x200')
   end
