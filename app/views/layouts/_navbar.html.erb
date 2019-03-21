@@ -24,7 +24,7 @@
                 <% if current_user == nil %>
 <div class="pull-right">
 <div class="dropdown">
-  <div class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white">
+  <div class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white">
     <span style="color: white;">
   <i class="far fa-user-circle fa-3x"></i>
     </span>
@@ -38,7 +38,7 @@
 </div>
 <% else %>
 <div class="nav-item dropdown">
-  <div class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white">
+  <div class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white">
     <span style="color: white;">
   <i class="far fa-user-circle fa-3x"></i>
     </span>
@@ -48,7 +48,7 @@
     <%= link_to "Mon Profil", user_path(current_user.id), class: "dropdown-item" %>
     <%= link_to "Mes messages",  asso_privates_messages_path(current_user.id),class: "dropdown-item" %>
     <%if Asso.where(owner_id: current_user.id ).first != nil %>
-     <%= link_to "Mon asso",  asso_path(current_user.id),class: "dropdown-item" %>
+     <%= link_to "Mon asso",  asso_path(Asso.where(owner_id: current_user.id ).first),class: "dropdown-item" %>
      <% end %>
     <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
   </div>
