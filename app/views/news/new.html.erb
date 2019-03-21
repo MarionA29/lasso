@@ -1,2 +1,40 @@
-<h1>News#new</h1>
-<p>Find me in app/views/news/new.html.erb</p>
+
+<div class="container col-md-8 order-md-1" style="background:white; padding:20px">
+  <center><h1>Créer ta news</h1></center><br>
+
+<%= form_tag url_for(action: 'create'),multipart: true, method: "post" do %>
+
+<div class="form-group">
+    <span><label><%= label_tag 'Titre de ta news' %></label><span>
+    <%= text_field_tag 'title', @new.title, class: "form-control", placeholder:"Entre 3 et 14 caractères" %>
+    <br />
+    <br />
+</div>
+<div class="form-group">
+    <span><label><%= label_tag 'Contenu de ta news' %></label><span>
+    <%= text_area_tag 'content', @new.content, class: "form-control", placeholder:"Entre 20 et 2000 caractères" %>
+    <br />
+    <br />
+</div>
+<div class="form-group">
+    <span><label><%= label_tag 'Date de la news' %></label><span>
+    <%= datetime_field_tag 'date', @new.date, class: "form-control"  %>
+    <br />
+    <br />
+</div>
+<div class="typography-line"
+
+    <span><label>Ajouter une image de ta news : <small>(conseillé)</small></label></span>
+    <br />
+    <br />
+      <%= file_field_tag :picture1 %><br><br>
+  <br />
+</div>
+<center>
+  <br>
+<div class="form-group">
+<%= submit_tag "Créer ta news", class: "btn btn-info" %>
+</div>
+</div>
+
+<% end %>
