@@ -1,64 +1,63 @@
+<body style="background-image:url('https://images.unsplash.com/photo-1475965894430-b05c9d13568a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80'); position:cover">
 
-    <center>
-    <div class="container col-md-8 order-md-1">
-      <h1>Modifier mon asso</h1>
-    <%= form_for @asso do |f| %>
-    <div class="form-group">
-        <label>Name</label>
-        <%= f.text_field :name, class: "form-control", value: @asso.name %>
-        <br />
+
+        <div class="container col-md-8 order-md-1" style="background:white; padding:20px">
+        <h1>Modifier mon asso</h1>
+        <%= form_for @asso do |f| %>
+        <div class="form-group">
+            <label>Name</label>
+            <%= f.text_field :name, class: "form-control", value: @asso.name %>
+            <br />
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <%= f.text_area :description, class: "form-control", value: @asso.description %>
+            <br />
+          </div>
+          <div class="form-group">
+            <label>Chiffres-clés</label>
+            <%= f.text_area :key_figures, class: "form-control", value: @asso.key_figures %>
+            <br />
+          </div>
+          <div class="form-group">
+            <label>Informations</label>
+            <%= f.text_area :infos, class: "form-control", value: @asso.infos %>
+            <br />
+          </div>
+          <div class="form-group">
+            <label>Adresse</label>
+            <%= f.text_field :address, class: "form-control",id:"address-input", value: @asso.address %>
+            <br />
+          </div>
+            <label>photo 1</label><br/>
+            <%= f.file_field :picture1 %>
+            <br />
+            <label>photo 2</label><br/>
+            <%= f.file_field :picture2 %>
+            <br />
+            <label>photo 3</label><br/>
+            <%= f.file_field :picture3 %>
+            <br />
+            <label>photo 4</label><br/>
+            <%= f.file_field :picture4 %>
+            <br />
+            <label>photo 1</label><br/>
+            <%= f.file_field :picture5 %>
+            <br />
+              <br/>
+              <hr>
+          <center>  <button type="submit" class="btn btn-primary btn-lg">Éditer mon association</button>
+            <%end%>
+            <br />
     </div>
-    <div class="form-group">
-        <label>Description</label>
-        <%= f.text_area :description, class: "form-control", value: @asso.description %>
-        <br />
-      </div>
-      <div class="form-group">
-        <label>Chiffres-clés</label>
-        <%= f.text_area :key_figures, class: "form-control", value: @asso.key_figures %>
-        <br />
-      </div>
-      <div class="form-group">
-        <label>Informations</label>
-        <%= f.text_area :infos, class: "form-control", value: @asso.infos %>
-        <br />
-      </div>
-      <div class="form-group">
-        <label>Adresse</label>
-        <%= f.text_field :address, class: "form-control",id:"address-input", value: @asso.address %>
-        <br />
-      </div>
-        <label>photo 1</label><br/>
-        <%= f.file_field :picture1 %>
-        <br />
-        <label>photo 2</label><br/>
-        <%= f.file_field :picture2 %>
-        <br />
-        <label>photo 3</label><br/>
-        <%= f.file_field :picture3 %>
-        <br />
-        <label>photo 4</label><br/>
-        <%= f.file_field :picture4 %>
-        <br />
-        <label>photo 1</label><br/>
-        <%= f.file_field :picture5 %>
-        <br />
-        <center>
-          <br/>
-          <hr>
-        <button type="submit" class="btn btn-primary">Éditer mon association</button>
-        <%end%>
-        </center>
-        <br />
-      <center>
-</div>
 
+    </body>
 
-<script src="https://cdn.jsdelivr.net/npm/places.js@1.16.1"></script>
-<script>
-  var placesAutocomplete = places({
-    appId: 'pl4L6NQ4MY9D',
-    apiKey: '9a02a9891a049118874934d98e742cfc',
-    container: document.querySelector('#address-input')
-  });
-</script>
+        <script src="https://cdn.jsdelivr.net/npm/places.js@1.16.1"></script>
+        <script>
+          var placesAutocomplete = places({
+            appId: 'pl4L6NQ4MY9D',
+            apiKey: '9a02a9891a049118874934d98e742cfc',
+            container: document.querySelector('#address-input')
+          });
+        </script>
