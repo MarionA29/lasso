@@ -1,5 +1,8 @@
+
+<% if Subscription.where(asso_id: asso.id).first != nil %>
 <div class="card asso" >
   <div class="card-body asso">
+
   <a href="/assos/<%= asso.id %>"> <h4 class="card-text"><%=asso.name%></h4></a>
     <p class="card-text"><%= asso.address %></p>
     <div class="carousel">
@@ -55,6 +58,7 @@
     </div>
   </div>
 </div>
+<%end %>
 <script type="text/javascript">
   $('.carousel').carousel({
   interval: false
