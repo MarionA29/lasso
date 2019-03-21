@@ -7,7 +7,7 @@
     <a href="/assos/<%=recipient.recipient_id%>/privates_messages/<%= recipient.sender_id %>/privates_messages/<%=current_user.id%>">
       <div class="media-body" style="background-color: #d7d7d7; border-radius: 10px; margin-right:20%">
         <h5 class="media-heading" style="margin-left:1.5%;" ><%=  user_info(recipient.sender_id).first_name  %> </h5>
-        <%= recipient.content %></a>
+        </a>
     <% end %>
   </div>
 <% content << user_info(recipient.sender_id).first_name %>
@@ -20,11 +20,11 @@
     <a href="/assos/<%=sent.sender_id%>/privates_messages/<%= sent.recipient_id %>/privates_messages/<%=current_user.id%>">
       <div class="media-body" style="background-color: #d7d7d7; border-radius: 10px; margin-right:20%">
         <h5 class="media-heading" style="margin-left:1.5%;" >  <%= user_info(sent.recipient_id).first_name %></h5>
-        <%= sent.content %></a>
+        </a>
     <% end %>
   </div>
+</div>
 
 <% contents << user_info(sent.recipient_id).first_name %>
 <% end %>
-</div>
 </div>
