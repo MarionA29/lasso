@@ -6,7 +6,7 @@ validates :description, presence: true, length: {in: 20..2000}
 validates :name, presence: true
 belongs_to :owner, class_name: "User"
 has_one :subscription
-
+has_many :news
 has_one_attached :picture1
 has_one_attached :picture2
 has_one_attached :picture3
