@@ -92,6 +92,7 @@
     cursor: inherit;
     display: block;
 }
+
 .float{
 	position:absolute;
 	top:360px;
