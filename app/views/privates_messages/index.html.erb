@@ -1,28 +1,33 @@
 <% content=[] %>
 <div class="col-md-4">
-<% @message_recipient.each do |recipient| %>
-
+  <% @message_recipient.each do |recipient| %>
   <div class="card-image">
     <% if content.include?(user_info(recipient.sender_id).first_name)!= true %>
-    <% name = user_info(recipient.recipient_id).first_name %>
-  <%= link_to name, asso_privates_message_privates_message_path(recipient.sender_id ,recipient.recipient_id, current_user.id), class:"btn btn-primary btn-outline-primary btn-round" %>
-
+     <% if user_info(recipient.recipient_id).first_name == nil %>
+    <% name = "email: #{user_info(recipient.recipient_id).email}" %>
+    <% else %>
+    <% name= user_info(recipient.recipient_id).first_name %>
+    <% end %>
+    <%= link_to name, asso_privates_message_privates_message_path(recipient.sender_id ,recipient.sender_id, current_user.id), class:"btn btn-primary btn-outline-primary btn-round" %>
     <% end %>
   </div>
-<% content << user_info(recipient.sender_id).first_name %>
-<% end %>
-
+  <% content << name %>
+  <% end %>
 </div>
 </div>
 <% content_bis=[] %>
 <div class="col-md-4">
-<% @message_sent.each do |sent| %>
-<div class="card-image">
-  <% if content_bis.include?(user_info(sent.recipient_id).first_name)!= true %>
-  <% name = user_info(sent.recipient_id).first_name %>
-  <%= link_to name , asso_privates_message_privates_message_path(sent.sender_id ,sent.recipient_id, current_user.id), class:"btn btn-primary btn-outline-primary btn-round" %>
-  <% end %>
+  <% @message_sent.each do |sent| %>
+  <div class="card-image">
+    <% if content_bis.include?(user_info(sent.recipient_id).first_name)!= true  %>
+    <% if user_info(sent.recipient_id).first_name == nil %>
+    <% name = "email: #{user_info(sent.recipient_id).email}" %>
+    <% else %>
+    <% name = user_info(sent.recipient_id).first_name %>
+    <%end%>
+    <%= link_to name , asso_privates_message_privates_message_path(sent.sender_id ,sent.recipient_id, current_user.id), class:"btn btn-primary btn-outline-primary btn-round" %>
+    <% end %>
   </div>
-  <% content_bis << user_info(sent.recipient_id).first_name %>
+  <% content_bis << name %>
   <% end %>
 </div>
