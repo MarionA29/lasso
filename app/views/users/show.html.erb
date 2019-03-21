@@ -17,7 +17,7 @@
         <% end %>
         </div>
 
-        <h3 class="title"><%= @user.first_name%><%= @user.last_name%></h3>
+        <h3 class="title"><%= @user.first_name%> <%= @user.last_name%></h3>
       <br>
       <% if @user.asso != nil %>
         <p class="category"><%= @user.asso.name%></p>
@@ -30,7 +30,7 @@
 <div class="section">
     <div class="container">
         <div class="button-container">
-            <%= link_to "Éditer", edit_user_path, class:"btn btn-primary btn-round btn-lg" %>
+            <%= link_to "Éditer", edit_user_path, class:"btn btn-primary btn-lg" %>
 
         </div>
 

@@ -98,7 +98,7 @@
               <% if @asso.picture2.attached? == true %>
               <%= image_tag @asso.picture2, :class => "image-container" %>
               <% else %>
-              <%= image_tag ('giving_hand.jpeg'), :class => "image-container" %>
+              <%= image_tag ('giving_hand.jpg'), :class => "image-container" %>
               <% end %>
               <!-- First image on the left side -->
               <p class="blockquote blockquote-primary">"Super expérience au Tuba ! Une super équipe et un super lieu de travail."
@@ -112,7 +112,7 @@
               <% if @asso.picture3.attached? == true %>
               <%= image_tag @asso.picture3, :class => "image-container"  %>
               <% else %>
-              <%= image_tag ('hands.jpeg'), :class => "image-container" %>
+              <%= image_tag ('hands.jpg'), :class => "image-container" %>
               <% end %></div>
 
             </div>
@@ -122,7 +122,7 @@
                 <% if @asso.picture4.attached? == true %>
                 <%= image_tag @asso.picture4, :class => "image-container" %>
                 <% else %>
-                <%= image_tag ('gens_contents.jpeg'), :class => "image-container" %>
+                <%= image_tag ('gens_contents.jpg'), :class => "image-container" %>
                 <% end %></div>
                 <h3>Le Tuba c'est quoi?</h3>
                 <p>Le TUBÀ, lieu d’innovation et d’expérimentation pour la ville de demain, est porté par l’association Lyon Urban Data. Il favorise l’innovation, l’incubation et le développement de services urbains s’appuyant sur les données numériques privées et publiques.
@@ -148,9 +148,9 @@
 
                     <div class="form-group">
                       <% if PrivateMessage.where(sender_id: current_user.id, recipient_id:  Asso.find(params[:id]).owner_id).first != nil %>
-                        <%= link_to "Voir la conversation", asso_privates_message_privates_message_path(params[:id] , PrivateMessage.where(sender_id: current_user.id, recipient_id:  Asso.find(params[:id]).owner_id).first.recipient_id, current_user.id), class:"btn btn-primary btn-outline-primary btn-round" %>
+                        <%= link_to "Voir la conversation", asso_privates_message_privates_message_path(params[:id] , PrivateMessage.where(sender_id: current_user.id, recipient_id:  Asso.find(params[:id]).owner_id).first.recipient_id, current_user.id), class:"btn btn-primary btn-outline-primary" %>
                         <% else %>
-                        <%= link_to "Envoyer un message", new_asso_privates_message_privates_message_path(params[:id], Asso.find(params[:id]).owner_id, current_user.id ), class:"btn btn-primary btn-outline-primary btn-round"%>
+                        <%= link_to "Envoyer un message", new_asso_privates_message_privates_message_path(params[:id], Asso.find(params[:id]).owner_id, current_user.id ), class:"btn btn-primary btn-outline-primary"%>
                         <% end %>
                     </div>
                   </form>
@@ -210,7 +210,7 @@
   </a>
 
 
-      <%= link_to "Éditer", edit_asso_path, class:"float-right btn btn-primary btn-round btn-lg"%>
+      <%= link_to "Éditer", edit_asso_path, class:"float-right btn btn-primary btn-lg"%>
 
 
 
