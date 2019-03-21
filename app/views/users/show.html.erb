@@ -13,7 +13,7 @@
           <%if @user.profile_pic.attached? == true%>
           <%= image_tag @user.profile_pic %>
           <% else %>
-          <%= image_tag("user.png") %>
+          <%= image_tag("assoman.jpg") %>
         <% end %>
         </div>
 
@@ -30,7 +30,7 @@
 <div class="section">
     <div class="container">
         <div class="button-container">
-            <%= link_to "Éditer", edit_user_path, class:"btn btn-primary btn-lg" %>
+            <%= link_to "Éditer", edit_user_path, class:"btn btn-lg", style:"background:#4ca8f8" %>
 
         </div>
 

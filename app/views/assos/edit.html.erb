@@ -1,11 +1,10 @@
-<body style="background-image:url('https://images.unsplash.com/photo-1475965894430-b05c9d13568a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80'); position:cover">
 
 
         <div class="container col-md-8 order-md-1" style="background:white; padding:20px">
         <h1>Modifier mon asso</h1>
         <%= form_for @asso do |f| %>
         <div class="form-group">
-            <label>Name</label>
+            <label>Nom de ton asso</label>
             <%= f.text_field :name, class: "form-control", value: @asso.name %>
             <br />
         </div>
@@ -29,6 +28,7 @@
             <%= f.text_field :address, class: "form-control",id:"address-input", value: @asso.address %>
             <br />
           </div>
+        </br>
             <label>photo 1</label><br/>
             <%= f.file_field :picture1 %>
             <br />
@@ -46,12 +46,11 @@
             <br />
               <br/>
               <hr>
-          <center>  <button type="submit" class="btn btn-primary btn-lg">Éditer mon association</button>
+          <center>  <button type="submit" class="btn btn-info btn-lg">Éditer mon association</button>
             <%end%>
             <br />
     </div>
 
-    </body>
 
         <script src="https://cdn.jsdelivr.net/npm/places.js@1.16.1"></script>
         <script>

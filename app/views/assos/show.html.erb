@@ -38,7 +38,7 @@
                 <div class="card-header" role="tab" id="headingOne">
                   <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                     Description
-                    <i class="fas fa-chevron-down"></i>
+                    <i class="fas fa-chevron-down" style="color:gray"></i>
                   </a>
                 </div>
 
@@ -52,7 +52,7 @@
                 <div class="card-header" role="tab" id="headingTwo">
                   <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                     Chiffres clés
-                    <i class="fas fa-chevron-down"></i>
+                    <i class="fas fa-chevron-down" style="color:gray"></i>
                   </a>
                 </div>
                 <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
@@ -65,7 +65,7 @@
                 <div class="card-header" role="tab" id="headingThree">
                   <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                     Infos pratiques
-                    <i class="fas fa-chevron-down"></i>
+                    <i class="fas fa-chevron-down" style="color:gray"></i>
                   </a>
                 </div>
                 <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
@@ -101,7 +101,7 @@
               <%= image_tag ('giving_hand.jpg'), :class => "image-container" %>
               <% end %>
               <!-- First image on the left side -->
-              <p class="blockquote blockquote-primary">"Super expérience au Tuba ! Une super équipe et un super lieu de travail."
+              <p class="blockquote blockquote">"Super expérience au Tuba ! Une super équipe et un super lieu de travail."
                 <br>
                 <br>
                 <small> - Lucie</small>
@@ -124,7 +124,7 @@
                 <% else %>
                 <%= image_tag ('gens_contents.jpg'), :class => "image-container" %>
                 <% end %></div>
-                <h3>Le Tuba c'est quoi?</h3>
+                <h3><%= @asso.name %> c'est quoi?</h3>
                 <p>Le TUBÀ, lieu d’innovation et d’expérimentation pour la ville de demain, est porté par l’association Lyon Urban Data. Il favorise l’innovation, l’incubation et le développement de services urbains s’appuyant sur les données numériques privées et publiques.
                 </p>
                 <p>
@@ -141,18 +141,19 @@
             <div class="container">
               <div class="row">
                 <div class="col-md-5 ml-auto mr-auto">
-                  <h2 class="title">Nous contacter</h2>
+                <center>  <h2 class="title">Nous contacter</h2>
                   <p class="description">N'hésitez pas à nous contacter pour toute information sur nos activités.<br><br>
                   </p>
                   <form role="form" id="contact-form" method="post">
 
                     <div class="form-group">
                       <% if PrivateMessage.where(sender_id: current_user.id, recipient_id:  Asso.find(params[:id]).owner_id).first != nil %>
-                        <%= link_to "Voir la conversation", asso_privates_message_privates_message_path(params[:id] , PrivateMessage.where(sender_id: current_user.id, recipient_id:  Asso.find(params[:id]).owner_id).first.recipient_id, current_user.id), class:"btn btn-primary btn-outline-primary" %>
+                        <%= link_to "Voir la conversation", asso_privates_message_privates_message_path(params[:id] , PrivateMessage.where(sender_id: current_user.id, recipient_id:  Asso.find(params[:id]).owner_id).first.recipient_id, current_user.id), class:"btn btn-info btn-outline-info" %>
                         <% else %>
-                        <%= link_to "Envoyer un message", new_asso_privates_message_privates_message_path(params[:id], Asso.find(params[:id]).owner_id, current_user.id ), class:"btn btn-primary btn-outline-primary"%>
+                        <%= link_to "Envoyer un message", new_asso_privates_message_privates_message_path(params[:id], Asso.find(params[:id]).owner_id, current_user.id ), class:"btn btn-info btn-outline-info"%>
                         <% end %>
                     </div>
+                  </center>
                   </form>
                 </div>
 
@@ -187,6 +188,8 @@
   var marker = L.marker([<%= @asso.latitude %>, <%= @asso.longitude %>]).addTo(carte);
   </script>
 
+  <%if Asso.where(owner_id: current_user.id ).first != nil && @asso.subscription != nil %>
+
   <a class="float-pay">
       <%= form_tag subscriptions_path do %>
       <article>
@@ -208,9 +211,12 @@
         </script>
       <% end %>
   </a>
+  <% end %>
 
 
-      <%= link_to "Éditer", edit_asso_path, class:"float-right btn btn-primary btn-lg"%>
+  <%if Asso.where(owner_id: current_user.id ).first != nil %>
+      <%= link_to "Éditer ma page asso", edit_asso_path, class:"float-right btn btn-info btn-lg"%>
+      <% end %>
 
 
 
