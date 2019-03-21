@@ -23,7 +23,7 @@ class AssosController < ApplicationController
 
       if @asso.save # essaie de sauvegarder en base
         # si ça marche, il redirige vers la page d'index du site
-        
+
         @asso.picture1.attach(params[:picture1])
         @asso.picture2.attach(params[:picture2])
         @asso.picture3.attach(params[:picture3])
@@ -44,7 +44,7 @@ class AssosController < ApplicationController
     else
       @asso= Asso.where(owner_id: current_user.id).first
     end
-
+    @message=PrivateMessage.new
     end
 
     def edit
