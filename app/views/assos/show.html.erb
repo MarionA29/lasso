@@ -143,7 +143,7 @@
                   <div class="form-group">
                     <% if current_user != nil %>
 
-                    <% if news.where(asso_id: assos.where(owner_id: current_user.id ).first.id).first != nil %>
+                    <% if news.where(asso_id: assos.where(owner_id: current_user.id ).first).first != nil %>
                     <%= link_to "Voir news", asso_news_path(@asso.id), class:"btn btn-info btn-outline-info"%>
                     <% else %>
                     <%= link_to "Créer une news", new_asso_news_path(@asso.id), class:"btn btn-info btn-outline-info"%>
@@ -198,7 +198,8 @@
   var marker = L.marker([<%= @asso.latitude %>, <%= @asso.longitude %>]).addTo(carte);
   </script>
 <% if current_user != nil %>
-  <%if assos.where(owner_id: current_user.id ).first.id == assos.find(params[:id]).id && @asso.subscription == nil %>
+  <%if assos.where(owner_id: current_user.id ).first != nil %>
+  <% if assos.where(owner_id: current_user.id ).first.id == assos.find(params[:id]).id && @asso.subscription == nil %>
 
   <a class="float-pay">
       <%= form_tag subscriptions_path do %>
@@ -221,7 +222,7 @@
         </script>
       <% end %>
   </a>
-
+<% end %>
 
 
   <%if assos.where(owner_id: current_user.id ).first.id == assos.find(params[:id]).id %>
