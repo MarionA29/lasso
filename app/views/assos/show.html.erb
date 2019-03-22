@@ -141,7 +141,7 @@
                   <p class="description">N'hésitez pas à nous contacter pour toute information sur nos activités.<br><br>
                   </p>
                   <div class="form-group">
-                    <% if current_user == nil %>
+                    <% if current_user != nil %>
                     <% if news.where(asso_id: assos.where(owner_id: current_user.id ).first.id).first != nil %>
                     <%= link_to "Voir news", asso_news_path(@asso.id), class:"btn btn-info btn-outline-info"%>
                     <% else %>
