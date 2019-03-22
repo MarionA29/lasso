@@ -55,7 +55,6 @@
         <td><%= asso.validated %></td>
         <td><%= link_to "Modifier", edit_admin_asso_path(asso.id) %></td>
         <td><%= link_to "Supprimer", admin_asso_path(asso.id), method: :delete, data: {confirm: "Êtes-vous sûr de supprimer cette asso ?"}, style:"color:red;"%></td>
-
       </tr>
     </tbody>
     <% end %>

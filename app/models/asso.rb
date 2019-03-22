@@ -23,7 +23,7 @@ class Asso < ApplicationRecord
       order('id DESC')
     end
   end
-  =begin
+=begin
   after_create :ask_validation
 
   def ask_validation
