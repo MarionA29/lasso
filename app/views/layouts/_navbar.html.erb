@@ -10,6 +10,11 @@
         </div>
         <div class="collapse navbar-collapse" id="example-navbar-info">
             <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                  <a >
+                      <%= link_to 'News', news_index_path, class:"nav-link", style:"background-color:#4ca8f8;"%>
+                  </a>
+              </li>
                 <li class="nav-item active">
                     <a >
                     <%  if current_user != nil %>
@@ -20,11 +25,7 @@
                     <% end %>
                     </a>
                 </li>
-                <li class="nav-item active">
-                    <a >
-                        <%= link_to 'News', news_index_path, class:"nav-link", style:"background-color:#4ca8f8;"%>
-                    </a>
-                </li>
+
                 <li class="nav-item active">
                     <a >
                         <%= link_to 'Qui sommes-nous?', teams_path, class:"nav-link"%>

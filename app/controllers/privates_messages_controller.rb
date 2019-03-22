@@ -17,7 +17,7 @@ class PrivatesMessagesController < ApplicationController
     else
       # si params[:assso_id] n'est pas le recipient, mais le numero de l'asso, alors je dois chercher le owner_id pour obtenir  le recipient_id
       # de la je stock la conversation entre ces deux utilisateurs
-      rende = PrivateMessage.where(sender_id: current_user.id, recipient_id: Asso.find(params[:asso_id]).owner_id).first.recipient_id
+      rende =  Asso.find(params[:asso_id]).owner_id
     end
 
 

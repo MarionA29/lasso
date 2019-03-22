@@ -23,7 +23,6 @@ def self.search(term)
    order('id DESC')
  end
 end
-=begin
 after_create :ask_validation
 
 def ask_validation
@@ -31,17 +30,14 @@ def ask_validation
   AdminMailer.validation_email(self).deliver_now
 end
 
-after_
-
 def is_validated?
 if @asso.validated == true
  UserMailer.subscription_email(self).deliver_now
 else
  UserMailer.unvalidated_email(self).deliver_now
 end
-
 end
-=end
+
 end
 
 def resize(picture)

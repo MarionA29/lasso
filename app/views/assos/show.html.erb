@@ -1,4 +1,4 @@
-<% if  @asso.validated == true || @asso.owner_id == current_user.id %>
+
 <body class="product-page sidebar-collapse">
   <div class="wrapper">
     <div class="page-header page-header-mini">
@@ -141,13 +141,18 @@
                   <p class="description">N'hésitez pas à nous contacter pour toute information sur nos activités.<br><br>
                   </p>
                   <div class="form-group">
-                    <% if news.where(asso_id: assos.where(owner_id: current_user.id ).first.id).first == nil %>
-                    <%= link_to "creer News", new_asso_news_path(assos.where(owner_id: current_user.id).first.id), class:"btn btn-info btn-outline-info"%>
+                    <% if current_user != nil %>
+
+                    <% if news.where(asso_id: assos.where(owner_id: current_user.id ).first.id).first != nil %>
+                    <%= link_to "Voir news", asso_news_path(@asso.id), class:"btn btn-info btn-outline-info"%>
+                    <% else %>
+                    <%= link_to "Créer une news", new_asso_news_path(@asso.id), class:"btn btn-info btn-outline-info"%>
+                    <% end %>
                     <% end %>
 
                 </div>
 
-
+ <% if current_user != nil %>
 
                     <div class="form-group">
                       <% if privates_messages.where(sender_id: current_user.id, recipient_id:  assos.find(params[:id]).owner_id).first != nil %>
@@ -157,7 +162,7 @@
                         <% end %>
                         </div>
 
-
+<% end %>
 
                   </center>
 
@@ -192,7 +197,7 @@
   }).addTo(carte);
   var marker = L.marker([<%= @asso.latitude %>, <%= @asso.longitude %>]).addTo(carte);
   </script>
-
+<% if current_user != nil %>
   <%if assos.where(owner_id: current_user.id ).first.id == assos.find(params[:id]).id && @asso.subscription == nil %>
 
   <a class="float-pay">
@@ -216,16 +221,15 @@
         </script>
       <% end %>
   </a>
-  <% end %>
+
 
 
   <%if assos.where(owner_id: current_user.id ).first.id == assos.find(params[:id]).id %>
       <%= link_to "Éditer ma page asso", edit_asso_path, class:"float-right btn btn-info btn-lg"%>
-
       <% end %>
 
 
 
-<% end %>
-
+<%end %>
+<%end %>
 </body>

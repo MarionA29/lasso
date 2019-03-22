@@ -5,7 +5,7 @@ class NewsController < ApplicationController
   end
 
   def show
-    @new = New.find(params[:id])
+    @new = New.where(asso_id: params[:id]).first
   end
 
   def new
