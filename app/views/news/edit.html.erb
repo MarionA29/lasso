@@ -1,21 +1,21 @@
 <div class="container col-md-8 order-md-1" style="background:white; padding:20px">
   <h1>Editer ma news</h1>
-  <%= form_for @new do |f| %>
+  <%= form_for @new, url: edit_asso_news_path, :method => :put do |f| %>
   <div class="form-group">
       <span><label><%= label_tag 'Titre de ta news' %></label><span>
-      <%= text_field_tag 'title', @new.title, class: "form-control", placeholder:"Entre 3 et 14 caractères" %>
+      <%= text_field_tag 'title', @new.title, class: "form-control" %>
       <br />
       <br />
   </div>
   <div class="form-group">
       <span><label><%= label_tag 'Contenu de ta news' %></label><span>
-      <%= text_area_tag 'content', @new.content, class: "form-control", placeholder:"Entre 20 et 2000 caractères" %>
+      <%= text_area_tag 'content', @new.content, class: "form-control" %>
       <br />
       <br />
   </div>
   <div class="form-group">
       <span><label><%= label_tag 'Date de la news' %></label><span>
-      <%= datetime_field_tag 'date', @new.date, class: "form-control"  %>
+      <%= datetime_field_tag 'date', @new.date, class: "form-control" %>
       <br />
       <br />
   </div>

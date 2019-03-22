@@ -3,8 +3,7 @@
         <div class="container">
           <% @news.order("created_at desc").each do |new| %>
             <div class="col-md-12">
-                <h2 class="title text-center"><%= assos.find(new.asso_id).name %></h2>
-                <br />
+                <h2><%= link_to assos.find(new.asso_id).name, assos.find(new.asso_id), class:"title text-infos",style:"color:#4ca8f8;" %></h2>
                 <div class="blogs-1" id="blogs-1">
                     <div class="row">
                         <div class="col-md-10 ml-auto mr-auto">
@@ -22,14 +21,14 @@
                                     <div class="col-md-7">
                                         <h6 class="category text-info">NEWS</h6>
                                         <h3 class="card-title">
-                                            <a><%= new.title %></a>
+                                            <%= new.title %>
                                         </h3>
                                         <p class="card-description">
                                           <%= new.content %>
                                         </p>
-
+                                        <p class="card-description">
+                                           <span><h6>Date : <%= new.date.strftime("%d/%m/%Y") %></span></h6>
                                              <span><h6>Created By <%= assos.find(new.asso_id).name %></h6></span>
-
                                     </div>
                                 </div>
                             </div>
@@ -37,5 +36,6 @@
                     </div>
                 </div>
             </div>
+            <hr>
             <% end %>
         </div>

@@ -44,8 +44,8 @@ body {
 .flex-container.asso{
   display: flex;
   justify-content: center;
-  margin: 15px;
-  margin-top: 5px;
+  margin: 11px;
+  margin-right: 20px;
 }
 
 .btn.flex-container.asso{
@@ -141,4 +141,7 @@ body {
 }
 .alert {
   margin-bottom: 0rem;
+}
+.nav-link.nav-warning {
+  background-color: #ffbe55;
 }

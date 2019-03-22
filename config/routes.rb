@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :teams, only: [:index]
 
   resources :privates_messages, except: [:show]
+  
   resources :assos do
     resources :news
   end
