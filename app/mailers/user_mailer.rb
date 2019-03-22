@@ -7,7 +7,7 @@ class UserMailer < ApplicationMailer
 
 
   def validation_email(owner)
-    @owner = asso.owner
+    @owner = User.find(owner.id)
     mail(to: @owner.email, subject: "Validation en cours")
   end
 
