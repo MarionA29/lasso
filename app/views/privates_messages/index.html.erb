@@ -25,7 +25,11 @@
       <% else %>
       <% name= user_info(recipient.recipient_id).first_name %>
       <% end %>
+      <div class="center">
+
+
       <%= link_to name, asso_privates_message_privates_message_path(recipient.sender_id ,recipient.sender_id, current_user.id), class:"btn btn-primary btn-outline-primary btn-round" %>
+      </div>
       <% end %>
     </div>
   </div>
@@ -52,13 +56,14 @@
       <% else %>
       <%= image_tag "user.png", class:"rounded-circle" ,style:"max-width:70px;" %>
       <% end %>
-
       <% if user_info(sent.recipient_id).first_name == nil %>
       <% name = "email: #{user_info(sent.recipient_id).email}" %>
       <% else %>
-      <% name = user_info(sent.recipient_id).first_name %>
+      <% name = "#{user_info(sent.recipient_id).first_name}" %>
       <%end%>
+      <div class="center">
       <%= link_to name , asso_privates_message_privates_message_path(sent.recipient_id ,sent.recipient_id, current_user.id), class:"btn btn-primary btn-outline-primary btn-round" %>
+      </div>
       <% end %>
     </div>
     <% content << sent.recipient_id %>
