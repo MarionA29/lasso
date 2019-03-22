@@ -12,8 +12,8 @@
                                 <div class="row">
                                     <div class="col-md-5">
                                         <div class="card-image">
-                                          <% if new.new_picture.attached? == true %>
-                                          <%= image_tag new.new_picture %>
+                                          <% if new.news_picture.attached? == true %>
+                                          <%= image_tag new.news_picture %>
                                           <% else %>
                                           <%= image_tag ('logo-tuba.png')%>
                                           <% end %>
@@ -25,11 +25,9 @@
                                             <a href="#pablo"><%= new.title %></a>
                                         </h3>
                                         <p class="card-description">
-                                          <%= new.content %><
+                                          <%= new.content %>
                                         </p>
-                                        <p class="author">
-                                            by <a href="#pablo"><b>Sarah Perez</b></a>, 2 days ago
-                                        </p>
+                                             <span><h6>Created By <%= Asso.find(new.asso_id).name %></h6></span>
                                     </div>
                                 </div>
                             </div>
