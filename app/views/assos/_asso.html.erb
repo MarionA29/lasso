@@ -1,5 +1,4 @@
-
-<% if  asso.validated == true  %>
+<% if  asso.validated == true  &&  subscription.where(asso_id: asso.id).first != nil %>
 <div class="card asso" >
   <div class="card-body asso">
 
