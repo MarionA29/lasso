@@ -3,7 +3,7 @@
         <div class="container">
           <% @news.order("created_at desc").each do |new| %>
             <div class="col-md-12">
-                <h2 class="title text-center"><%= Asso.find(new.asso_id).name %></h2>
+                <h2 class="title text-center"><%= assos.find(new.asso_id).name %></h2>
                 <br />
                 <div class="blogs-1" id="blogs-1">
                     <div class="row">
@@ -28,7 +28,7 @@
                                           <%= new.content %>
                                         </p>
 
-                                             <span><h6>Created By <%= Asso.find(new.asso_id).name %></h6></span>
+                                             <span><h6>Created By <%= assos.find(new.asso_id).name %></h6></span>
 
                                     </div>
                                 </div>

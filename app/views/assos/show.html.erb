@@ -147,10 +147,10 @@
                   <form role="form" id="contact-form" method="post">
 
                     <div class="form-group">
-                      <% if PrivateMessage.where(sender_id: current_user.id, recipient_id:  Asso.find(params[:id]).owner_id).first != nil %>
-                        <%= link_to "Voir la conversation", asso_privates_message_privates_message_path(params[:id] , PrivateMessage.where(sender_id: current_user.id, recipient_id:  Asso.find(params[:id]).owner_id).first.recipient_id, current_user.id), class:"btn btn-info btn-outline-info" %>
+                      <% if PrivateMessage.where(sender_id: current_user.id, recipient_id:  assos.find(params[:id]).owner_id).first != nil %>
+                        <%= link_to "Voir la conversation", asso_privates_message_privates_message_path(params[:id] , PrivateMessage.where(sender_id: current_user.id, recipient_id:  assos.find(params[:id]).owner_id).first.recipient_id, current_user.id), class:"btn btn-info btn-outline-info" %>
                         <% else %>
-                        <%= link_to "Envoyer un message", new_asso_privates_message_privates_message_path(params[:id], Asso.find(params[:id]).owner_id, current_user.id ), class:"btn btn-info btn-outline-info"%>
+                        <%= link_to "Envoyer un message", new_asso_privates_message_privates_message_path(params[:id], assos.find(params[:id]).owner_id, current_user.id ), class:"btn btn-info btn-outline-info"%>
                         <% end %>
                     </div>
                   </center>
@@ -188,7 +188,7 @@
   var marker = L.marker([<%= @asso.latitude %>, <%= @asso.longitude %>]).addTo(carte);
   </script>
 
-  <%if Asso.where(owner_id: current_user.id ).first.id == Asso.find(params[:id]).id && @asso.subscription == nil %>
+  <%if assos.where(owner_id: current_user.id ).first.id == assos.find(params[:id]).id && @asso.subscription == nil %>
 
   <a class="float-pay">
       <%= form_tag subscriptions_path do %>
@@ -214,7 +214,7 @@
   <% end %>
 
 
-  <%if Asso.where(owner_id: current_user.id ).first.id == Asso.find(params[:id]).id %>
+  <%if assos.where(owner_id: current_user.id ).first.id == assos.find(params[:id]).id %>
       <%= link_to "Éditer ma page asso", edit_asso_path, class:"float-right btn btn-info btn-lg"%>
       <% end %>
 
