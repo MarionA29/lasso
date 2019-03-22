@@ -141,8 +141,10 @@
                   <p class="description">N'hésitez pas à nous contacter pour toute information sur nos activités.<br><br>
                   </p>
                   <div class="form-group">
-                    <% if news.where(asso_id: assos.where(owner_id: current_user.id ).first.id).first == nil %>
-                    <%= link_to "creer News", new_asso_news_path(assos.where(owner_id: current_user.id).first.id), class:"btn btn-info btn-outline-info"%>
+                    <% if news.where(asso_id: assos.where(owner_id: current_user.id ).first.id).first != nil %>
+                    <%= link_to "Voir news", asso_news_path(@asso.id), class:"btn btn-info btn-outline-info"%>
+                    <% else %>
+                    <%= link_to "Créer une news", new_asso_news_path(@asso.id), class:"btn btn-info btn-outline-info"%>
                     <% end %>
 
                 </div>
@@ -221,7 +223,6 @@
 
   <%if assos.where(owner_id: current_user.id ).first.id == assos.find(params[:id]).id %>
       <%= link_to "Éditer ma page asso", edit_asso_path, class:"float-right btn btn-info btn-lg"%>
-
       <% end %>
 
 
