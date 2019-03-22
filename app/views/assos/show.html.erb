@@ -176,8 +176,7 @@
 
 
 
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+ <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css' %>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
 
   <script>
@@ -213,12 +212,7 @@
   </a>
   <% end %>
 
-
-<<<<<<< HEAD
-  <%if Asso.where(owner_id: current_user.id ) != nil %>
-=======
   <%if Asso.where(owner_id: current_user.id ).first.id == Asso.find(params[:id]).id %>
->>>>>>> 2994642417d8d2b66d10d340640056f16c06eda2
       <%= link_to "Éditer ma page asso", edit_asso_path, class:"float-right btn btn-info btn-lg"%>
       <% end %>
 
