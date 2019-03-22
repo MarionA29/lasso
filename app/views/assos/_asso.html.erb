@@ -1,9 +1,7 @@
 
 <% if  asso.validated == true  %>
-
 <div class="card asso" >
   <div class="card-body asso">
-
   <a href="/assos/<%= asso.id %>"> <h4 class="card-text"><%=asso.name%></h4></a>
     <p class="card-text"><%= asso.address %></p>
     <div class="carousel">
@@ -35,7 +33,6 @@
       </a>
     </div>
     </div>
-
     <div class="flex-container asso">
 
       <button type="button" class="btn btn-info" data-container="body"  data-trigger="hover click" data-original-title="DESCRIPTION" data-toggle="popover" data-placement="top" data-content="<%=asso.description%>">
@@ -59,8 +56,6 @@
     </div>
   </div>
 </div>
-
-
 <% end %>
 <script type="text/javascript">
   $('.carousel').carousel({

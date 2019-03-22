@@ -153,9 +153,12 @@
                         <%= link_to "Envoyer un message", new_asso_privates_message_privates_message_path(params[:id], Asso.find(params[:id]).owner_id, current_user.id ), class:"btn btn-info btn-outline-info"%>
                         <% end %>
                     </div>
+                    <%= link_to "News ma page asso",news_path(Asso.where(owner_id: current_user.id ).first.id), class:"float-right btn btn-info btn-lg"%>
+
                   </center>
                   </form>
                 </div>
+                <%= link_to "News ma page asso",news_path(Asso.where(owner_id: current_user.id ).first.id), class:"float-right btn btn-info btn-lg"%>
 
 
               </div>
@@ -219,5 +222,7 @@
       <% end %>
 
 
+
 <% end %>
+
 </body>
