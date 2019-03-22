@@ -2,7 +2,6 @@ class AssosController < ApplicationController
   before_action :user_match, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create]
 
-
   def index
     if @assos = Asso.search(params[:term])
     else "puts not found"
