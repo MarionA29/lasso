@@ -12,6 +12,14 @@
       <div class="container">
         <div class="row">
           <div class="col-md-5">
+            new_asso_news GET    /assos/:asso_id/news/new(.:format)                                                       news#new
+            <% if New.where(asso_id: Asso.where(owner_id: current_user.id ).first.id).first != nil %>
+            <%= link_to "News",news_path(New.where(asso_id: Asso.where(owner_id: current_user.id ).first.id).first.id), class:"float-right btn btn-info btn-lg"%>
+            <% else %>
+            <%= link_to "creer News", new_asso_news_path(Asso.where(owner_id: current_user.id).first.id), class:"float-right btn btn-info btn-lg"%>
+
+
+            <% end %>
 
             <div id="productCarousel" class="carousel slide" data-ride="carousel" data-interval="8000" >
               <% if @asso.picture1.attached? == true %>
@@ -153,12 +161,10 @@
                         <%= link_to "Envoyer un message", new_asso_privates_message_privates_message_path(params[:id], Asso.find(params[:id]).owner_id, current_user.id ), class:"btn btn-info btn-outline-info"%>
                         <% end %>
                     </div>
-                    <%= link_to "News ma page asso",news_path(Asso.where(owner_id: current_user.id ).first.id), class:"float-right btn btn-info btn-lg"%>
 
                   </center>
                   </form>
                 </div>
-                <%= link_to "News ma page asso",news_path(Asso.where(owner_id: current_user.id ).first.id), class:"float-right btn btn-info btn-lg"%>
 
 
               </div>
@@ -219,8 +225,8 @@
 
   <%if Asso.where(owner_id: current_user.id ).first.id == Asso.find(params[:id]).id %>
       <%= link_to "Éditer ma page asso", edit_asso_path, class:"float-right btn btn-info btn-lg"%>
-      <% end %>
 
+      <% end %>
 
 
 <% end %>
