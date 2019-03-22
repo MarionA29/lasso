@@ -1,5 +1,5 @@
 <div class="jumbotron">
-<h1 class="display-4" align="center"> Voici l'association: <%= @asso.name %><br/></h1>
+  <h1 class="display-4" align="center"> Voici l'association: <%= @asso.name %><br/></h1>
   <p class="lead"> <%= @asso.description %> </p>
   <hr class="my-4">
   <p>Owner_id : <%= @asso.owner_id %></p>
@@ -10,17 +10,17 @@
 
 
   <div class="row" style="margin-top: 5vh">
-    	<div class="col-6 text-right">
-    		 <%= form_tag url_for(action: 'update'), method: "put" do %>
-    		 <%= hidden_field_tag 'decision' , 'true' %>
-    		 <%= submit_tag "Valider l'assocation", :class => "btn btn-success" %>
-    		 <% end %>
-    	</div>
-    	<div class="col-6 text-left">
-    		<%= form_tag url_for(action: 'update'), method: "put" do %>
-    		 <%= hidden_field_tag 'decision' , 'false' %>
-    		 <%= submit_tag "Refuser l'association", :class => "btn btn-danger" %>
-    		 <% end %>
-    	</div>
+    <div class="col-6 text-right">
+      <%= form_tag url_for(action: 'update'), method: "put" do %>
+      <%= hidden_field_tag 'decision' , 'true' %>
+      <%= submit_tag "Valider l'assocation", :class => "btn btn-success" %>
+      <% end %>
     </div>
+    <div class="col-6 text-left">
+      <%= form_tag url_for(action: 'update'), method: "put" do %>
+      <%= hidden_field_tag 'decision' , 'false' %>
+      <%= submit_tag "Refuser l'association", :class => "btn btn-danger" %>
+      <% end %>
+    </div>
+  </div>
 </div>

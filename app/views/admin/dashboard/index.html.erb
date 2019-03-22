@@ -1,69 +1,69 @@
 <div class="container">
-    <table class="table">
-      <h3>Associations à valider</h3>
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Nom</th>
-          <th scope="col">Description</th>
-          <th scope="col">Chiffres clés</th>
-          <th scope="col">Infos pratiques</th>
-          <th scope="col">Adresse</th>
-          <th scope="col">Validate</th>
-        </tr>
-      </thead>
-      <% @asso_validate.order("created_at desc").each do |asso| %>
-      <tbody>
-        <tr>
-          <th scope="row"><%= asso.id %></th>
-          <td><%= asso.name %></td>
-          <td><%= asso.description %></td>
-          <td><%= asso.key_figures %></td>
-          <td><%= asso.infos %></td>
-          <td><%= asso.address %></td>
-          <td><%= asso.validated %></td>
-          <td><%= link_to "Voir", admin_validation_path(asso.id) %></td>
-        </tr>
-      </tbody>
-      <% end %>
-    </table>
-    <hr>
-    <br>
-<table class="table">
-  <h3>Toutes les associations</h3>
+  <table class="table">
+    <h3>Associations à valider</h3>
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Description</th>
+        <th scope="col">Chiffres clés</th>
+        <th scope="col">Infos pratiques</th>
+        <th scope="col">Adresse</th>
+        <th scope="col">Validate</th>
+      </tr>
+    </thead>
+    <% @asso_validate.order("created_at desc").each do |asso| %>
+    <tbody>
+      <tr>
+        <th scope="row"><%= asso.id %></th>
+        <td><%= asso.name %></td>
+        <td><%= asso.description %></td>
+        <td><%= asso.key_figures %></td>
+        <td><%= asso.infos %></td>
+        <td><%= asso.address %></td>
+        <td><%= asso.validated %></td>
+        <td><%= link_to "Voir", admin_validation_path(asso.id) %></td>
+      </tr>
+    </tbody>
+    <% end %>
+  </table>
+  <hr>
+  <br>
+  <table class="table">
+    <h3>Toutes les associations</h3>
 
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nom</th>
-      <th scope="col">Description</th>
-      <th scope="col">Chiffres clés</th>
-      <th scope="col">Infos pratiques</th>
-      <th scope="col">Adresse</th>
-      <th scope="col">Validate</th>
-    </tr>
-  </thead>
-  <% @asso.order("created_at desc").each do |asso| %>
-  <tbody>
-    <tr>
-      <th scope="row"><%= asso.id %></th>
-      <td><%= asso.name %></td>
-      <td><%= asso.description %></td>
-      <td><%= asso.key_figures %></td>
-      <td><%= asso.infos %></td>
-      <td><%= asso.address %></td>
-      <td><%= asso.validated %></td>
-      <td><%= link_to "Modifier", edit_admin_asso_path(asso.id) %></td>
-      <td><%= link_to "Supprimer", admin_asso_path(asso.id), method: :delete, data: {confirm: "Êtes-vous sûr de supprimer cette asso ?"}, style:"color:red;"%></td>
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Description</th>
+        <th scope="col">Chiffres clés</th>
+        <th scope="col">Infos pratiques</th>
+        <th scope="col">Adresse</th>
+        <th scope="col">Validate</th>
+      </tr>
+    </thead>
+    <% @asso.order("created_at desc").each do |asso| %>
+    <tbody>
+      <tr>
+        <th scope="row"><%= asso.id %></th>
+        <td><%= asso.name %></td>
+        <td><%= asso.description %></td>
+        <td><%= asso.key_figures %></td>
+        <td><%= asso.infos %></td>
+        <td><%= asso.address %></td>
+        <td><%= asso.validated %></td>
+        <td><%= link_to "Modifier", edit_admin_asso_path(asso.id) %></td>
+        <td><%= link_to "Supprimer", admin_asso_path(asso.id), method: :delete, data: {confirm: "Êtes-vous sûr de supprimer cette asso ?"}, style:"color:red;"%></td>
 
-    </tr>
-  </tbody>
-  <% end %>
-</table>
-<hr>
-<br>
-<table class="table">
-  <h3>Les utilisateurs</h3>
+      </tr>
+    </tbody>
+    <% end %>
+  </table>
+  <hr>
+  <br>
+  <table class="table">
+    <h3>Les utilisateurs</h3>
     <thead>
       <tr>
         <th scope="col">Id</th>
@@ -90,23 +90,23 @@
     <% end %>
   </table>
   <br>
-      <table class="table">
-        <h3>Abonnements</h3>
-        <thead>
-          <tr>
-            <th scope="col">Asso ID</th>
-            <th scope="col">Nom de l'asso</th>
-            <th scope="col">Stripe ID</th>
-          </tr>
-        </thead>
-        <% @subscriptions.order("created_at desc").each do |sub| %>
-        <tbody>
-          <tr>
-            <th scope="row"><%= sub.asso_id %></th>
-            <td><%= assos.find(sub.asso_id).name %></td>
-            <td><%= sub.stripe_customer_id %></td>
-          </tr>
-        </tbody>
-        <% end %>
-      </table>
+  <table class="table">
+    <h3>Abonnements</h3>
+    <thead>
+      <tr>
+        <th scope="col">Asso ID</th>
+        <th scope="col">Nom de l'asso</th>
+        <th scope="col">Stripe ID</th>
+      </tr>
+    </thead>
+    <% @subscriptions.order("created_at desc").each do |sub| %>
+    <tbody>
+      <tr>
+        <th scope="row"><%= sub.asso_id %></th>
+        <td><%= assos.find(sub.asso_id).name %></td>
+        <td><%= sub.stripe_customer_id %></td>
+      </tr>
+    </tbody>
+    <% end %>
+  </table>
 </div>

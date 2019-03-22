@@ -39,11 +39,11 @@ class AssosController < ApplicationController
 
     def show
       if params[:id].to_i != current_user.id
-      @asso= Asso.find(params[:id])
-    else
-      @asso= Asso.where(owner_id: current_user.id).first
-    end
-    @message=PrivateMessage.new
+        @asso= Asso.find(params[:id])
+      else
+        @asso= Asso.where(owner_id: current_user.id).first
+      end
+      @message=PrivateMessage.new
     end
 
     def edit
@@ -64,14 +64,14 @@ class AssosController < ApplicationController
     end
 
     def destroy
-        @asso = User.find(owner_id= current_user.id)
-        @user.destroy
-        redirect_to root_path
+      @asso = User.find(owner_id= current_user.id)
+      @user.destroy
+      redirect_to root_path
     end
 
-      def asso_params
-          params.require(:asso).permit(:name, :description, :key_figures, :infos, :address, :term)
-      end
+    def asso_params
+      params.require(:asso).permit(:name, :description, :key_figures, :infos, :address, :term)
+    end
 
     private
     def user_match
