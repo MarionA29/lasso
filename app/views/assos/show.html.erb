@@ -13,6 +13,8 @@
         <div class="row">
           <div class="col-md-5">
 
+
+
             <div id="productCarousel" class="carousel slide" data-ride="carousel" data-interval="8000" >
               <% if @asso.picture1.attached? == true %>
               <%= image_tag @asso.picture1 %>
@@ -144,17 +146,28 @@
                 <center>  <h2 class="title">Nous contacter</h2>
                   <p class="description">N'hésitez pas à nous contacter pour toute information sur nos activités.<br><br>
                   </p>
-                  <form role="form" id="contact-form" method="post">
+                  <div class="form-group">
+                    <% if New.where(asso_id: Asso.where(owner_id: current_user.id ).first.id).first == nil %>
+\
+                    <%= link_to "creer News", new_asso_news_path(Asso.where(owner_id: current_user.id).first.id), class:"btn btn-info btn-outline-info"%>
+                    <% end %>
+
+                </div>
+
+
 
                     <div class="form-group">
-                      <% if PrivateMessage.where(sender_id: current_user.id, recipient_id:  Asso.find(params[:id]).owner_id).first != nil %>
-                        <%= link_to "Voir la conversation", asso_privates_message_privates_message_path(params[:id] , PrivateMessage.where(sender_id: current_user.id, recipient_id:  Asso.find(params[:id]).owner_id).first.recipient_id, current_user.id), class:"btn btn-info btn-outline-info" %>
+                      <% if PrivateMessage.where(sender_id: current_user.id, recipient_id:  assos.find(params[:id]).owner_id).first != nil %>
+                        <%= link_to "Voir la conversation", asso_privates_message_privates_message_path(params[:id] , PrivateMessage.where(sender_id: current_user.id, recipient_id:  assos.find(params[:id]).owner_id).first.recipient_id, current_user.id), class:"btn btn-info btn-outline-info" %>
                         <% else %>
-                        <%= link_to "Envoyer un message", new_asso_privates_message_privates_message_path(params[:id], Asso.find(params[:id]).owner_id, current_user.id ), class:"btn btn-info btn-outline-info"%>
+                        <%= link_to "Envoyer un message", new_asso_privates_message_privates_message_path(params[:id], assos.find(params[:id]).owner_id, current_user.id ), class:"btn btn-info btn-outline-info"%>
                         <% end %>
-                    </div>
+                        </div>
+
+
+
                   </center>
-                  </form>
+
                 </div>
 
 
@@ -187,7 +200,7 @@
   var marker = L.marker([<%= @asso.latitude %>, <%= @asso.longitude %>]).addTo(carte);
   </script>
 
-  <%if Asso.where(owner_id: current_user.id ).first.id == Asso.find(params[:id]).id && @asso.subscription == nil %>
+  <%if assos.where(owner_id: current_user.id ).first.id == assos.find(params[:id]).id && @asso.subscription == nil %>
 
   <a class="float-pay">
       <%= form_tag subscriptions_path do %>
@@ -212,10 +225,14 @@
   </a>
   <% end %>
 
-  <%if Asso.where(owner_id: current_user.id ).first.id == Asso.find(params[:id]).id %>
+
+  <%if assos.where(owner_id: current_user.id ).first.id == assos.find(params[:id]).id %>
       <%= link_to "Éditer ma page asso", edit_asso_path, class:"float-right btn btn-info btn-lg"%>
+
       <% end %>
 
 
+
 <% end %>
+
 </body>
