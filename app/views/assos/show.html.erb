@@ -1,4 +1,4 @@
-<% if  @asso.validated == true || @asso.owner_id == current_user.id %>
+
 <body class="product-page sidebar-collapse">
   <div class="wrapper">
     <div class="page-header page-header-mini">
@@ -12,9 +12,6 @@
       <div class="container">
         <div class="row">
           <div class="col-md-5">
-
-
-
             <div id="productCarousel" class="carousel slide" data-ride="carousel" data-interval="8000" >
               <% if @asso.picture1.attached? == true %>
               <%= image_tag @asso.picture1 %>
@@ -146,11 +143,14 @@
                 <center>  <h2 class="title">Nous contacter</h2>
                   <p class="description">N'hésitez pas à nous contacter pour toute information sur nos activités.<br><br>
                   </p>
+                    <% if current_user != nil %>
                   <div class="form-group">
+
                     <% if news.where(asso_id: assos.where(owner_id: current_user.id ).first.id).first == nil %>
 \
                     <%= link_to "creer News", new_asso_news_path(assos.where(owner_id: current_user.id).first.id), class:"btn btn-info btn-outline-info"%>
                     <% end %>
+
 
                 </div>
 
@@ -164,8 +164,7 @@
                         <% end %>
                         </div>
 
-
-
+<% end %>
                   </center>
 
                 </div>
@@ -199,7 +198,7 @@
   }).addTo(carte);
   var marker = L.marker([<%= @asso.latitude %>, <%= @asso.longitude %>]).addTo(carte);
   </script>
-
+<% if current_user != nil %>
   <%if assos.where(owner_id: current_user.id ).first.id == assos.find(params[:id]).id && @asso.subscription == nil %>
 
   <a class="float-pay">
@@ -230,8 +229,6 @@
       <%= link_to "Éditer ma page asso", edit_asso_path, class:"float-right btn btn-info btn-lg"%>
 
       <% end %>
-
-
 
 <% end %>
 

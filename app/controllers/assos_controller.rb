@@ -39,7 +39,7 @@ class AssosController < ApplicationController
     end
 
     def show
-      if params[:id].to_i != current_user.id
+      if params[:id] != current_user
       @asso= Asso.find(params[:id])
     else
       @asso= Asso.where(owner_id: current_user.id).first
