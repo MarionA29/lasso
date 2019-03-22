@@ -142,3 +142,6 @@ body {
 .alert {
   margin-bottom: 0rem;
 }
+.nav-link.nav-warning {
+  background-color: #ffbe55;
+}

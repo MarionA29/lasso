@@ -45,5 +45,5 @@ end
 end
 
 def resize(picture)
-    return picture.variant(resize: '290x190')
+    return picture.variant(resize: '280x190')
 end

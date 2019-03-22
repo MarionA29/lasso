@@ -36,11 +36,11 @@ class NewsController < ApplicationController
 
     def update
       @new = New.find(params[:id])
-      post_params = params.require(:new).permit(:title, :content)
-
-      @asso.update(post_params)
-      if @asso.update(post_params)
-        redirect_to  user_path(current_user.id)
+      #post_params = params.require(:new).permit(:title, :content, :date)
+      # @new.update(post_params)
+      if @new.update title: params[:new][:title]
+        @new.news_picture.attach(params[:news_picture])
+        redirect_to user_path(current_user.id)
       else
       end
 

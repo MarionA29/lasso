@@ -2,7 +2,7 @@
     <center>
     <div class="container col-md-8 order-md-1">
       <h1>Modifier l'asso</h1>
-    <%= form_for edit_admin_asso_path, method: :get do |f| %>
+    <%= form_for @asso, url: admin_asso_path, :method => :put do |f| %>
     <div class="form-group">
         <label>Name</label>
         <%= f.text_field :name, class: "form-control", value: @asso.name %>

@@ -5,16 +5,10 @@
       <div class="page-header-image" data-parallax="true" style="background-image: url('https://images.unsplash.com/photo-1509697452888-7cdcf2c98813?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'); filter: grayscale(80%) blur(1px)">
       </div>
     </div>
-
-
-
     <div class="section">
       <div class="container">
         <div class="row">
           <div class="col-md-5">
-
-
-
             <div id="productCarousel" class="carousel slide" data-ride="carousel" data-interval="8000" >
               <% if @asso.picture1.attached? == true %>
               <%= image_tag @asso.picture1 %>
@@ -103,7 +97,7 @@
               <%= image_tag ('giving_hand.jpg'), :class => "image-container" %>
               <% end %>
               <!-- First image on the left side -->
-              <p class="blockquote blockquote">"Super expérience au Tuba ! Une super équipe et un super lieu de travail."
+              <p class="blockquote blockquote">"Super expérience au <%= @asso.name %>! Une super équipe et un super lieu de travail."
                 <br>
                 <br>
                 <small> - Lucie</small>
@@ -127,10 +121,10 @@
                 <%= image_tag ('gens_contents.jpg'), :class => "image-container" %>
                 <% end %></div>
                 <h3><%= @asso.name %> c'est quoi?</h3>
-                <p>Le TUBÀ, lieu d’innovation et d’expérimentation pour la ville de demain, est porté par l’association Lyon Urban Data. Il favorise l’innovation, l’incubation et le développement de services urbains s’appuyant sur les données numériques privées et publiques.
+                <p>Le <%= @asso.name %>, lieu d’innovation et d’expérimentation pour la ville de demain, est porté par l’association Lyon Urban Data. Il favorise l’innovation, l’incubation et le développement de services urbains s’appuyant sur les données numériques privées et publiques.
                 </p>
                 <p>
-                  L’association fédère quarante partenaires publics et privés et met en avant une démarche collaborative et participative. Il s’y rencontre collectivités, grands groupes, PME, startup, laboratoires de recherches et citoyens pour collaborer au sein du TUBÀ pour concevoir et expérimenter des solutions innovantes afin de bien vivre en ville.
+                  L’association fédère quarante partenaires publics et privés et met en avant une démarche collaborative et participative. Il s’y rencontre collectivités, grands groupes, PME, startup, laboratoires de recherches et citoyens pour collaborer au sein du <%= @asso.name %> pour concevoir et expérimenter des solutions innovantes afin de bien vivre en ville.
 
                 </p>
               </div>
@@ -148,7 +142,6 @@
                   </p>
                   <div class="form-group">
                     <% if news.where(asso_id: assos.where(owner_id: current_user.id ).first.id).first == nil %>
-\
                     <%= link_to "creer News", new_asso_news_path(assos.where(owner_id: current_user.id).first.id), class:"btn btn-info btn-outline-info"%>
                     <% end %>
 
