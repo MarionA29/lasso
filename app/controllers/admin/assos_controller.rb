@@ -21,4 +21,4 @@ class Admin::AssosController < Admin::ApplicationController
     @asso.destroy
     redirect_to admin_root_path
   end
-  end
+end

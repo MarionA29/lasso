@@ -1,47 +1,36 @@
-
 <body class="password-page sidebar-collapse">
-
-<div class="page-header header-filter">
+  <div class="page-header header-filter">
     <div class="page-header-image" style="background-image:url(https://images.unsplash.com/photo-1522794338816-ee3a17a00ae8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80); filter: grayscale(80%) contrast(60%) brightness(70%)"></div>
     <div class="content">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 ml-auto mr-auto">
-                            <h2 class="info-title" style="color:white">Vous avez oublié </br> votre mot de passe?</h2>
-                              <p style="color:white">Entrez votre Email et cliquez sur envoyer pour recevoir les informations pour modifier votre mot de passe.</p>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 ml-auto mr-auto">
+            <h2 class="info-title" style="color:white">Vous avez oublié </br> votre mot de passe?</h2>
+            <p style="color:white">Entrez votre Email et cliquez sur envoyer pour recevoir les informations pour modifier votre mot de passe.</p>
+          </div>
+          <div class="col-md-4 mr-auto">
+            <div class="card card-signup" style="padding: 10px">
+              <div class="card-body">
+              </br>
+              <h3 class="card-title text-center" style="color:black;">Récupérer mon mot de passe</h3>
+              <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text field"><i class="fa fa-at" style="color:gray"></i></span>
                 </div>
-                <div class="col-md-4 mr-auto">
-
-                    <div class="card card-signup" style="padding: 10px">
-                        <div class="card-body">
-                        </br>
-                            <h3 class="card-title text-center" style="color:black;">Récupérer mon mot de passe</h3>
-
-                            <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-                              <%= render "devise/shared/error_messages", resource: resource %>
-
-                                <div class="input-group">
-                                  <div class="input-group-prepend">
-                                    <span class="input-group-text field"><i class="fa fa-at" style="color:gray"></i></span>
-                                  </div>
-                                  <%= f.email_field :email, autofocus: true, :type => "text", :class => "form-control", placeholder: "Email..."%>
-                                </div>
-
-
-                                <div class="actions card-footer text-center">
-                                   <%= f.submit "Envoyer", :class => "btn btn-warning btn-round btn-lg btn-block" %>
-                                 </br>
-                                  </div>
-                                <% end %>
-
-                        </div>
-                    </div>
-
-
-                </div>
+                <%= f.email_field :email, autofocus: true, :type => "text", :class => "form-control", placeholder: "Email..."%>
+              </div>
+              <div class="actions card-footer text-center">
+                <%= f.submit "Envoyer", :class => "btn btn-warning btn-round btn-lg btn-block" %>
+              </br>
+            </div>
+            <% end %>
+          </div>
         </div>
+      </div>
     </div>
-
+  </div>
 </div>
 </div>
 </body>

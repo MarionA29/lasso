@@ -5,27 +5,27 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Bienvenue chez nous !')
   end
 
-=begin
+  =begin
   def validation_email(owner)
-    @owner = asso.owner
-    mail(to: @owner.email, subject: "Validation en cours")
-  end
-
-  def unvalidated_email
   @owner = asso.owner
-  mail(to: @owner.email, subject: "Création non validée")
+  mail(to: @owner.email, subject: "Validation en cours")
+end
 
-  end
+def unvalidated_email
+@owner = asso.owner
+mail(to: @owner.email, subject: "Création non validée")
 
-  def subscription_email
-    @owner = asso.owner
-    mail(to: @owner.email, subject: "Validation de la création")
-  end
+end
 
-  def payment_complete_email
-    @owner = asso.owner
-    mail(to: @owner.email, subject: "Paiement validé")
-  end
+def subscription_email
+@owner = asso.owner
+mail(to: @owner.email, subject: "Validation de la création")
+end
+
+def payment_complete_email
+@owner = asso.owner
+mail(to: @owner.email, subject: "Paiement validé")
+end
 =end
 
 end
