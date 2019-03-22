@@ -40,7 +40,7 @@ class AssosController < ApplicationController
     def show
 
       @asso= Asso.find(params[:id])
-  
+
     @message=PrivateMessage.new
     end
 
@@ -62,14 +62,14 @@ class AssosController < ApplicationController
     end
 
     def destroy
-        @asso = User.find(owner_id= current_user.id)
-        @user.destroy
-        redirect_to root_path
+      @asso = User.find(owner_id= current_user.id)
+      @user.destroy
+      redirect_to root_path
     end
 
-      def asso_params
-          params.require(:asso).permit(:name, :description, :key_figures, :infos, :address, :term)
-      end
+    def asso_params
+      params.require(:asso).permit(:name, :description, :key_figures, :infos, :address, :term)
+    end
 
     private
     def user_match

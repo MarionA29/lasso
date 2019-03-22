@@ -1,57 +1,39 @@
 <body class="password-page sidebar-collapse">
-
-<div class="page-header header-filter">
+  <div class="page-header header-filter">
     <div class="page-header-image" style="background-image:url(https://images.unsplash.com/photo-1522794338816-ee3a17a00ae8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80); filter: grayscale(80%)"></div>
-
-
-<center>
-
-    <div class="content">
-  <div class="container">
-<div class="row">
-
-
-                    <div class="card card-signup" style="padding: 10px; padding-bottom: 30px">
-                        <div class="card-body">
-                        </br>
-                            <h3 class="card-title text-center" style="color:black;">Changer de mot de passe</h3>
-                            <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-                              <%= render "devise/shared/error_messages", resource: resource %>
-                              <%= f.hidden_field :reset_password_token %>
-
-                              <div class="input-group">
-
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text"><i class="fa fa-key" style="color:gray"></i></span>
-                                </div>
-                                <%= f.password_field :password, :class => "form-control", placeholder: "Mot de passe..."%>
-
-                              </div>
-
-
-                              <div class="input-group">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text"><i class="fa fa-key" style="color:gray"></i></span>
-                                </div>
-                                <%= f.password_field :password_confirmation, :class => "form-control", placeholder: "Confirmation du mot de passe..." %>
-                              </div>
-
-
-                                <div class="actions card-footer text-center">
-                                   <%= f.submit "Changer de mot de passe", :class => "btn btn-warning btn-round btn-lg btn-block" %>
-                                 </br>
-                                  </div>
-                                <% end %>
-
-                        </div>
-                    </div>
-
-
+    <center>
+      <div class="content">
+        <div class="container">
+          <div class="row">
+            <div class="card card-signup" style="padding: 10px; padding-bottom: 30px">
+              <div class="card-body">
+              </br>
+              <h3 class="card-title text-center" style="color:black;">Changer de mot de passe</h3>
+              <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
+              <%= f.hidden_field :reset_password_token %>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-key" style="color:gray"></i></span>
                 </div>
-
+                <%= f.password_field :password, :class => "form-control", placeholder: "Mot de passe..."%>
+              </div>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-key" style="color:gray"></i></span>
+                </div>
+                <%= f.password_field :password_confirmation, :class => "form-control", placeholder: "Confirmation du mot de passe..." %>
+              </div>
+              <div class="actions card-footer text-center">
+                <%= f.submit "Changer de mot de passe", :class => "btn btn-warning btn-round btn-lg btn-block" %>
+              </br>
+            </div>
+            <% end %>
+          </div>
         </div>
-
-        </div>
-        </center>
+      </div>
+    </div>
   </div>
+</center>
+</div>
 </body>

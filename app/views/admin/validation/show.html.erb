@@ -1,5 +1,5 @@
 <div class="jumbotron">
-<h1 class="display-4" align="center"> Voici l'asso: <%= @asso.name %><br/></h1>
+  <h1 class="display-4" align="center"> Voici l'asso: <%= @asso.name %><br/></h1>
   <p class="lead"> <%= @asso.description %> </p>
   <hr class="my-4">
   <p>Owner_id : <%= @asso.owner_id %></p>
@@ -7,16 +7,16 @@
   <p>Adresse : <%= @asso.address %></p>
   <p>Infos pratiques : <%= @asso.infos %></p>
   <p>Chiffres clés : <%= @asso.key_figures %></p>
-<br>
-<br>
-<center>
+  <br>
+  <br>
+  <center>
 
     <%= link_to "Modifier l'association", edit_admin_validation_path(@asso.id), :class => "btn btn-warning" %>
     <%= form_tag url_for(action: 'update'), method: "put" do %>
     <%= hidden_field_tag 'decision' , 'true' %>
     <% if @asso.validated == true %>
-      <p class="text-success"> Cette association est déja validée </p>
-      <% else %>
+    <p class="text-success"> Cette association est déja validée </p>
+    <% else %>
     <%= submit_tag "Valider l'assocation", :class => "btn btn-success" %>
     <% end %>
     <% end %>
@@ -24,4 +24,4 @@
     <%= hidden_field_tag 'decision' , 'false' %>
     <%= submit_tag "Refuser l'association", :class => "btn btn-danger" %>
     <% end %>
-</div>
+  </div>
