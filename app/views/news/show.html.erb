@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 ml-auto mr-auto">
+          <h2 class="title title-info" style="color:#4ca8f8;"><%= link_to assos.find(@new.asso_id).name %></h2>
+
+            <br />
+          <div class="card card-plain card-blog">
+              <div class="card-image">
+                <% if @new.news_picture.attached? != true %>
+                      <%= image_tag 'gens_contents.jpg', class:"img img-raised rounded" %>
+                      <% else %>
+                      <% image_tag @new.news_picture, class:"img img-raised rounded" %>
+                      <% end %>
+
+              </div>
+              <h6 class="category text-info">News</h6>
+
+              <h3 class="card-title">
+                  <%= @new.title %>
+              </h3>
+              <h5 class="card-description">
+                <%= @new.content %>
+              </h5>
+              <h5 class="card-description">
+                Date : <%= @new.date.strftime("%d/%m/%Y") %>
+              </h5>
+
+          </div>
+</div>
+</div>
+</div>

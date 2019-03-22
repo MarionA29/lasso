@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Salut <%= @owner.first_name %>, </h1>
+    <p>
+La création de ton asso sur le site Lasso a bien été validée par nos services.
+Il ne te reste plus qu'à souscrire à notre offre pour qu'elle soit visible en ligne.
+    </p>
+
+    <%= link_to "Souscrire", asso_path(current_user), :class => "btn btn-info btn-round btn-lg btn-block" %>
+
+  </body>
+</html>
