@@ -13,4 +13,7 @@ end
 def assos
   return Asso.all
 end
+def privates_messages
+  return PrivateMessage.all
+end
 end
