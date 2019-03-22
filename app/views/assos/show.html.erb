@@ -147,9 +147,9 @@
                   <p class="description">N'hésitez pas à nous contacter pour toute information sur nos activités.<br><br>
                   </p>
                   <div class="form-group">
-                    <% if New.where(asso_id: Asso.where(owner_id: current_user.id ).first.id).first == nil %>
+                    <% if news.where(asso_id: assos.where(owner_id: current_user.id ).first.id).first == nil %>
 \
-                    <%= link_to "creer News", new_asso_news_path(Asso.where(owner_id: current_user.id).first.id), class:"btn btn-info btn-outline-info"%>
+                    <%= link_to "creer News", new_asso_news_path(assos.where(owner_id: current_user.id).first.id), class:"btn btn-info btn-outline-info"%>
                     <% end %>
 
                 </div>
