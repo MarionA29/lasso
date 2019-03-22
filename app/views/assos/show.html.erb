@@ -12,14 +12,8 @@
       <div class="container">
         <div class="row">
           <div class="col-md-5">
-            new_asso_news GET    /assos/:asso_id/news/new(.:format)                                                       news#new
-            <% if New.where(asso_id: Asso.where(owner_id: current_user.id ).first.id).first != nil %>
-            <%= link_to "News",news_path(New.where(asso_id: Asso.where(owner_id: current_user.id ).first.id).first.id), class:"float-right btn btn-info btn-lg"%>
-            <% else %>
-            <%= link_to "creer News", new_asso_news_path(Asso.where(owner_id: current_user.id).first.id), class:"float-right btn btn-info btn-lg"%>
 
 
-            <% end %>
 
             <div id="productCarousel" class="carousel slide" data-ride="carousel" data-interval="8000" >
               <% if @asso.picture1.attached? == true %>
@@ -152,7 +146,15 @@
                 <center>  <h2 class="title">Nous contacter</h2>
                   <p class="description">N'hésitez pas à nous contacter pour toute information sur nos activités.<br><br>
                   </p>
-                  <form role="form" id="contact-form" method="post">
+                  <div class="form-group">
+                    <% if New.where(asso_id: Asso.where(owner_id: current_user.id ).first.id).first != nil %>
+\                    <% else %>
+                    <%= link_to "creer News", new_asso_news_path(Asso.where(owner_id: current_user.id).first.id), class:"btn btn-info btn-outline-info"%>
+                    <% end %>
+
+                </div>
+
+
 
                     <div class="form-group">
                       <% if PrivateMessage.where(sender_id: current_user.id, recipient_id:  Asso.find(params[:id]).owner_id).first != nil %>
@@ -160,10 +162,12 @@
                         <% else %>
                         <%= link_to "Envoyer un message", new_asso_privates_message_privates_message_path(params[:id], Asso.find(params[:id]).owner_id, current_user.id ), class:"btn btn-info btn-outline-info"%>
                         <% end %>
-                    </div>
+                        </div>
+
+
 
                   </center>
-                  </form>
+
                 </div>
 
 
@@ -227,6 +231,7 @@
       <%= link_to "Éditer ma page asso", edit_asso_path, class:"float-right btn btn-info btn-lg"%>
 
       <% end %>
+
 
 
 <% end %>
