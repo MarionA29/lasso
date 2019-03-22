@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Lasso</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
+    <%= render 'layouts/head' %>
+    </head>
   <body>
-    <%= yield %>
-  </body>
+    <header>
+        <%= render 'layouts/navbar' %>
+        <%= render 'layouts/alerts' %>
+    </header>
+
+    <%- if controller_name == 'assos'%>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <% else %>
+      <%= yield %>
+    <% end %>
+
+
+<%= render 'layouts/footer' %>
+
+</body>
+
 </html>

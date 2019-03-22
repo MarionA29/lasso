@@ -1,0 +1,2 @@
+module Admin::AssosHelper
+end

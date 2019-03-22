@@ -36,14 +36,20 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+#resize picture
+gem "mini_magick"
+
+
 #generate fake data
 gem 'faker'
 
 #helps using JavaScript
-gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 
 #Devise is a gem for settting up an authentication system.
 gem 'devise', '~> 4.2'
+
+#Quickly integrate Checkout into your Ruby on Rails-based site to provide your users with a streamlined, mobile-ready payment experience.
+gem 'stripe'
 
 #sending email
 gem 'sendgrid-ruby', '~> 5.3'
@@ -89,3 +95,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'jquery-rails'
+gem 'now-ui-kit-rails'
+gem 'bootsnap', '>= 1.1.0', require: false
+gem 'geocoder'

@@ -10,6 +10,138 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+
+ *= require bootstrap.min
+ *= require now-ui-kit
+
  *= require_tree .
  *= require_self
  */
+
+.navbar {
+  background-color: #3c3c3a;
+  margin-bottom: 0px;
+}
+body {
+  background-color: #EDEBEB;
+}
+.row.landing
+{
+  display: flex;
+  flex-wrap: nowrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.row.asso-index
+{
+  display: flex;
+  justify-content: space-evenly;
+  justify-content: space-between;
+  margin-top: 35px;
+  margin-left: 35px;
+  margin-right: 35px;
+}
+.flex-container.asso{
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+  margin-top: 5px;
+}
+
+.btn.flex-container.asso{
+  border-radius:0px;
+}
+.card.asso{
+  width:20rem;
+  border-style:solid;
+}
+.card-body.asso
+{
+  padding:0rem;
+}
+
+.card-text
+{
+  margin-left:15px;
+  margin-right:15px;
+}
+
+.btn-default
+{
+
+}
+
+.d-block {
+  width: 20rem;
+  height: 15rem;
+}
+.btn-info {
+  color: #FFF;
+  padding: 11px 15px;
+  margin: 5px 2px;
+}
+.btn-warning {
+  color: #FFF;
+  padding: 11px 15px;
+  margin: 5px 2px;
+}
+.has-search .form-control {
+  margin-left: 45px;
+  margin-right: 45px;
+  margin-top: 50px;
+  margin-bottom: 80px;
+  padding-left: 2.375rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 16pt;
+  padding: 10px 18px 10px 40px;
+  border-radius: 5px 5px 5px 5px;
+  background-color: white;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 3.2rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+.float{
+	position:absolute;
+	top:360px;
+	right:200px;
+}
+.footer {
+  background-color: #3c3c3a;
+}
+.alert {
+  margin-bottom: 0rem;
+}
+.nav-link.nav-warning {
+  background-color: #ffbe55;
+}

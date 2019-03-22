@@ -1,0 +1,57 @@
+<body class="profile-page sidebar-collapse">
+
+
+  <div class="wrapper">
+    <div class="page-header clear-filter page-header-small">
+
+    <div class="page-header-image" data-parallax="true" style="background-image:url('https://images.unsplash.com/photo-1472404122088-5682d90f2a7a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80'); filter: brightness(50%) grayscale(10%);">
+    </div>
+
+    <div class="container" style="padding-top:30px">
+
+        <div class="photo-container" style="width:150px; height:150px">
+          <%if @user.profile_pic.attached? == true%>
+          <%= image_tag @user.profile_pic %>
+          <% else %>
+          <%= image_tag("assoman.jpg") %>
+        <% end %>
+        </div>
+
+        <h3 class="title"><%= @user.first_name%> <%= @user.last_name%></h3>
+      <br>
+      <% if @user.asso != nil %>
+        <p class="category"><%= @user.asso.name%></p>
+      <% end %>
+    </div>
+</div>
+
+
+<div class="section">
+    <div class="container">
+        <div class="button-container">
+            <%= link_to "Éditer", edit_user_path, class:"btn btn-lg", style:"background:#4ca8f8" %>
+
+        </div>
+
+        <h3 class="title">À propos de moi</h3>
+        <h5 class="description text-center"><%= simple_format(h(@user.description)) %></h5>
+
+          <% if @user.asso != nil %>
+                <h4 class="title text-center">Mon asso</h4>
+        <div class="row asso-index">
+          <div class="col-md-12">
+            <center><%= render partial: 'assos/asso', object: @user.asso%><center>
+            </div>
+        </div>
+        <% end %>
+    </div>
+
+</div>
+
+
+            </div>
+
+
+    </body>
+
+</html>

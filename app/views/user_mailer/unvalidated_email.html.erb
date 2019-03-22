@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Salut <%= @owner.first_name %>, </h1>
+    <p>
+La création de ton asso sur le site Lasso n'a malheureusement pas été validée.
+Tu n'as pas rempli toutes les conditions. 
+    </p>
+
+    <%= link_to "Editer", asso_path(current_user), :class => "btn btn-info btn-round btn-lg btn-block" %>
+
+  </body>
+</html>
