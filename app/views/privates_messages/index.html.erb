@@ -2,7 +2,14 @@
 <div class="col-md-4">
   <% @message_recipient.each do |recipient| %>
   <div class="card-image">
-    <% if content.include?(user_info(recipient.sender_id).first_name)!= true %>
+    <% if content.include?(recipient.recipient_id) != true  %>
+    <%if user_info(recipient.recipient_id).profile_pic.attached? == true   %>
+    <%= image_tag user_info(recipient.recipient_id).profile_pic , class:"rounded-circle " ,style:"max-width:70px;"%>
+    <% else %>
+     <%= image_tag "user.png", class:"rounded-circle" ,style:"max-width:70px;" %>
+    <% end %>
+
+
      <% if user_info(recipient.recipient_id).first_name == nil %>
     <% name = "email: #{user_info(recipient.recipient_id).email}" %>
     <% else %>
@@ -11,17 +18,20 @@
     <%= link_to name, asso_privates_message_privates_message_path(recipient.sender_id ,recipient.sender_id, current_user.id), class:"btn btn-primary btn-outline-primary btn-round" %>
     <% end %>
   </div>
-  <% content << name %>
+  <% content <<  recipient.recipient_id %>
   <% end %>
 </div>
-
-
 </div>
-<% content_bis=[] %>
 <div class="col-md-4">
   <% @message_sent.each do |sent| %>
   <div class="card-image">
-    <% if content_bis.include?(user_info(sent.recipient_id).first_name)!= true  %>
+    <% if content.include?(sent.recipient_id) != true  %>
+    <%if user_info(sent.recipient_id).profile_pic.attached? == true   %>
+    <%= image_tag user_info(sent.recipient_id).profile_pic , class:"rounded-circle " ,style:"max-width:70px;"%>
+    <% else %>
+     <%= image_tag "user.png", class:"rounded-circle" ,style:"max-width:70px;" %>
+    <% end %>
+
     <% if user_info(sent.recipient_id).first_name == nil %>
     <% name = "email: #{user_info(sent.recipient_id).email}" %>
     <% else %>
@@ -30,7 +40,7 @@
     <%= link_to name , asso_privates_message_privates_message_path(sent.recipient_id ,sent.recipient_id, current_user.id), class:"btn btn-primary btn-outline-primary btn-round" %>
     <% end %>
   </div>
-  <% content_bis << name %>
+  <% content << sent.recipient_id %>
   <% end %>
 </div>
 <div class="col-md-10" style="height:600px;">
