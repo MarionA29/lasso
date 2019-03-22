@@ -41,22 +41,22 @@
     </div>
     <div class="flex-container asso">
 
-      <button type="button" class="btn btn-info" data-container="body"  data-trigger="hover click" data-original-title="DESCRIPTION" data-toggle="popover" data-placement="top" data-content="<%=asso.description%>">
+      <button type="button" class="btn btn-info" data-container="body"  data-trigger="hover click" data-original-title="DESCRIPTION" data-toggle="popover" data-placement="top" data-content="<%=simple_format(h(asso.description))%>">
         <i class="fas fa-home fa"></i>
       </button>
-      <button type="button" class="btn btn-info" data-container="body" data-trigger="hover click"  data-original-title="SERVICES" data-toggle="popover" data-placement="top" data-content="<%=asso.infos%>">
+      <button type="button" class="btn btn-info" data-container="body" data-trigger="hover click"  data-original-title="SERVICES" data-toggle="popover" data-placement="top" data-content="<%=simple_format(h(asso.infos))%>">
         <i class="fas fa-user-cog"></i>
       </button>
-      <button type="button" class="btn btn-warning" data-container="body" data-trigger="hover click"  data-original-title="NEWS" data-toggle="popover" data-placement="top" data-content="<% if news.where(asso_id: asso.id).first != nil %><b><%= news.where(asso_id: asso.id).first.title %></b><br /><br /><%= news.where(asso_id: asso.id).first.content%><% end %>"data-html="true">
+      <button type="button" class="btn btn-warning" data-container="body" data-trigger="hover click"  data-original-title="NEWS" data-toggle="popover" data-placement="top" data-content="<% if news.where(asso_id: asso.id).first != nil %><b><%= news.where(asso_id: asso.id).first.title %></b><br /><br /><%= simple_format(h(news.where(asso_id: asso.id).first.content))%><% end %>"data-html="true">
         <i class="far fa-newspaper"></i>
       </button>
-      <button type="button" class="btn btn-info" data-container="body" data-trigger="hover click" data-original-title="INFOS PRATIQUES" data-toggle="popover" data-placement="top" data-content="<%=asso.infos%>">
+      <button type="button" class="btn btn-info" data-container="body" data-trigger="hover click" data-original-title="INFOS PRATIQUES" data-toggle="popover" data-placement="top" data-content="<%=simple_format(h(asso.infos))%>">
         <i class="fas fa-info-circle"></i>
       </button>
-      <button type="button" class="btn btn-info" data-container="body" data-trigger="hover click" data-original-title="CHIFFRES CLES" data-toggle="popover" data-placement="top" data-content="<%=asso.key_figures%>">
+      <button type="button" class="btn btn-info" data-container="body" data-trigger="hover click" data-original-title="CHIFFRES CLES" data-toggle="popover" data-placement="top" data-content="<%=simple_format(h(asso.key_figures))%>">
         <i class="fas fa-address-card"></i>
       </button>
-      <button type="button" class="btn btn-info" data-container="body" data-trigger="hover click" data-original-title="SITE WEB" data-toggle="popover" data-placement="top" data-content="<%=asso.address%>">
+      <button type="button" class="btn btn-info" data-container="body" data-trigger="hover click" data-original-title="SITE WEB" data-toggle="popover" data-placement="top" data-content="<%= simple_format(h(asso.address))%>">
         <i class="fas fa-location-arrow"></i>
       </button>
     </div>
