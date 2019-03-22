@@ -5,7 +5,7 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Bienvenue chez nous !')
   end
 
-=begin
+
   def validation_email(owner)
     @owner = asso.owner
     mail(to: @owner.email, subject: "Validation en cours")
@@ -26,6 +26,4 @@ class UserMailer < ApplicationMailer
     @owner = asso.owner
     mail(to: @owner.email, subject: "Paiement validé")
   end
-=end
-
 end
