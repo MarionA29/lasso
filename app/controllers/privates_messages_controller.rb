@@ -1,5 +1,6 @@
 class PrivatesMessagesController < ApplicationController
-before_action :authenticate_user!
+  before_action :authenticate_user!
+
 
   def new
     @message = PrivateMessage.new
@@ -9,6 +10,14 @@ before_action :authenticate_user!
 
   def create
     @message = PrivateMessage.new
+    if PrivateMessage.where(sender_id: current_user.id, recipient_id:  params[:asso_id]).first != nil
+
+      rende = PrivateMessage.where(sender_id: current_user.id, recipient_id:  params[:asso_id]).first.recipient_id
+    else
+      rende = PrivateMessage.where(sender_id: current_user.id, recipient_id: Asso.find(params[:asso_id]).owner_id).first.recipient_id
+    end
+
+    
 
     @message = PrivateMessage.create(sender_id: current_user.id ,
       'content' => params[:content],
@@ -17,8 +26,7 @@ before_action :authenticate_user!
       if @message.save # essaie de sauvegarder en base
         # si ça marche, il redirige vers la page d'index du site
         flash[:success] = "Ton message à bien été envoyé !"
-        redirect_to asso_privates_message_privates_message_path(params[:asso_id] , PrivateMessage.where(sender_id: current_user.id, recipient_id:  Asso.find(params[:asso_id]).owner_id).first.recipient_id, current_user.id)
-
+        redirect_to asso_privates_message_privates_message_path(params[:asso_id] , rende , current_user.id)
       else
         # sinon, il render la view new (qui est celle sur laquelle on est déjà)
         flash[:alert] = "Ton message... !"
@@ -45,7 +53,7 @@ before_action :authenticate_user!
       @message_sent= PrivateMessage.where(sender_id: current_user.id)
 
     end
- end
- def user_info(object)
-   return User.find(object)
- end
+  end
+  def user_info(object)
+    return User.find(object)
+  end

@@ -1,0 +1,39 @@
+
+<div class="section">
+        <div class="container">
+          <% @news.order("created_at desc").each do |new| %>
+            <div class="col-md-12">
+                <h2 class="title text-center"><%= Asso.find(new.asso_id).name %></h2>
+                <br />
+                <div class="blogs-1" id="blogs-1">
+                    <div class="row">
+                        <div class="col-md-10 ml-auto mr-auto">
+                            <div class="card card-plain card-blog">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="card-image">
+                                          <% if new.news_picture.attached? == true %>
+                                          <%= image_tag new.news_picture %>
+                                          <% else %>
+                                          <%= image_tag ('logo-tuba.png')%>
+                                          <% end %>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <h6 class="category text-info">NEWS</h6>
+                                        <h3 class="card-title">
+                                            <a href="#pablo"><%= new.title %></a>
+                                        </h3>
+                                        <p class="card-description">
+                                          <%= new.content %>
+                                        </p>
+                                             <span><h6>Created By <%= Asso.find(new.asso_id).name %></h6></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        </div>

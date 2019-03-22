@@ -14,6 +14,8 @@
   <% content << name %>
   <% end %>
 </div>
+
+parti 2
 </div>
 <% content_bis=[] %>
 <div class="col-md-4">
@@ -25,7 +27,7 @@
     <% else %>
     <% name = user_info(sent.recipient_id).first_name %>
     <%end%>
-    <%= link_to name , asso_privates_message_privates_message_path(sent.sender_id ,sent.recipient_id, current_user.id), class:"btn btn-primary btn-outline-primary btn-round" %>
+    <%= link_to name , asso_privates_message_privates_message_path(sent.recipient_id ,sent.recipient_id, current_user.id), class:"btn btn-primary btn-outline-primary btn-round" %>
     <% end %>
   </div>
   <% content_bis << name %>
