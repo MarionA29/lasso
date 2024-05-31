@@ -4,20 +4,20 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.2'
+gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 5.0', '>= 5.0.8'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
+gem 'coffee-rails', '~> 5.0', '>= 5.0.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -46,7 +46,7 @@ gem 'faker'
 #helps using JavaScript
 
 #Devise is a gem for settting up an authentication system.
-gem 'devise', '~> 4.2'
+gem 'devise', '~> 4.6', '>= 4.6.2'
 
 #Quickly integrate Checkout into your Ruby on Rails-based site to provide your users with a streamlined, mobile-ready payment experience.
 gem 'stripe'
@@ -55,7 +55,7 @@ gem 'stripe'
 gem 'sendgrid-ruby', '~> 5.3'
 
 #dotenv
-gem 'dotenv-rails'
+gem 'dotenv-rails', '>= 2.7.2'
 gem "aws-sdk-s3", require: false
 
 group :development, :test do
@@ -65,7 +65,7 @@ end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
+  gem 'web-console', '>= 4.0.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
@@ -78,15 +78,15 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
+  gem 'capybara', '>= 3.15.0'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  gem 'chromedriver-helper', '>= 2.1.1'
   # Simplifies testing syntax
   gem 'shoulda-matchers', '4.0.0.rc1'
-  gem 'rails-controller-testing' # If you are using Rails 5.x
+  gem 'rails-controller-testing' , '>= 1.0.5' # If you are using Rails 5.x
   # brings the RSpec testing framework to Ruby on Rails as a drop-in alternative to its default testing framework
-  gem 'rspec-rails'
+  gem 'rspec-rails', '>= 3.8.3'
   # Creates a rainbow trail of test results
   gem 'nyancat', '~> 0.2.1'
   # Helps to test callback actions
@@ -95,7 +95,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'jquery-rails'
+gem 'jquery-rails', '>= 4.3.4'
 gem 'now-ui-kit-rails'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'geocoder'
