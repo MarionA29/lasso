@@ -52,7 +52,7 @@ gem 'devise', '~> 4.2'
 gem 'stripe'
 
 #sending email
-gem 'sendgrid-ruby', '~> 5.3'
+gem 'sendgrid-ruby', '~> 6.0', '>= 6.0.0'
 
 #dotenv
 gem 'dotenv-rails'
