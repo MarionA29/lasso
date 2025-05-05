@@ -86,7 +86,7 @@ group :test do
   gem 'shoulda-matchers', '4.0.0.rc1'
   gem 'rails-controller-testing' # If you are using Rails 5.x
   # brings the RSpec testing framework to Ruby on Rails as a drop-in alternative to its default testing framework
-  gem 'rspec-rails'
+  gem 'rspec-rails', '>= 8.0.0'
   # Creates a rainbow trail of test results
   gem 'nyancat', '~> 0.2.1'
   # Helps to test callback actions
