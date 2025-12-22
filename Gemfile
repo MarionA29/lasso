@@ -56,7 +56,7 @@ gem 'sendgrid-ruby', '~> 5.3'
 
 #dotenv
 gem 'dotenv-rails'
-gem "aws-sdk-s3", require: false
+gem "aws-sdk-s3", ">= 1.208.0", require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
