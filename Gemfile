@@ -49,7 +49,7 @@ gem 'faker'
 gem 'devise', '~> 4.2'
 
 #Quickly integrate Checkout into your Ruby on Rails-based site to provide your users with a streamlined, mobile-ready payment experience.
-gem 'stripe'
+gem 'stripe', '>= 5.0.0'
 
 #sending email
 gem 'sendgrid-ruby', '~> 5.3'
